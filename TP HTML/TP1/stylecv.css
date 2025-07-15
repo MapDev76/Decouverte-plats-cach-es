@@ -1,0 +1,39 @@
+.photo{
+   width: 25%;
+    height: 250px;
+    border-style: groove;
+    border: 8px solid color black
+  }
+  body {
+    background-image: url(courbe-bleue-ombree-vecteur-fond-bleu-clair_53876-170266.avif);
+    background-size: cover; /* Couvre toute la page */
+    background-position:initial; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    background-attachment: fixed; /* Fixe l'image lors du défilement */
+    margin: 20px;
+    height: 50px;
+}
+h1{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 150;
+  margin-left: center;
+  text-align: center;
+  text-decoration: underline;
+}
+  .p1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30%;
+    margin-top: 5%;
+}
+
+h2,h3,h4,h5{
+  font-weight: bold;
+}
+
+header {
+  gap: 45px;
+  display: flex;
+  flex-direction:row;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleexe.css" />
+    <title>theorie de la pensée</title>
+  </head>
+  <body>
+    <!--en tête de la page-->
+    <header>
+      <img class="logo" src="pumpkin-5674174_640.png" alt="logo"/>
+      <nav>
+        <a style="color: rgb(112, 103, 60)" href="/">accueil</a><br />
+        <a style="color: rgb(146, 140, 53)" href="/about">a propos</a>
+      </nav>
+    </header>
+    <!-- contenu textuel la page -->
+    <main>
+      <h1 class="h1">LE POUVOIR DE LA PENSEE</h1>
+      <p class="p">la pensée et ses relations avec l'environnement</p>
+      <h2 class="h2">la pensee et la nature</h2>
+      <p class="p">la nature influence la pensée</p>
+      <h3>l'homme et la pensée</h3>
+      <p class="p">les hommes influencent notre façon de penser</p>
+      <p>
+        cliquer <a href="https://laplateforme.io">ici</a> pour voir le livre
+      </p>
+      <p>voir le <a href="exercice1.html">fichier source</a></p>
+      <p>
+        <!-- image qui contextualise la pensée -->
+        la persuasion du regard
+        <img
+          class="mere"
+          src="34077c4aca63f095a6d4e74f48a902ec.jpg"
+          alt="la mere de la pensée"
+        />
+      </p>
+    </main>
+    <!-- les elements de liste -->
+ <divA class="divA">
+    <div1 class="div1">
+
+       <ul class="list" type="none">
+          <li>l'esprit</li>
+          <li>le coeur</li>
+          <li>le cerveau</li>
+          <li>le corps</li>
+       </ul>
+    </div1>
+    <div2 class="div2">
+       <ol class="list2" type="1">
+          <li>analyse de l'environnement</li>
+          <li>interagir avec l'entourage</li>
+          <li>comprendre la pensée active</li>
+        <ul type="square">
+          <li>thèse</li>
+          <li>anti thèse</li>
+        </ul>
+          <li>faire une synthese de la pensée</li>
+        </ol>
+    </div2>
+    <!-- tableau a 3/3 lignes et colonnes -->
+     <div class="div3">
+        <table>
+         <caption>
+        les causes de la pensée </caption>
+           <thead>
+              <th>le cerveau</th>
+              <th>le coeur</th>
+              <th>le corps</th>
+          </thead>
+           <tbody>
+               <tr>
+                <td>ireel</td>
+                <td>abstrait</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>influence 1</td>
+                <td>influence 2</td>
+                <td>influence 3</td>
+              </tr>
+            </tbody>
+       </table>
+    </div>
+    </divA>
+    <!-- QCM -->
+    <p>quels organes influencent votre pensée ?</p>
+    <form class="form1">
+      <label for="cerveau"
+        >Le cerveau
+        <input
+          type="checkbox"
+          value="cerveau"
+          id="cerveau"
+          name="language[]"
+          checked
+        />
+      </label>
+
+      <label for="coeur"
+        >Le coeur
+        <input type="checkbox" value="coeur" id="coeur" name="language[]"
+      /></label>
+      <label for="corps"
+        >Le corps
+        <input type="checkbox" value="corps" id="corps" name="language[]"
+      /></label>
+    </form>
+    <br />
+    <br />
+
+    <!-- formulaire -->
+    <form action="/submit-form" method="POST">
+      <!-- champ texte -->
+      <div class="form-group">
+        <label for="nom">Nom complet</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          required
+          placeholder="votre nom"
+        />
+      </div>
+      <!-- champ email -->
+      <div class="form-group">
+        <label for="email">adresse email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          required
+          placeholder="exemple@gmail.com"
+        />
+      </div>
+      <!-- bouton d'envoi -->
+       <form>
+         <button type="submit">Envoyer</button>
+      <!-- Alternative -->
+         <input type="submit" value="Envoyer" />
+       </form>
+    <!-- pied de page(contacts,liens) -->
+    <footer>
+      <form>
+        <p>Avez vous apprécié l'article</p>
+        <div class="rad">
+          <div class="btnyes">
+            <input type="radio" value="yes" id="yes" name="word" />
+            <label for="yes">YES</label>
+          </div>
+          <div class="btnno">
+            <input type="radio" value="no" id="no" name="word" />
+            <label for="no">NO</label>
+          </div>
+        </div>
+      </form>
+      <!-- boite à suggestions -->
+      <form>
+        <label for="message">Votre suggestion:</label>
+        <textarea
+          placeholder="faites votre suggestion..."
+          maxlength="1000"
+          id="message"
+          name="message"
+          rows="5"
+          cols="60"
+          required
+        ></textarea>
+      </form>
+      <p>mysakam©2025 www.mysakam.fr tous droits reservés></p>
+    </footer>
+  </body>
+</html>
