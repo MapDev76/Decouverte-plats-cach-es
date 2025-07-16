@@ -1,0 +1,18 @@
+body {
+        background-image: url(waterfall-9684883_640.jpg);
+        background-size: cover;
+        background-position: initial;
+        background-attachment: fixed;
+        color: white;
+      }
+
+main{
+        background-color: burlywood;
+
+}
+.photo1{
+        transition: transform 0.2s; box-shadow: 0.3s;
+        width: 220px;
+        height:auto;  
+        border-radius: 60%           
+}

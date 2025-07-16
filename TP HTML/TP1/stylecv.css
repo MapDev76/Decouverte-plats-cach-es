@@ -15,7 +15,7 @@
 }
 h1{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 150;
+  font-weight: bold;
   margin-left: center;
   text-align: center;
   text-decoration: underline;
@@ -24,7 +24,7 @@ h1{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     font-weight: bold;
-    line-height: 30%;
+    line-height: 1.1;
     margin-top: 5%;
 }
 
