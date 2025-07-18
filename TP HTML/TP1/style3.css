@@ -8,6 +8,7 @@ body {
 
 main{
         background-color: burlywood;
+        border-radius: 4%;
 
 }
 .photo1{
@@ -15,4 +16,14 @@ main{
         width: 220px;
         height:auto;  
         border-radius: 60%           
+}
+p::first-letter{
+        font-size: 200%;
+        font-weight: bold;
+        
+}
+.animated button{
+        color: chocolate;
+        border-radius: 50%;
+        border-style: dashed;
 }
