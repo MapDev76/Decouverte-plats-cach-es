@@ -1,0 +1,13 @@
+/* Page Plat Italien */
+.it-titre-page {
+    font-size: 3em;
+    color: #333;
+    background-color: #7f8c8d;
+    background-attachment: fixed;
+    text-align: center;
+}
+.it-parm {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    text-align: center;
+}
