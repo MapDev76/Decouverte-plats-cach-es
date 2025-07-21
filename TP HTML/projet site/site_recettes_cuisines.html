@@ -9,20 +9,24 @@
   <body>
     <header>
       <!-- fond de page principal -->
-      <img
-        class="logo"
-        src="logo-food-house-with-logo-that-says-food-house_1205884-2263.avif"
-        alt="image cuisine maison"
-      />
-      <h1>CUISINE ARC-EN-CIEL</h1>
+      <br />
+      <div class="div1">
+        <img
+          class="logo"
+          src="logo-food-house-with-logo-that-says-food-house_1205884-2263.avif"
+          alt="image cuisine maison"
+        />
+        <h1>CUISINE ARC-EN-CIEL</h1>
+      </div>
       <nav>
-        <a style="color: #e26ba3" href="/">accueil</a><br />
-        <a style="color: rgb(201, 89, 195)" href="/about">à propos</a>
+        <a style="color: #f7e820" href="/">accueil</a><br />
+        <a style="color: rgb(232, 245, 55)" href="/about">à propos</a>
       </nav>
+      <br />
     </header>
     <!-- explication et contexte du blog -->
     <main>
-      ><img class="logo2" src="gastronomie-monde-carte.jpg" alt="carte food" />
+      <img class="logo2" src="gastronomie-monde-carte.jpg" alt="carte food" />
       <p>
         "De nos jours chaque continent, chaque pays, chaque culture s'est
         illustré sur le plan culinaire à travers une recette de reference, mais
@@ -37,14 +41,26 @@
       <!-- le carrosel de plat camerounais -->
       <div class="slider-container slider-1">
         <div class="slider">
-          <img class="img" src="caption.jpg" alt="plat camer" />
-          <img class="img" src="chenille-sautes.jpg" alt="plat de foss" />
+          <img id="imgs1" class="img" src="caption.jpg" alt="plat camer" />
           <img
+            id="imgs2"
+            class="img"
+            src="chenille-sautes.jpg"
+            alt="plat de foss"
+          />
+          <img
+            id="imgs3"
             class="img"
             src="maxresdefault-6-1024x576.jpg"
             alt="plat kamer"
           />
-          <img class="img" src="caption.jpg" alt="plat camer" />
+          <img
+            id="imgs2"
+            class="img"
+            src="chenille-sautes.jpg"
+            alt="plat camer"
+          />
+          <img id="imgs1" class="img" src="caption.jpg" alt="plat camer" />
         </div>
       </div>
       <h3>Historique du plat</h3>
@@ -61,16 +77,18 @@
       </p>
       <!-- la recette -->
       <h4>Igredients (pour 4 pers)</h4>
-      <ul type="square">
-        <li>Foss(hannetons).. 200g</li>
-        <li>huile de palme.. 0.5L</li>
-        <li>messep.. 10g</li>
-        <li>citronelle.. 5g</li>
-        <li>citron jaune.. 2</li>
-        <li>piment jaune.. 5g</li>
-        <li>gingimbre.. 5g</li>
-        <li>feuille de wakanda.. 10g</li>
-      </ul>
+      <div class="ulist">
+        <ul type="square">
+          <li>Foss(hannetons).. 200g</li>
+          <li>huile de palme.. 0.5L</li>
+          <li>messep.. 10g</li>
+          <li>citronelle.. 5g</li>
+          <li>citron jaune.. 2</li>
+          <li>piment jaune.. 5g</li>
+          <li>gingimbre.. 5g</li>
+          <li>feuille de wakanda.. 10g</li>
+        </ul>
+      </div>
       <!-- la cuisson -->
       <h5>Etapes de cuisson</h5>
       <ol type="1">

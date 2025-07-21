@@ -1,29 +1,56 @@
 body{
-    color: rgb(96, 166, 231);
-     background-image: url(touch-sky-concept-man-hand-sunset-mountains-background-travel-lifestyle-expression_662214-384190.avif);
+    color: rgb(245, 245, 243);
+     background-image:url(poele-sombre-oeuf-au-plat-tomate-fond-marbre_114579-48146.avif);
     background-size: cover; /* Couvre toute la page */
-    background-position:initial; /* Centre l'image */
+    background-position: right; /* position de l'image */
     background-repeat: no-repeat; /* Empêche la répétition */
     background-attachment: fixed; /* Fixe l'image lors du défilement */
     margin: 20px;
     height: 50px;
 }
+.div1{
+  display: flex;
+  flex-direction: row;
+  gap: 100px;  
+}
+
+h1{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
 .logo{
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
     border-radius: 50%;
+    opacity: 0.6;
 }
 .logo2{
     width: 300px;
     height: 180px;
+    border-radius: 50%;
+    border: 6px solid rgb(11, 100, 11)
+}
+p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  color: rgb(228, 235, 238);
+  background-image: url(arriere-plan-beau-papier-peint-hd-meilleure-qualite-hyper-realiste-image-coloree_1078161-512181.jpg);
+  background-size: center;
+  opacity: initial;
+  font-weight: bold;
+
 }
 /*le carrossel de plat*/
 .slider-1 {
   max-width: 100%;
-  margin: 50px auto;
+  margin: 20px ;
   overflow: hidden;
-  border: 1px solid #f1f1f1;
-
+  border: 4px solid #41c79f;
+  border-radius: 20%;
+  box-shadow: 3px 2px 5px #e9a513;
 }
 .slider-1 .slider {
   animation: slider-1 20s infinite ease-in-out;
@@ -44,31 +71,48 @@ body{
 
 @keyframes slider-1 {
   0%,
-  33% {
+  24% {
     transform: translateX(0);
   }
-  33%,
-  66% {
+  24%,
+  49% {
     transform: translateX(-100%);
   }
-  66%,
-  99% {
+  49%,
+  74% {
     transform: translateX(-200%);
+  }
+  74%,
+  99% {
+    transform: translateX(-300%);
   }
   99%,
   100% {
-    transform: translateX(-300%);
+    transform: translateX(-400%);
   }
 } 
 
 .img {
     /* margin-right:200px;
     margin-left:15px; */
-    height: 300px;
-    width: 200px;
+    height: 100vw;
+    min-width: 420px;
+    max-width: 420px;
 }
 
 .slider-container {
-    position: absolute;
-    left: 10px;
+    /* position: absolute; */
+    left: 50px;
+    max-height: 300px;
+    width: 420px;
+}
+
+#imgs1 {
+  max-height: 260px;
+}
+#imgs2 {
+  max-height: 260px;
+}
+#imgs3 {
+  min-height: 260px;
 }
