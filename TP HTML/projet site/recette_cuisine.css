@@ -1,0 +1,74 @@
+body{
+    color: rgb(96, 166, 231);
+     background-image: url(touch-sky-concept-man-hand-sunset-mountains-background-travel-lifestyle-expression_662214-384190.avif);
+    background-size: cover; /* Couvre toute la page */
+    background-position:initial; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    background-attachment: fixed; /* Fixe l'image lors du défilement */
+    margin: 20px;
+    height: 50px;
+}
+.logo{
+    width: 200px;
+    height: 150px;
+    border-radius: 50%;
+}
+.logo2{
+    width: 300px;
+    height: 180px;
+}
+/*le carrossel de plat*/
+.slider-1 {
+  max-width: 100%;
+  margin: 50px auto;
+  overflow: hidden;
+  border: 1px solid #f1f1f1;
+
+}
+.slider-1 .slider {
+  animation: slider-1 20s infinite ease-in-out;
+  display: flex;
+
+
+}
+.slider-1 img {
+  background: #f3a20a;
+  flex-shrink: 0;
+  padding: 20px 0;
+  width: 100%;
+  height:100%;
+  text-align: center;
+  font-size: 45px;
+  color: #f1f1f1;
+}
+
+@keyframes slider-1 {
+  0%,
+  33% {
+    transform: translateX(0);
+  }
+  33%,
+  66% {
+    transform: translateX(-100%);
+  }
+  66%,
+  99% {
+    transform: translateX(-200%);
+  }
+  99%,
+  100% {
+    transform: translateX(-300%);
+  }
+} 
+
+.img {
+    /* margin-right:200px;
+    margin-left:15px; */
+    height: 300px;
+    width: 200px;
+}
+
+.slider-container {
+    position: absolute;
+    left: 10px;
+}
