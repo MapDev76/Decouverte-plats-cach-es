@@ -1,20 +1,19 @@
-body{
-    color: rgb(245, 245, 243);
-     background-image:url(poele-sombre-oeuf-au-plat-tomate-fond-marbre_114579-48146.avif);
-    background-size: cover; /* Couvre toute la page */
-    background-position: right; /* position de l'image */
-    background-repeat: no-repeat; /* Empêche la répétition */
-    background-attachment: fixed; /* Fixe l'image lors du défilement */
-    margin: 20px;
-    height: 50px;
-
+body {
+  color: rgb(245, 245, 243);
+  background-image: url(OIP.jpg);
+  background-size: cover; /* Couvre toute la page */
+  background-position: right; /* position de l'image */
+  background-repeat: no-repeat; /* Empêche la répétition */
+  background-attachment: fixed; /* Fixe l'image lors du défilement */
+  margin: 20px;
+  height: 50px;
 }
-.div1{
+.div1 {
   display: flex;
   flex-direction: row;
-  gap: 100px;  
+  gap: 100px;
 }
-nav{
+nav {
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -22,61 +21,60 @@ nav{
   text-shadow: #e9a513;
 }
 
-h1{
+h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100px;
   display: flex;
   flex-direction: row;
 }
-h2{
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 90px;
-    text-decoration: underline;
-}
-h3{
+h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-    max-height: 80px;
-    text-decoration: underline;
+  height: 90px;
+  text-decoration: underline;
 }
-h4{
+h3 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-   font-size: 20px;
-    text-decoration: underline;
+  max-height: 80px;
+  text-decoration: underline;
 }
-h5{
+h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  text-decoration: underline;
+}
+h5 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   max-height: 70px;
   font-size: 20px;
   text-decoration: underline;
 }
-.logo{
-    width: 150px;
-    height: 100px;
-    border-radius: 50%;
-    opacity: 0.6;
+.logo {
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.6;
 }
-.logo2{
-    width: 300px;
-    height: 180px;
-    border-radius: 50%;
-    border: 5px solid rgb(11, 100, 11);
-    box-shadow: 3px 2px 6px color rgb(223, 233, 220);
+.logo2 {
+  width: 300px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid rgb(11, 100, 11);
+  box-shadow: 3px 2px 6px color rgb(223, 233, 220);
 }
-p{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   height: 100%;
   color: rgb(30, 64, 78);
   background-color: bisque;
   background-size: center;
-  
-  font-weight: bold;
 
+  font-weight: bold;
 }
 /*le carrossel de plat*/
 .slider-1 {
   max-width: 100%;
-  margin: 20px ;
+  margin: 20px;
   overflow: hidden;
   border: 4px solid #41c79f;
   border-radius: 20%;
@@ -85,15 +83,13 @@ p{
 .slider-1 .slider {
   animation: slider-1 20s infinite ease-in-out;
   display: flex;
-
-
 }
 .slider-1 img {
   background: #f3a20a;
   flex-shrink: 0;
   padding: 20px 0;
   width: 100%;
-  height:100%;
+  height: 100%;
   text-align: center;
   font-size: 45px;
   color: #f1f1f1;
@@ -120,21 +116,21 @@ p{
   100% {
     transform: translateX(-400%);
   }
-} 
+}
 
 .img {
-    /* margin-right:200px;
+  /* margin-right:200px;
     margin-left:15px; */
-    height: 100vw;
-    min-width: 420px;
-    max-width: 420px;
+  height: 100vw;
+  min-width: 420px;
+  max-width: 420px;
 }
 
 .slider-container {
-    /* position: absolute; */
-    left: 50px;
-    max-height: 300px;
-    width: 420px;
+  /* position: absolute; */
+  left: 50px;
+  max-height: 300px;
+  width: 420px;
 }
 
 #imgs1 {
@@ -146,9 +142,9 @@ p{
 #imgs3 {
   min-height: 260px;
 }
-select{
+select {
   padding: 12px;
-  width:250px;
+  width: 250px;
   border: 1px solid #e9a513;
   border-radius: 4px;
   background-color: bisque;
@@ -158,16 +154,31 @@ select{
   background-repeat: none;
   background-position: right 10px center;
 }
-select:focus{
-outline:none;
-border-color: aquamarine;
-box-shadow: 2px 3px 5px color(black )
+select:focus {
+  outline: none;
+  border-color: aquamarine;
+  box-shadow: 2px 3px 5px color(black);
 }
-.cuisson{
-  padding-bottom: 25px;
+.cuisson {
+  color: #702a02;
+  background-color: rgb(241, 165, 66);
+  padding-bottom: 15px;
+  margin-top: auto;
   font-size: 20px;
 }
-#fin{
+table {
+  border-collapse: separate; /* Sépare les bordures des cellules */
+  border-spacing: 10px; /* Espacement entre les cellules */
+}
+
+td,
+th {
+  border: 1px solid black; /* Bordure des cellules */
+  padding: 8px; /* Espacement interne */
+  background-color: rgb(241, 165, 66); /* Couleur de fond optionnelle */
+  color: #6d1f01;
+}
+#fin {
   text-align: center;
   padding-bottom: 30px;
   font-size: 35px;

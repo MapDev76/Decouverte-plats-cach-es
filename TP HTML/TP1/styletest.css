@@ -1,34 +1,5 @@
-p{
-     color: cadetblue;
-    font-size: 200%;
-    line-height: 25px;
-    margin: 45px;
-}
-
-span.solo {
-    color: rgb(168, 34, 34);
-    font-size: 1.6em;
-    font-weight: 600;
-}
-#p1{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    text-shadow: 3px 1.5px 1.5px yellow;
-    border: solid rgb(223, 168, 17) 3px;
-    border-radius: 20px;
-    box-shadow: 3px 2.5px 2px chocolate;
-    height: auto;
-    padding: 10px;
-    
-}
-#p2{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
-    border: solid rgb(74, 74, 194) 3px;
-    padding: 30px;
-    /*--centralisation--*/
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-
+table {
+  border-collapse: separate; /* Sépare les bordures des cellules */
+  border-spacing: 10px; /* Espacement entre les cellules */
+  color: rgb(218, 49, 7);
 }
