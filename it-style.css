@@ -109,6 +109,62 @@ body {
   border-radius: 10px;
 }
 
+.popup-checkbox {
+  display: none;
+}
+
+.emoji-button {
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.emoji-button:hover {
+  transform: scale(2.2);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.popup-checkbox:checked + label + .popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 .it-ingredients li {
   background-color: #f3e0d2;
   padding: 0.75rem;
