@@ -515,21 +515,21 @@
             });
         });
 
-        // Particles.js starry sky
+        // Particles.js starry sky with lighter settings
         particlesJS('particles-js', {
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 1200 } },
+                number: { value: 50, density: { enable: true, value_area: 800 } },
                 color: { value: ['#ffffff', '#ffcd38', '#e67e22'] },
                 shape: { type: 'circle' },
-                opacity: { value: 0.8, random: true, anim: { enable: true, speed: 0.6, opacity_min: 0.4 } },
-                size: { value: 2.5, random: true },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.2 } },
+                size: { value: 2, random: true },
                 line_linked: { enable: false },
-                move: { enable: true, speed: 0.8, direction: 'none', random: true, out_mode: 'out' }
+                move: { enable: true, speed: 0.5, direction: 'none', random: true, out_mode: 'out' }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-                modes: { repulse: { distance: 120 }, push: { particles_nb: 4 } }
+                events: { onhover: { enable: false, mode: 'repulse' }, onclick: { enable: false, mode: 'push' } },
+                modes: { repulse: { distance: 80 }, push: { particles_nb: 2 } }
             },
             retina_detect: true
         });
