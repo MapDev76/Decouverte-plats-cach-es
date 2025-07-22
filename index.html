@@ -1,61 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Decouverte plats Cachées</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1 class="titre-page">
-      🍽️ Bienvenue sur la page de découverte des Plats Cachés
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte des Plats Cachés</title>
+    <style>
+        /* Reset and base styles for modernity */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .menupage {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .menupage ul {
+            list-style-type: disc;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+        /* Modern menu with flexbox */
+        .menu ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+        }
+        .menu li {
+            flex: 1 1 200px; /* Flexible growth */
+            max-width: 250px;
+        }
+        .menu a {
+            display: block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .menu a:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        /* Quiz button with distinct style */
+        .quiz-button {
+            background-color: #27ae60 !important;
+        }
+        .quiz-button:hover {
+            background-color: #219d52 !important;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titre-page" aria-label="Bienvenue sur la page de découverte des plats cachés">
+        🍽️ Bienvenue sur la page de découverte des Plats Cachés
     </h1>
     <p>
-      Ici commence un voyage culinaire unique à travers les cultures et les
-      traditions du monde entier. Cette page est dédiée à tous les curieux, les
-      passionnés de cuisine, et ceux qui aiment découvrir ce qui se cache
-      derrière les plats que l'on ne voit pas toujours en première ligne des
-      menus.
+        Ici commence un voyage culinaire unique à travers les cultures et les traditions du monde entier. Cette page est dédiée à tous les curieux, les passionnés de cuisine, et ceux qui aiment découvrir ce qui se cache derrière les plats que l'on ne voit pas toujours en première ligne des menus.
     </p>
     <div class="menupage">
-      <h2>🌍 Comment naviguer dans cette page ?</h2>
-      <h3>
-        Chaque bouton ci-dessous vous transportera dans un pays différent,
-        révélant un plat souvent méconnu mais profondément enraciné dans la
-        culture locale. En cliquant, vous découvrirez : Comment le plat est
-        préparé, avec ses ingrédients et ses techniques uniques Son histoire,
-        parfois ancienne, parfois étonnante L’étymologie de son nom, qui en dit
-        long sur ses origines Les anecdotes culturelles, les coutumes, et
-        parfois les secrets transmis de génération en génération C’est une
-        invitation à ouvrir vos sens et votre esprit à des recettes venues
-        d’ailleurs, loin des clichés, proches des gens.
-      </h3>
+        <h2>🌍 Comment naviguer dans cette page ?</h2>
+        <p>
+            Chaque bouton ci-dessous vous transportera dans un pays différent, révélant un plat souvent méconnu mais profondément enraciné dans la culture locale. En cliquant, vous découvrirez :
+        </p>
+        <ul>
+            <li>Comment le plat est préparé, avec ses ingrédients et ses techniques uniques</li>
+            <li>Son histoire, parfois ancienne, parfois étonnante</li>
+            <li>L’étymologie de son nom, qui en dit long sur ses origines</li>
+            <li>Les anecdotes culturelles, les coutumes, et parfois les secrets transmis de génération en génération</li>
+        </ul>
+        <p>
+            C’est une invitation à ouvrir vos sens et votre esprit à des recettes venues d’ailleurs, loin des clichés, proches des gens.
+        </p>
     </div>
-    <section class="menu">
-      <ul>
-        <a href="parmigiana.html"
-          ><li class="plats">Plat Italien: Parmigiana</li>
-        </a>
-        <li>Plat Russe: Olivier</li>
-        <a href="balesh.html"
-          ><li class="plats">Plat Bashkir: Zur Balesh</li>
-        </a>
-        <a href="baeckeoffe.html"
-          ><li class="plats">Plat Francais: Baeckeoffe</li>
-        </a>
-        <a href="solad-olivier.html"
-          ><li class="plats">Plat Russe: Salad Olivier</li>
-        </a>
-        <a href="borscht.html">
-          <li class="plats">Plat Ukranien: Borscht</li></a
-        >
-        <a href="site_recettes_cuisines.html">
-          <li class="plats">Plat Africain: Le Foss Wakanda</li></a
-        >
-      </ul>
-    </section>
+    <nav class="menu">
+        <ul>
+            <li><a href="parmigiana.html" title="Découvrir la Parmigiana italienne">Plat Italien : Parmigiana</a></li>
+            <li><a href="balesh.html" title="Découvrir le Zur Balesh bashkir">Plat Bashkir : Zur Balesh</a></li>
+            <li><a href="baeckaoffe.html" title="Découvrir le Baeckeoffe français">Plat Français : Baeckeoffe</a></li>
+            <li><a href="borscht.html" title="Découvrir le Borscht ukrainien">Plat Ukrainien : Borscht</a></li>
+            <li><a href="solad-olivier.html" title="Découvrir la Salade Olivier russe">Plat Russe : Salade Olivier</a></li>
+            <li><a href="site_recettes_cuisines.html" title="Découvrir le Foss Wakanda africain">Plat Africain : Le Foss Wakanda</a></li>
+            <li><a href="quiz.html" class="quiz-button" title="Participer au quiz culinaire">Quiz</a></li>
+        </ul>
+    </nav>
     <footer class="footer">
-      <p>&copy; 2025 Découverte des Plats Cachés</p>
+        <p>© 2025 Découverte des Plats Cachés</p>
     </footer>
-  </body>
+</body>
 </html>

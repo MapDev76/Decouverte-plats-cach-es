@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les faits des plats du monde</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        form { max-width: 600px; margin: auto; }
+        p { font-weight: bold; }
+        button { display: block; margin: 20px auto; padding: 10px 20px; }
+        #result { text-align: center; font-size: 1.2em; }
+        #facts { max-width: 600px; margin: auto; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Quiz sur les faits des plats du monde</h1>
+    <form id="quizForm">
+        <p>1. L'aubergine a été introduite en Italie par les Arabes au cours de quel siècle ? (Parmigiana)</p>
+        <input type="radio" name="q1" value="15th" id="q1a"><label for="q1a">15e</label><br>
+        <input type="radio" name="q1" value="16th" id="q1b"><label for="q1b">16e</label><br>
+        <input type="radio" name="q1" value="17th" id="q1c"><label for="q1c">17e</label><br>
+        <input type="radio" name="q1" value="18th" id="q1d"><label for="q1d">18e</label><br>
+
+        <p>2. La salade Olivier a été inventée par un chef dans quelle ville ? (Olivier)</p>
+        <input type="radio" name="q2" value="Moscow" id="q2a"><label for="q2a">Moscou</label><br>
+        <input type="radio" name="q2" value="Paris" id="q2b"><label for="q2b">Paris</label><br>
+        <input type="radio" name="q2" value="St. Petersburg" id="q2c"><label for="q2c">Saint-Pétersbourg</label><br>
+        <input type="radio" name="q2" value="Kiev" id="q2d"><label for="q2d">Kiev</label><br>
+
+        <p>3. Quelle est la forme traditionnelle du Zur Belish ? (Zur Balesh)</p>
+        <input type="radio" name="q3" value="Truncated cone" id="q3a"><label for="q3a">Cône tronqué</label><br>
+        <input type="radio" name="q3" value="Round" id="q3b"><label for="q3b">Rond</label><br>
+        <input type="radio" name="q3" value="Square" id="q3c"><label for="q3c">Carré</label><br>
+        <input type="radio" name="q3" value="Rectangular" id="q3d"><label for="q3d">Rectangulaire</label><br>
+
+        <p>4. Baeckeoffe signifie quoi en dialecte alsacien ? (Baeckeoffe)</p>
+        <input type="radio" name="q4" value="Baker's oven" id="q4a"><label for="q4a">Four de boulanger</label><br>
+        <input type="radio" name="q4" value="Meat stew" id="q4b"><label for="q4b">Ragoût de viande</label><br>
+        <input type="radio" name="q4" value="Potato dish" id="q4c"><label for="q4c">Plat de pommes de terre</label><br>
+        <input type="radio" name="q4" value="Alsatian pie" id="q4d"><label for="q4d">Tourte alsacienne</label><br>
+
+        <p>5. Le chef qui a inventé la salade Olivier venait de quel pays ? (Salade Olivier)</p>
+        <input type="radio" name="q5" value="Belgium" id="q5a"><label for="q5a">Belgique</label><br>
+        <input type="radio" name="q5" value="Russia" id="q5b"><label for="q5b">Russie</label><br>
+        <input type="radio" name="q5" value="France" id="q5c"><label for="q5c">France</label><br>
+        <input type="radio" name="q5" value="Ukraine" id="q5d"><label for="q5d">Ukraine</label><br>
+
+        <p>6. À l'origine, le bortsch était préparé à partir de quelle plante ? (Bortsch)</p>
+        <input type="radio" name="q6" value="Cow parsnip" id="q6a"><label for="q6a">Panais sauvage</label><br>
+        <input type="radio" name="q6" value="Beets" id="q6b"><label for="q6b">Betteraves</label><br>
+        <input type="radio" name="q6" value="Potatoes" id="q6c"><label for="q6c">Pommes de terre</label><br>
+        <input type="radio" name="q6" value="Carrots" id="q6d"><label for="q6d">Carottes</label><br>
+
+        <p>7. La cuisine wakandaise, telle que représentée dans les médias, est inspirée de la cuisine de quelle région d'Afrique ? (Le Foss Wakanda)</p>
+        <input type="radio" name="q7" value="East African" id="q7a"><label for="q7a">Afrique de l'Est</label><br>
+        <input type="radio" name="q7" value="West African" id="q7b"><label for="q7b">Afrique de l'Ouest</label><br>
+        <input type="radio" name="q7" value="North African" id="q7c"><label for="q7c">Afrique du Nord</label><br>
+        <input type="radio" name="q7" value="South African" id="q7d"><label for="q7d">Afrique du Sud</label><br>
+
+        <button type="button" onclick="checkAnswers()">Soumettre</button>
+    </form>
+    <div id="result"></div>
+    <div id="facts">
+        <h2>Faits supplémentaires</h2>
+        <ul>
+            <li>Parmigiana : L'aubergine est arrivée en Italie au 15e siècle lorsque les Arabes l'ont introduite en Sicile depuis l'Inde.</li>
+            <li>Olivier : Inventée dans les années 1860 par Lucien Olivier, un chef belge au restaurant Hermitage à Moscou.</li>
+            <li>Zur Balesh : Une tourte tatare/bachkire à base de viande et de pommes de terre, traditionnellement préparée pour les occasions spéciales en forme de cône tronqué.</li>
+            <li>Baeckeoffe : Un ragoût alsacien signifiant « four de boulanger », préparé avec des viandes marinées, des pommes de terre et du vin blanc.</li>
+            <li>Salade Olivier : La version moderne comprend des pommes de terre bouillies, des carottes, des petits pois, des œufs, des cornichons et de la mayonnaise.</li>
+            <li>Bortsch : Une soupe ukrainienne initialement faite à partir de panais sauvage ; les betteraves ont été ajoutées plus tard, et c'est un plat traditionnel pour les repas funéraires.</li>
+            <li>Le Foss Wakanda : Inspiré de la cuisine de l'Afrique de l'Est, avec des ragoûts vibrants, du pilau et des éléments comme le riz jollof dans les plats wakandais fictifs.</li>
+        </ul>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            var total = 7;
+
+            var q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value === '15th') score++;
+
+            var q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2 && q2.value === 'Moscow') score++;
+
+            var q3 = document.querySelector('input[name="q3"]:checked');
+            if (q3 && q3.value === 'Truncated cone') score++;
+
+            var q4 = document.querySelector('input[name="q4"]:checked');
+            if (q4 && q4.value === "Baker's oven") score++;
+
+            var q5 = document.querySelector('input[name="q5"]:checked');
+            if (q5 && q5.value === 'Belgium') score++;
+
+            var q6 = document.querySelector('input[name="q6"]:checked');
+            if (q6 && q6.value === 'Cow parsnip') score++;
+
+            var q7 = document.querySelector('input[name="q7"]:checked');
+            if (q7 && q7.value === 'East African') score++;
+
+            document.getElementById('result').innerHTML = 'Vous avez obtenu ' + score + ' sur ' + total + ' !';
+            document.getElementById('facts').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
