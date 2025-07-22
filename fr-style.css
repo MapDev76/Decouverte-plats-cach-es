@@ -1,0 +1,31 @@
+button{ 
+      cursor: pointer;
+      width: 50%;
+      height: 40px;
+      background-color: rgb(60, 58, 72);
+      color: #ffffff; 
+      border-radius:5px;  
+      font-family: fantasy; 
+      font-weight: bolder; 
+      font-size: 25px;
+      transition:transform 200ms ;
+      border-style: none;
+      justify-content: center;
+      margin-bottom: 50px;
+      
+    }
+
+    button:hover{ 
+      cursor: pointer;
+      width: 50%; 
+      background-color: rgb(103, 100, 123); 
+      border-radius: 5px; 
+      font-family: fantasy; 
+      font-size: 25px;
+      color: #ffffff;
+    transform: scale(1.1);
+    border-style: none;
+    margin-bottom: 50px
+    }
+    a{color: #ffffff;
+    text-decoration: none;}

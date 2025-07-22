@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les faits des plats du monde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --primary-color: #4CAF50;
+            --accent-color: #FF9800;
+            --card-bg: white;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            animation: fadeInDown 1s ease-out, pulse 2s infinite;
+        }
+        form {
+            max-width: 800px;
+            margin: auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: cardAppear 1s ease-out;
+        }
+        .question {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        .question.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        p {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            transition: color 0.3s;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.05);
+        }
+        label:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+            background: rgba(76,175,80,0.1);
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            transition: transform 0.3s;
+        }
+        input[type="radio"]:checked + span {
+            color: var(--primary-color);
+            font-weight: bold;
+            animation: radioChecked 0.5s ease;
+        }
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+            animation: buttonPulse 1.5s infinite;
+        }
+        button:hover {
+            background: darken(var(--primary-color), 10%);
+            transform: translateY(-3px) scale(1.05);
+        }
+        #result {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: var(--accent-color);
+            animation: resultReveal 1s ease-out;
+        }
+        #facts {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: none;
+            animation: factsExpand 1s ease-out;
+        }
+        #facts h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+        #facts li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        #facts li.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        #facts li::before {
+            content: '🍲';
+            position: absolute;
+            left: 0;
+            animation: iconBounce 1s infinite alternate;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: rotate(360deg);
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes cardAppear {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes radioChecked {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 0 0 rgba(76,175,80,0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(76,175,80,0); }
+            100% { box-shadow: 0 0 0 0 rgba(76,175,80,0); }
+        }
+        @keyframes resultReveal {
+            from { opacity: 0; letter-spacing: -0.1em; }
+            to { opacity: 1; letter-spacing: normal; }
+        }
+        @keyframes factsExpand {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 1000px; }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes iconBounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+        @media (max-width: 768px) {
+            form { padding: 20px; }
+            h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz sur les faits des plats du monde</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. L'aubergine a été introduite en Italie par les Arabes au cours de quel siècle ? (Parmigiana)</p>
+            <label><input type="radio" name="q1" value="15th"><span>15e</span></label>
+            <label><input type="radio" name="q1" value="16th"><span>16e</span></label>
+            <label><input type="radio" name="q1" value="17th"><span>17e</span></label>
+            <label><input type="radio" name="q1" value="18th"><span>18e</span></label>
+        </div>
+        <div class="question">
+            <p>2. La salade Olivier a été inventée par un chef dans quelle ville ? (Olivier)</p>
+            <label><input type="radio" name="q2" value="Moscow"><span>Moscou</span></label>
+            <label><input type="radio" name="q2" value="Paris"><span>Paris</span></label>
+            <label><input type="radio" name="q2" value="St. Petersburg"><span>Saint-Pétersbourg</span></label>
+            <label><input type="radio" name="q2" value="Kiev"><span>Kiev</span></label>
+        </div>
+        <div class="question">
+            <p>3. Quelle est la forme traditionnelle du Zur Belish ? (Zur Balesh)</p>
+            <label><input type="radio" name="q3" value="Truncated cone"><span>Cône tronqué</span></label>
+            <label><input type="radio" name="q3" value="Round"><span>Rond</span></label>
+            <label><input type="radio" name="q3" value="Square"><span>Carré</span></label>
+            <label><input type="radio" name="q3" value="Rectangular"><span>Rectangulaire</span></label>
+        </div>
+        <div class="question">
+            <p>4. Baeckeoffe signifie quoi en dialecte alsacien ? (Baeckeoffe)</p>
+            <label><input type="radio" name="q4" value="Baker's oven"><span>Four de boulanger</span></label>
+            <label><input type="radio" name="q4" value="Meat stew"><span>Ragoût de viande</span></label>
+            <label><input type="radio" name="q4" value="Potato dish"><span>Plat de pommes de terre</span></label>
+            <label><input type="radio" name="q4" value="Alsatian pie"><span>Tourte alsacienne</span></label>
+        </div>
+        <div class="question">
+            <p>5. Le chef qui a inventé la salade Olivier venait de quel pays ? (Salade Olivier)</p>
+            <label><input type="radio" name="q5" value="Belgium"><span>Belgique</span></label>
+            <label><input type="radio" name="q5" value="Russia"><span>Russie</span></label>
+            <label><input type="radio" name="q5" value="France"><span>France</span></label>
+            <label><input type="radio" name="q5" value="Ukraine"><span>Ukraine</span></label>
+        </div>
+        <div class="question">
+            <p>6. À l'origine, le bortsch était préparé à partir de quelle plante ? (Bortsch)</p>
+            <label><input type="radio" name="q6" value="Cow parsnip"><span>Panais sauvage</span></label>
+            <label><input type="radio" name="q6" value="Beets"><span>Betteraves</span></label>
+            <label><input type="radio" name="q6" value="Potatoes"><span>Pommes de terre</span></label>
+            <label><input type="radio" name="q6" value="Carrots"><span>Carottes</span></label>
+        </div>
+        <div class="question">
+            <p>7. La cuisine wakandaise, telle que représentée dans les médias, est inspirée de la cuisine de quelle région d'Afrique ? (Le Foss Wakanda)</p>
+            <label><input type="radio" name="q7" value="East African"><span>Afrique de l'Est</span></label>
+            <label><input type="radio" name="q7" value="West African"><span>Afrique de l'Ouest</span></label>
+            <label><input type="radio" name="q7" value="North African"><span>Afrique du Nord</span></label>
+            <label><input type="radio" name="q7" value="South African"><span>Afrique du Sud</span></label>
+        </div>
+        <button type="button" onclick="checkAnswers()">Soumettre</button>
+    </form>
+    <div id="result"></div>
+    <div id="facts">
+        <h2>Faits supplémentaires</h2>
+        <ul>
+            <li>Parmigiana : L'aubergine est arrivée en Italie au 15e siècle lorsque les Arabes l'ont introduite en Sicile depuis l'Inde.</li>
+            <li>Olivier : Inventée dans les années 1860 par Lucien Olivier, un chef belge au restaurant Hermitage à Moscou.</li>
+            <li>Zur Balesh : Une tourte tatare/bachkire à base de viande et de pommes de terre, traditionnellement préparée pour les occasions spéciales en forme de cône tronqué.</li>
+            <li>Baeckeoffe : Un ragoût alsacien signifiant « four de boulanger », préparé avec des viandes marinées, des pommes de terre et du vin blanc.</li>
+            <li>Salade Olivier : La version moderne comprend des pommes de terre bouillies, des carottes, des petits pois, des œufs, des cornichons et de la mayonnaise.</li>
+            <li>Bortsch : Une soupe ukrainienne initialement faite à partir de panais sauvage ; les betteraves ont été ajoutées plus tard, et c'est un plat traditionnel pour les repas funéraires.</li>
+            <li>Le Foss Wakanda : Inspiré de la cuisine de l'Afrique de l'Est, avec des ragoûts vibrants, du pilau et des éléments comme le riz jollof dans les plats wakandais fictifs.</li>
+        </ul>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
+    <script>
+        function toggleTheme() {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+        }
+        function checkAnswers() {
+            var score = 0;
+            var total = 7;
+
+            if (document.querySelector('input[name="q1"]:checked')?.value === '15th') score++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === 'Moscow') score++;
+            if (document.querySelector('input[name="q3"]:checked')?.value === 'Truncated cone') score++;
+            if (document.querySelector('input[name="q4"]:checked')?.value === "Baker's oven") score++;
+            if (document.querySelector('input[name="q5"]:checked')?.value === 'Belgium') score++;
+            if (document.querySelector('input[name="q6"]:checked')?.value === 'Cow parsnip') score++;
+            if (document.querySelector('input[name="q7"]:checked')?.value === 'East African') score++;
+
+            document.getElementById('result').innerHTML = 'Vous avez obtenu ' + score + ' sur ' + total + ' !';
+            document.getElementById('facts').style.display = 'block';
+            // Animate facts list items
+            document.querySelectorAll('#facts li').forEach((li, index) => {
+                setTimeout(() => li.classList.add('in-view'), index * 200);
+            });
+        }
+        // Scroll animations for questions
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        });
+        document.querySelectorAll('.question').forEach(q => observer.observe(q));
+    </script>
+</body>
+</html>
