@@ -16,11 +16,11 @@
           src="logo-food-house-with-logo-that-says-food-house_1205884-2263.avif"
           alt="image cuisine maison"
         />
-        <h1>CUISINE ARC-EN-CIEL</h1>
+        <h1>AFRICAN FOOD</h1>
       </div>
       <nav>
-        <a style="color: #f7e820" href="/">accueil</a><br />
-        <a style="color: rgb(232, 245, 55)" href="/about">à propos</a>
+        <a style="color: #ebeaeb" href="/">accueil</a>
+        <a style="color: rgb(248, 241, 248)" href="/about">à propos</a>
       </nav>
       <br />
     </header>
@@ -75,34 +75,39 @@
         de sensations fortes,ceci est dû à ses epices très rares qui ne poussent
         que une fois par an sur la montagne du WAKANDA.
       </p>
-      <!-- la recette -->
-      <h4>Igredients (pour 4 pers)</h4>
-      <div class="ulist">
-        <ul type="square">
-          <li>Foss(hannetons).. 200g</li>
-          <li>huile de palme.. 0.5L</li>
-          <li>messep.. 10g</li>
-          <li>citronelle.. 5g</li>
-          <li>citron jaune.. 2</li>
-          <li>piment jaune.. 5g</li>
-          <li>gingimbre.. 5g</li>
-          <li>feuille de wakanda.. 10g</li>
-        </ul>
-      </div>
+      <h4>Ingredients (pour 4 pers)</h4>
+      <!-- Menu deroulant de la recette -->
+      <label for="ingredients">voir les ingredients</label>
+      <select id="ingredients" name="ingredients">
+        <option value="">--Ingredients Recette--</option>
+        <option value="foss">Foss(hannetons) 200g</option>
+        <option value="huile">huile de palme 0.5L</option>
+        <option value="messep">messep 10g</option>
+        <option value="citronnelle">citronnelle 5g</option>
+        <option value="citron jaune">citron jaune 2</option>
+        <option value="piment jaune">piment jaune.. 5g</option>
+        <option value="gingimbre">gingimbre.. 5g</option>
+        <option value="feuille de wakanda">feuille de wakanda.. 10g</option>
+      </select>
       <!-- la cuisson -->
       <h5>Etapes de cuisson</h5>
-      <ol type="1">
-        <li>
-          Tremper le foss dans de l'eau bouillante, puis nettoyer avec du citron
-        </li>
-        <li>
-          Faire sauter dans l'huile de palme les messep,la citronelle,le
-          piment<br />
-          et le gingimbre(écrasé) pendant 10mn
-        </li>
-        <li>Ajouter le foss, puis les feuilles de Wakanda</li>
-        <li>laisser mijoter pendant 15mn ,et tout est PRET...BON APPETIT!!!</li>
-      </ol>
+      <div class="cuisson">
+        <ol type="1">
+          <li>
+            Tremper le foss dans de l'eau bouillante, puis nettoyer avec du
+            citron
+          </li>
+          <li>
+            Faire sauter dans l'huile de palme les messep,la citronelle,le
+            piment<br />
+            et le gingimbre(écrasé) pendant 10mn
+          </li>
+          <li>Ajouter le foss, puis les feuilles de Wakanda</li>
+          <li>laisser mijoter pendant 15mn ,et tout est PRET!</li>
+          </li>
+        </ol>
+      </div>
+      <div id="fin">BON APPETIT!!!</div>
     </main>
   </body>
 </html>
