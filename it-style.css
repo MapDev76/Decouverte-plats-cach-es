@@ -75,9 +75,9 @@ body {
 /* Titres de section */
 
 
-
 .it-prn {
 
+  margin: auto;
   font-size: 1.8rem;
   margin-top: 2rem;
   font-weight: bold;
@@ -86,8 +86,8 @@ body {
   width: 250px;
   color: #7b2e2e;
   text-align: center;
-
-  
+  align-items: center;
+ 
 }
 
 /* Liste des ingrédients */
