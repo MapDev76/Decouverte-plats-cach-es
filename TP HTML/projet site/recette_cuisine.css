@@ -169,7 +169,8 @@ box-shadow: 2px 3px 5px color(black )
 }
 #fin{
   text-align: center;
-  padding-bottom: 40px;
-  font-size: large;
+  padding-bottom: 30px;
+  font-size: 35px;
   font-weight: bold;
+  color: #e9a513;
 }
