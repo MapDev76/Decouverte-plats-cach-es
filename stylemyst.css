@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-height: 100vw;
+    z-index: 2;
+}
+nav {
+  margin: 0;
+    background-color: black;
+    height: 10vw;
+    width: 100%;
+    border-bottom: 0.2vw solid gray ;
+    color: white;
+}
+h1 {
+  margin: 0;
+  position: relative;
+  left: 5vw;
+  top: 3.5vw;
+}
+.brgr {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 10vw;
+    top: 20vw;
+    /* border: 1px solid red; */
+    overflow: hidden;
+}
+/* .fondbrgr {
+  position: absolute;
+  background-color: black;
+  height: 200vw;
+  width: 200vw;
+  top: -100vw;
+  left: -100vw;
+  opacity: 0%;
+  z-index: -1;
+  transition: 1s;
+} */
+.textbrgr {
+  color: white;
+  background-color: white;
+  font-size: 4vw;
+  width: 40vw;
+  position: absolute;
+  /* border: 2px solid red; */
+  border-radius: 50vw;
+  padding: 5vw;
+  z-index: 10;
+  left: 45vw;
+  top: 20vw;
+  transition: 1s;
+}
+
+.tada {
+  z-index: 10;
+  opacity: 0%;
+  width: 200vw;
+  height: 200vw;
+  position: absolute;
+  left: -70vw;
+  top:-60vw;
+  transition: 1s;
+  animation: rotation 5s infinite linear;
+  overflow: hidden;
+}
+
+@keyframes rotation {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+/* -------------------- */
+
+.brgr:hover + .tada {
+  opacity: 70%;
+  overflow: hidden;
+}
+
+
+.brgr:hover ~ .textbrgr {
+  color: black;
+}
+
+
+/* .brgr:hover + .fondbrgr {
+  opacity: 70%;
+} */
+
+
+.gpain {
+    position: absolute;
+    width: 33vw;
+    height: 25vw;
+    top: -2vw;
+    z-index: 15;
+    transform: rotate(178deg);
+}
+.fpal {
+    position: absolute;
+    width: 35vw;
+    height: 15vw;
+    top: 10vw;
+    left: -2vw;
+    z-index: 14;
+    transform: rotate(5deg);
+}
+.dball {
+    position: absolute;
+    width: 25vw;
+    height: 18vw;
+    z-index: 13;
+    top: 12vw;
+    left: 4vw;
+}
+.mbook {
+    position: absolute;
+    width: 43vw;
+    height: 23vw;
+    z-index: 12;
+    top: 12vw;
+    left: -5.5vw;
+}
