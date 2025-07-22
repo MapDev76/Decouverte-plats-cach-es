@@ -1,7 +1,7 @@
 button{ 
       cursor: pointer;
-      width: 150px; 
-      height: 35px; 
+      width: 50%;
+      height: 40px;
       background-color: rgb(60, 58, 72);
       color: #ffffff; 
       border-radius:5px;  
@@ -11,14 +11,13 @@ button{
       transition:transform 200ms ;
       border-style: none;
       justify-content: center;
-      margin-left:450px;
+      margin-bottom: 50px;
       
     }
 
     button:hover{ 
       cursor: pointer;
-      width: 150px; 
-      height: 35px; 
+      width: 50%; 
       background-color: rgb(103, 100, 123); 
       border-radius: 5px; 
       font-family: fantasy; 
@@ -26,5 +25,7 @@ button{
       color: #ffffff;
     transform: scale(1.1);
     border-style: none;
-    margin-left:450px;
+    margin-bottom: 50px
     }
+    a{color: #ffffff;
+    text-decoration: none;}
