@@ -4,112 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Découverte des Plats Cachés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles for modernity */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f9;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 0;
+            overflow-x: hidden;
+            cursor: none;
         }
-        h1, h2 {
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(230, 126, 34, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            z-index: 9999;
+        }
+        .custom-cursor.hover {
+            width: 40px;
+            height: 40px;
+            background: rgba(39, 174, 96, 0.8);
+        }
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1920x1080/?cuisine') no-repeat center/cover;
+            color: white;
+            padding: 20px;
+            perspective: 1000px;
+        }
+        header h1 {
+            font-size: 3em;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
         }
-        h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-        }
-        h2 {
-            font-size: 1.8em;
-            color: #34495e;
-        }
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            opacity: 0;
         }
         .menupage {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-out;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        .menupage.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .menupage h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #e67e22;
         }
         .menupage ul {
-            list-style-type: disc;
-            padding-left: 40px;
-            margin-bottom: 20px;
+            list-style-type: none;
+            padding-left: 0;
         }
-        /* Modern menu with flexbox */
-        .menu ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            list-style: none;
+        .menupage li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s, transform 0.5s;
         }
-        .menu li {
-            flex: 1 1 200px; /* Flexible growth */
-            max-width: 250px;
+        .menupage li.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .menupage li::before {
+            content: '🍴';
+            position: absolute;
+            left: 0;
+        }
+        .menu {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
         }
         .menu a {
-            display: block;
-            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
             text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            font-size: 1.1em;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .menu a.in-view {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: calc(0.1s * var(--index));
         }
         .menu a:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            filter: brightness(1.1);
         }
-        /* Quiz button with distinct style */
         .quiz-button {
-            background-color: #27ae60 !important;
+            background: linear-gradient(135deg, #27ae60, #219d52) !important;
         }
-        .quiz-button:hover {
-            background-color: #219d52 !important;
-        }
-        .footer {
+        footer {
             text-align: center;
-            margin-top: 40px;
+            padding: 20px;
+            background: #333;
+            color: white;
             font-size: 0.9em;
-            color: #777;
         }
-        /* Responsive adjustments */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px) rotateX(45deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         @media (max-width: 768px) {
-            .menu ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
+            header h1 { font-size: 2em; }
+            .menupage { padding: 20px; }
+            .menu { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <h1 class="titre-page" aria-label="Bienvenue sur la page de découverte des plats cachés">
-        🍽️ Bienvenue sur la page de découverte des Plats Cachés
-    </h1>
-    <p>
-        Ici commence un voyage culinaire unique à travers les cultures et les traditions du monde entier. Cette page est dédiée à tous les curieux, les passionnés de cuisine, et ceux qui aiment découvrir ce qui se cache derrière les plats que l'on ne voit pas toujours en première ligne des menus.
-    </p>
-    <div class="menupage">
-        <h2>🌍 Comment naviguer dans cette page ?</h2>
+    <div class="custom-cursor"></div>
+    <header>
+        <h1 aria-label="Bienvenue sur la page de découverte des plats cachés">
+            🍽️ Bienvenue sur la page de découverte des Plats Cachés
+        </h1>
+        <p>
+            Ici commence un voyage culinaire unique à travers les cultures et les traditions du monde entier. Cette page est dédiée à tous les curieux, les passionnés de cuisine, et ceux qui aiment découvrir ce qui se cache derrière les plats que l'on ne voit pas toujours en première ligne des menus.
+        </p>
+    </header>
+    <section class="menupage">
+        <h2>🌍 Comment naviguer dans cette page ?</h2 radiographic
         <p>
             Chaque bouton ci-dessous vous transportera dans un pays différent, révélant un plat souvent méconnu mais profondément enraciné dans la culture locale. En cliquant, vous découvrirez :
         </p>
@@ -122,20 +191,62 @@
         <p>
             C’est une invitation à ouvrir vos sens et votre esprit à des recettes venues d’ailleurs, loin des clichés, proches des gens.
         </p>
-    </div>
+    </section>
     <nav class="menu">
-        <ul>
-            <li><a href="parmigiana.html" title="Découvrir la Parmigiana italienne">Plat Italien : Parmigiana</a></li>
-            <li><a href="balesh.html" title="Découvrir le Zur Balesh bashkir">Plat Bashkir : Zur Balesh</a></li>
-            <li><a href="baeckaoffe.html" title="Découvrir le Baeckeoffe français">Plat Français : Baeckeoffe</a></li>
-            <li><a href="borscht.html" title="Découvrir le Borscht ukrainien">Plat Ukrainien : Borscht</a></li>
-            <li><a href="solad-olivier.html" title="Découvrir la Salade Olivier russe">Plat Russe : Salade Olivier</a></li>
-            <li><a href="site_recettes_cuisines.html" title="Découvrir le Foss Wakanda africain">Plat Africain : Le Foss Wakanda</a></li>
-            <li><a href="quiz.html" class="quiz-button" title="Participer au quiz culinaire">Quiz</a></li>
-        </ul>
+        <a href="parmigiana.html" title="Découvrir la Parmigiana italienne" style="--index: 0;">Plat Italien : Parmigiana</a>
+        <a href="balesh.html" title="Découvrir le Zur Balesh bashkir" style="--index: 1;">Plat Bashkir : Zur Balesh</a>
+        <a href="baeckaoffe.html" title="Découvrir le Baeckeoffe français" style="--index: 2;">Plat Français : Baeckeoffe</a>
+        <a href="borscht.html" title="Découvrir le Borscht ukrainien" style="--index: 3;">Plat Ukrainien : Borscht</a>
+        <a href="solad-olivier.html" title="Découvrir la Salade Olivier russe" style="--index: 4;">Plat Russe : Salade Olivier</a>
+        <a href="site_recettes_cuisines.html" title="Découvrir le Foss Wakanda africain" style="--index: 5;">Plat Africain : Le Foss Wakanda</a>
+        <a href="quiz.html" class="quiz-button" title="Participer au quiz culinaire" style="--index: 6;">Quiz</a>
+        <a href="jeux.html" class="jeux-ingridients de cusine" title="jeux - ingridients de cusine" style="--index: 7;">jeux</a>
     </nav>
     <footer class="footer">
         <p>© 2025 Découverte des Plats Cachés</p>
     </footer>
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    if (entry.target.tagName === 'UL') {
+                        Array.from(entry.target.children).forEach((li, index) => {
+                            setTimeout(() => li.classList.add('in-view'), index * 200);
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.querySelector('.menupage'));
+        document.querySelectorAll('.menu a').forEach(a => observer.observe(a));
+
+        // 3D tilt on header h1
+        const headerEl = document.querySelector('header');
+        const h1 = document.querySelector('header h1');
+        headerEl.addEventListener('mousemove', e => {
+            const { clientX, clientY, currentTarget } = e;
+            const { left, top, width, height } = currentTarget.getBoundingClientRect();
+            const x = (clientX - left) / width - 0.5;
+            const y = (clientY - top) / height - 0.5;
+            h1.style.transform = `rotateY(${x * 20}deg) rotateX(${-y * 20}deg)`;
+        });
+        headerEl.addEventListener('mouseleave', () => {
+            h1.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+    </script>
 </body>
 </html>

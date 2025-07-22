@@ -1,0 +1,27 @@
+body {
+    margin:0;
+    padding: 0;
+    height: 100vw;
+}
+.fondboba {
+    position: fixed;
+    height: 115%;
+    width: 102%;
+    z-index: -5;
+}
+header {
+    background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255));
+    height: 5vw;
+    width: 100%;
+    border-bottom: 0.2vw solid black;
+    text-align: center;
+    position: fixed;
+    z-index: 5;
+}
+.title {
+    margin: 0;
+    padding-top: 1vw ;
+    font-size: 3vw;
+}
+
+/* ----------------------- */
