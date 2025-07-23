@@ -5,16 +5,22 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
-  background: url('../cucinitaliana.jpg') no-repeat center center fixed;
+  background: url('../paesaggio.jpg') no-repeat center center fixed;
   background-size: cover;
   border-radius: 5px;
 }
 
 /* Header */
 .it-header {
-  background-color: #7b2e2e;
+  background-color: #0b19b4;
   padding: 1rem 0;
   text-align: center;
+}
+
+.it-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .it-header nav ul {
@@ -96,29 +102,29 @@ body {
 }
 
 /* Liste des ingrédients */
-.it-ingredients {
-  
-  max-width: 600px;
-  margin: 1rem auto;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.5rem;
-  opacity: 80%;
-  border-radius: 10px;
-}
 
 .popup-checkbox {
   display: none;
 }
 
+.emoji-container {
+  text-align: center;
+  margin: 1rem auto;
+}
+
 .emoji-button {
-  font-size: 2rem;
+
+  font-size: 4rem;
   cursor: pointer;
   margin: 0.3rem;
   display: inline-block;
   transition: transform 0.2s ease;
+  background-color: #d7d59f;
+  border-radius: 50%;
+  gap: 50px;
+  align-items: center;
+  padding: 0.5rem;
+
 }
 .emoji-button:hover {
   transform: scale(2.2);
@@ -164,16 +170,17 @@ body {
   visibility: visible;
 }
 
-
-.it-ingredients li {
-  background-color: #f3e0d2;
-  padding: 0.75rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
 /* Préparation */
+
+.it-strip-image {
+  display: block;
+  width: 75%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 10px;
+  background-color: #eee;
+  padding: 30px;
+}
 
 .span-num {
   font-weight: bold;
