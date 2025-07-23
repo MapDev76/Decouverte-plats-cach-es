@@ -12,15 +12,26 @@ body {
 
 /* Header */
 .it-header {
-  background-color: #0b19b4;
+  background-color: blue;
   padding: 1rem 0;
   text-align: center;
 }
+.it-logo {
+  width: 125px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}   
+
 
 .it-main {
-  max-width: 1200px;
+  
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: auto 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  
 }
 
 .it-header nav ul {
@@ -38,6 +49,7 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  font-size: x-large;
   transition: color 0.3s ease;
 }
 
@@ -58,26 +70,28 @@ body {
 
 /* Image du plat */
 .it-image {
-  display: block;
+  
   width: 500px;
   height: auto;
-  margin: 1rem auto;
+  margin: 4rem auto;
   border-radius: 10px;
   background-color: #eee;
   padding: 30px;
+  
 }
 
 /* Texte principal */
 .it-parm {
-  max-width: 900px;
+
+  max-width: auto;
   margin: 2rem auto;
   padding: 0 1.5rem;
   text-align: justify;
   font-size: 1.5rem;
   background-color: #fff;
-  border-left: 6px solid #d6b161;
+  border-left: 15px solid #d6b161;
   padding-left: 1rem;
-  opacity: 80%;
+  opacity: 75%;
   border-radius: 10px;
 }
 
@@ -108,8 +122,14 @@ body {
 }
 
 .emoji-container {
-  text-align: center;
+  
   margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
 }
 
 .emoji-button {
@@ -208,4 +228,80 @@ p {
   color: #fff;
   margin-top: 3rem;
   align-items: center;
+}
+/* ========== Responsive Mobile Styles ========== */
+@media (max-width: 768px) {
+   
+  .it-image {
+    width: 90%;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    flex-direction: column; 
+    padding: 10px;
+  }
+
+  body {
+    font-size: 2rem;
+    padding: 0;
+  }
+
+  .it-header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .it-header nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .it-titre-page {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    margin: 1.5rem auto;
+    width: 90%;
+    flex-direction: column;
+  }
+
+    }
+
+  .it-parm {
+    font-size: 1rem;
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .it-prn {
+    font-size: 1.3rem;
+    width: 90%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .emoji-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1rem auto;
+  }
+
+  .emoji-button {
+    font-size: 2rem;
+    margin: 0.3rem;
+  }
+
+  .popup-box {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
+
+
 }
