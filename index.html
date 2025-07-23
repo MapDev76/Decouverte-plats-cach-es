@@ -1,538 +1,612 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Découverte des Plats Cachés</title>
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: "Inter Variable", sans-serif;
+        line-height: 1.8;
+        color: #f0f0f0;
+        background: linear-gradient(180deg, #0a0a2a 0%, #1a1a3b 100%);
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* Light mode */
+      body.light-mode {
+        background: linear-gradient(180deg, #f8f9fc 0%, #e0e7ff 100%);
+        color: #1a1a2e;
+      }
+
+      /* Starry background */
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Typography */
+      h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3.5rem, 7vw, 4.5rem);
+        text-align: center;
+        margin: 5rem 0 2.5rem;
+        color: #ffcd38;
+        letter-spacing: -0.02em;
+        font-weight: 700;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      h1.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.light-mode h1 {
+        color: #1e3354;
+      }
+
+      h2 {
+        font-family: "Inter Variable", sans-serif;
+        font-size: clamp(2rem, 4.5vw, 2.5rem);
+        color: #f0f0f0;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.light-mode h2 {
+        color: #1e3354;
+      }
+
+      p {
+        font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+        margin-bottom: 2.5rem;
+        text-align: center;
+        color: #d0d0d0;
+        line-height: 2;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      p.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.light-mode p {
+        color: #2a2a2a;
+      }
+
+      /* Menu page container */
+      .menupage {
+        background: rgba(20, 20, 40, 0.92);
+        padding: 4rem;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        margin: 4rem auto;
+        max-width: 1400px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        position: relative;
+      }
+
+      body.light-mode .menupage {
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .menupage ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 4rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        justify-items: center;
+      }
+
+      .menupage ul li {
+        font-size: 1.3rem;
+        color: #e0e0e0;
+        padding: 1.2rem;
+        position: relative;
+        transition: transform 0.5s ease, color 0.5s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .menupage ul li.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .menupage ul li:hover {
+        color: #ffcd38;
+        transform: translateY(-8px);
+      }
+
+      body.light-mode .menupage ul li {
+        color: #1e3354;
+      }
+
+      body.light-mode .menupage ul li:hover {
+        color: #e67e22;
+      }
+
+      .menupage ul li::before {
+        content: "🍴";
+        position: absolute;
+        left: -2.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffcd38;
+        font-size: 1.5rem;
+        transition: transform 0.5s ease;
+      }
+
+      .menupage ul li:hover::before {
+        transform: translateY(-50%) rotate(15deg);
+      }
+
+      body.light-mode .menupage ul li::before {
+        color: #e67e22;
+      }
+
+      /* Menu grid */
+      .menu ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .menu li {
+        perspective: 2000px;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .menu li.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .menu a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #1e3354, #507099);
+        color: white;
+        text-decoration: none;
+        padding: 2rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        transition: all 0.5s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        position: relative;
+        overflow: hidden;
+      }
+
+      body.light-mode .menu a {
+        background: linear-gradient(45deg, #2b80b9, #6ab0de);
+      }
+
+      .menu a:hover {
+        transform: translateY(-8px) translateZ(20px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        background: linear-gradient(45deg, #152641, #456a9a);
+      }
+
+      body.light-mode .menu a:hover {
+        background: linear-gradient(45deg, #1e6a9f, #5a9bd4);
+      }
+
+      /* Hover preview effect */
+      .menu a .preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        padding: 1rem;
+        font-family: "Inter Variable", sans-serif;
+        font-weight: 400;
+      }
+
+      .menu a:hover .preview {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Quiz button */
+      .quiz-button {
+        background: linear-gradient(45deg, #ffcd38, #ffe082) !important;
+      }
+
+      .quiz-button:hover {
+        background: linear-gradient(45deg, #e6b800, #ffeb3b) !important;
+        transform: translateY(-8px) translateZ(20px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Dark mode toggle */
+      .dark-mode-toggle {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        padding: 1.2rem;
+        background: rgba(0, 0, 0, 0.8);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #ffcd38;
+        font-size: 1.6rem;
+        z-index: 1000;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      body.light-mode .dark-mode-toggle {
+        background: rgba(255, 255, 255, 0.8);
+        color: #1e3354;
+      }
+
+      .dark-mode-toggle:hover {
+        background: rgba(0, 0, 0, 0.95);
+        transform: scale(1.15);
+      }
+
+      body.light-mode .dark-mode-toggle:hover {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        margin: 6rem 0 4rem;
+        font-size: 1.1rem;
+        color: #aaaaaa;
+        padding: 2.5rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .footer.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.light-mode .footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.25);
+        color: #3a3a3a;
+      }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0a0a2a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: opacity 1s ease-out;
+      }
+
+      body.light-mode .preloader {
+        background: #f8f9fc;
+      }
+
+      .preloader .loader {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border: 4px solid #ffcd38;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         body {
-            font-family: 'Inter Variable', sans-serif;
-            line-height: 1.8;
-            color: #f0f0f0;
-            background: linear-gradient(180deg, #0a0a2a 0%, #1a1a3b 100%);
-            padding: 0;
-            margin: 0;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
+          padding: 20px;
         }
 
-        /* Light mode */
-        body.light-mode {
-            background: linear-gradient(180deg, #f8f9fc 0%, #e0e7ff 100%);
-            color: #1a1a2e;
-        }
-
-        /* Starry background */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Typography */
         h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.5rem, 7vw, 4.5rem);
-            text-align: center;
-            margin: 5rem 0 2.5rem;
-            color: #ffcd38;
-            letter-spacing: -0.02em;
-            font-weight: 700;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        h1.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        body.light-mode h1 {
-            color: #1e3354;
+          font-size: clamp(2.8rem, 6vw, 3.8rem);
         }
 
         h2 {
-            font-family: 'Inter Variable', sans-serif;
-            font-size: clamp(2rem, 4.5vw, 2.5rem);
-            color: #f0f0f0;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+          font-size: clamp(1.8rem, 4vw, 2.2rem);
         }
 
-        h2.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        body.light-mode h2 {
-            color: #1e3354;
-        }
-
-        p {
-            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-            margin-bottom: 2.5rem;
-            text-align: center;
-            color: #d0d0d0;
-            line-height: 2;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        p.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        body.light-mode p {
-            color: #2a2a2a;
-        }
-
-        /* Menu page container */
-        .menupage {
-            background: rgba(20, 20, 40, 0.92);
-            padding: 4rem;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            margin: 4rem auto;
-            max-width: 1400px;
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            position: relative;
-        }
-
-        body.light-mode .menupage {
-            background: rgba(255, 255, 255, 0.96);
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .menupage ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 4rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            justify-items: center;
-        }
-
-        .menupage ul li {
-            font-size: 1.3rem;
-            color: #e0e0e0;
-            padding: 1.2rem;
-            position: relative;
-            transition: transform 0.5s ease, color 0.5s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .menupage ul li.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .menupage ul li:hover {
-            color: #ffcd38;
-            transform: translateY(-8px);
-        }
-
-        body.light-mode .menupage ul li {
-            color: #1e3354;
-        }
-
-        body.light-mode .menupage ul li:hover {
-            color: #e67e22;
-        }
-
-        .menupage ul li::before {
-            content: '🍴';
-            position: absolute;
-            left: -2.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ffcd38;
-            font-size: 1.5rem;
-            transition: transform 0.5s ease;
-        }
-
-        .menupage ul li:hover::before {
-            transform: translateY(-50%) rotate(15deg);
-        }
-
-        body.light-mode .menupage ul li::before {
-            color: #e67e22;
-        }
-
-        /* Menu grid */
         .menu ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            padding: 0;
-            list-style: none;
-        }
-
-        .menu li {
-            perspective: 2000px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .menu li.visible {
-            opacity: 1;
-            transform: translateY(0);
+          grid-template-columns: 1fr;
         }
 
         .menu a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #1e3354, #507099);
-            color: white;
-            text-decoration: none;
-            padding: 2rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            transition: all 0.5s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-            position: relative;
-            overflow: hidden;
+          padding: 1.5rem;
+          font-size: 1.3rem;
         }
 
-        body.light-mode .menu a {
-            background: linear-gradient(45deg, #2b80b9, #6ab0de);
+        .menupage {
+          margin: 2.5rem;
+          padding: 2.5rem;
         }
 
-        .menu a:hover {
-            transform: translateY(-8px) translateZ(20px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-            background: linear-gradient(45deg, #152641, #456a9a);
-        }
-
-        body.light-mode .menu a:hover {
-            background: linear-gradient(45deg, #1e6a9f, #5a9bd4);
-        }
-
-        /* Hover preview effect */
-        .menu a .preview {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1rem;
-            text-align: center;
-            padding: 1rem;
-            font-family: 'Inter Variable', sans-serif;
-            font-weight: 400;
-        }
-
-        .menu a:hover .preview {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Quiz button */
-        .quiz-button {
-            background: linear-gradient(45deg, #ffcd38, #ffe082) !important;
-        }
-
-        .quiz-button:hover {
-            background: linear-gradient(45deg, #e6b800, #ffeb3b) !important;
-            transform: translateY(-8px) translateZ(20px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Dark mode toggle */
         .dark-mode-toggle {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            padding: 1.2rem;
-            background: rgba(0, 0, 0, 0.8);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            color: #ffcd38;
-            font-size: 1.6rem;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          top: 30px;
+          right: 30px;
         }
+      }
 
-        body.light-mode .dark-mode-toggle {
-            background: rgba(255, 255, 255, 0.8);
-            color: #1e3354;
-        }
-
-        .dark-mode-toggle:hover {
-            background: rgba(0, 0, 0, 0.95);
-            transform: scale(1.15);
-        }
-
-        body.light-mode .dark-mode-toggle:hover {
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin: 6rem 0 4rem;
-            font-size: 1.1rem;
-            color: #aaaaaa;
-            padding: 2.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.25);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .footer.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        body.light-mode .footer {
-            border-top: 1px solid rgba(0, 0, 0, 0.25);
-            color: #3a3a3a;
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 1s ease-out;
-        }
-
-        body.light-mode .preloader {
-            background: #f8f9fc;
-        }
-
-        .preloader .loader {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            border: 4px solid #ffcd38;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: clamp(2.8rem, 6vw, 3.8rem);
-            }
-
-            h2 {
-                font-size: clamp(1.8rem, 4vw, 2.2rem);
-            }
-
-            .menu ul {
-                grid-template-columns: 1fr;
-            }
-
-            .menu a {
-                padding: 1.5rem;
-                font-size: 1.3rem;
-            }
-
-            .menupage {
-                margin: 2.5rem;
-                padding: 2.5rem;
-            }
-
-            .dark-mode-toggle {
-                top: 30px;
-                right: 30px;
-            }
-        }
-
-        /* Load Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter+Variable:wght@100..900&family=Cormorant+Garamond:wght@400;700&display=swap');
+      /* Load Google Fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Inter+Variable:wght@100..900&family=Cormorant+Garamond:wght@400;700&display=swap");
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="preloader">
-        <div class="loader"></div>
+      <div class="loader"></div>
     </div>
     <div class="stars" id="particles-js"></div>
     <button class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
     <div class="menupage animate-in">
-        <h1 class="animate-in">🍽️ Découvrez les Saveurs Cachées du Monde</h1>
-        <p class="animate-in">
-            Embarquez pour une odyssée culinaire où chaque plat dévoile l’âme d’une culture, l’histoire d’un peuple et la passion d’une tradition. Cette expérience immersive célèbre des recettes rares, vibrantes de saveurs et d’authenticité.
-        </p>
-        
-        <h2 class="animate-in">🌍 Votre quête gastronomique</h2>
+      <h1 class="animate-in">🍽️ Découvrez les Saveurs Cachées du Monde</h1>
+      <p class="animate-in">
+        Embarquez pour une odyssée culinaire où chaque plat dévoile l’âme d’une
+        culture, l’histoire d’un peuple et la passion d’une tradition. Cette
+        expérience immersive célèbre des recettes rares, vibrantes de saveurs et
+        d’authenticité.
+      </p>
+
+      <h2 class="animate-in">🌍 Votre quête gastronomique</h2>
+      <ul>
+        <li class="animate-in">
+          Chaque lien ouvre une fenêtre sur un plat emblématique, ancré dans son
+          terroir.
+        </li>
+        <li class="animate-in">
+          Découvrez les secrets de sa préparation et ses ingrédients uniques.
+        </li>
+        <li class="animate-in">
+          Explorez une histoire riche, souvent millénaire, toujours captivante.
+        </li>
+        <li class="animate-in">
+          Déchiffrez l’étymologie de son nom, miroir de son héritage.
+        </li>
+        <li class="animate-in">
+          Laissez-vous emporter par des anecdotes culturelles intemporelles.
+        </li>
+      </ul>
+      <p class="animate-in">
+        Une aventure sensorielle pour les explorateurs de saveurs et les
+        passionnés de gastronomie mondiale.
+      </p>
+
+      <div class="menu">
         <ul>
-            <li class="animate-in">Chaque lien ouvre une fenêtre sur un plat emblématique, ancré dans son terroir.</li>
-            <li class="animate-in">Découvrez les secrets de sa préparation et ses ingrédients uniques.</li>
-            <li class="animate-in">Explorez une histoire riche, souvent millénaire, toujours captivante.</li>
-            <li class="animate-in">Déchiffrez l’étymologie de son nom, miroir de son héritage.</li>
-            <li class="animate-in">Laissez-vous emporter par des anecdotes culturelles intemporelles.</li>
+          <li class="animate-in">
+            <a href="#" aria-label="Learn about Italian Parmigiana"
+              >Plat Italien : Parmigiana
+              <div class="preview">
+                🍆 Aubergine, mozzarella et sauce tomate
+              </div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="#" aria-label="Learn about Bashkir Zur Balesh"
+              >Plat Bashkir : Zur Balesh
+              <div class="preview">
+                🥟 Pâtisserie salée aux pommes de terre
+              </div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="baeckaoffe.html" aria-label="Learn about French Baeckeoffe"
+              >Plat Français : Baeckeoffe
+              <div class="preview">🍲 Ragoût alsacien cuit au four</div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="#" aria-label="Learn about Ukrainian Borscht"
+              >Plat Ukrainien : Borscht
+              <div class="preview">🥣 Soupe de betterave vibrante</div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="#" aria-label="Learn about Russian Salade Olivier"
+              >Plat Russe : Salade Olivier
+              <div class="preview">🥗 Salade festive aux légumes</div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="#" aria-label="Learn about African Le Foss Wakanda"
+              >Plat Africain : Le Foss Wakanda
+              <div class="preview">🍛 Ragoût épicé africain</div></a
+            >
+          </li>
+          <li class="animate-in">
+            <a href="#" class="quiz-button" aria-label="Take the Culinary Quiz"
+              >Quiz Culinaire
+              <div class="preview">🧠 Testez vos connaissances !</div></a
+            >
+          </li>
         </ul>
-        <p class="animate-in">
-            Une aventure sensorielle pour les explorateurs de saveurs et les passionnés de gastronomie mondiale.
-        </p>
-        
-        <div class="menu">
-            <ul>
-                <li class="animate-in"><a href="#" aria-label="Learn about Italian Parmigiana">Plat Italien : Parmigiana<div class="preview">🍆 Aubergine, mozzarella et sauce tomate</div></a></li>
-                <li class="animate-in"><a href="#" aria-label="Learn about Bashkir Zur Balesh">Plat Bashkir : Zur Balesh<div class="preview">🥟 Pâtisserie salée aux pommes de terre</div></a></li>
-                <li class="animate-in"><a href="#" aria-label="Learn about French Baeckeoffe">Plat Français : Baeckeoffe<div class="preview">🍲 Ragoût alsacien cuit au four</div></a></li>
-                <li class="animate-in"><a href="#" aria-label="Learn about Ukrainian Borscht">Plat Ukrainien : Borscht<div class="preview">🥣 Soupe de betterave vibrante</div></a></li>
-                <li class="animate-in"><a href="#" aria-label="Learn about Russian Salade Olivier">Plat Russe : Salade Olivier<div class="preview">🥗 Salade festive aux légumes</div></a></li>
-                <li class="animate-in"><a href="#" aria-label="Learn about African Le Foss Wakanda">Plat Africain : Le Foss Wakanda<div class="preview">🍛 Ragoût épicé africain</div></a></li>
-                <li class="animate-in"><a href="#" class="quiz-button" aria-label="Take the Culinary Quiz">Quiz Culinaire<div class="preview">🧠 Testez vos connaissances !</div></a></li>
-            </ul>
-        </div>
+      </div>
     </div>
-    
+
     <div class="footer animate-in">
-        © 2025 Découverte des Plats Cachés | Une célébration des saveurs mondiales
+      © 2025 Découverte des Plats Cachés | Une célébration des saveurs mondiales
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.querySelector('.preloader');
-            gsap.to(preloader, {
-                opacity: 0,
+      // Preloader
+      window.addEventListener("load", () => {
+        const preloader = document.querySelector(".preloader");
+        gsap.to(preloader, {
+          opacity: 0,
+          duration: 1,
+          delay: 1.5,
+          onComplete: () => (preloader.style.display = "none"),
+        });
+      });
+
+      // Scroll animations
+      const animateIns = document.querySelectorAll(".animate-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              gsap.to(entry.target, {
+                opacity: 1,
+                y: 0,
                 duration: 1,
-                delay: 1.5,
-                onComplete: () => preloader.style.display = 'none'
-            });
+                ease: "power3.out",
+                delay: index * 0.15,
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      animateIns.forEach((element) => observer.observe(element));
+
+      // Dark mode toggle
+      const toggleButton = document.querySelector(".dark-mode-toggle");
+      toggleButton.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        toggleButton.textContent = document.body.classList.contains(
+          "light-mode"
+        )
+          ? "🌞"
+          : "🌙";
+        gsap.to(toggleButton, {
+          scale: 1.15,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => {
+            gsap.to(toggleButton, { scale: 1, duration: 0.3 });
+          },
         });
+      });
 
-        // Scroll animations
-        const animateIns = document.querySelectorAll('.animate-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    gsap.to(entry.target, {
-                        opacity: 1,
-                        y: 0,
-                        duration: 1,
-                        ease: 'power3.out',
-                        delay: index * 0.15
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        animateIns.forEach(element => observer.observe(element));
-
-        // Dark mode toggle
-        const toggleButton = document.querySelector('.dark-mode-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            toggleButton.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
-            gsap.to(toggleButton, {
-                scale: 1.15,
-                duration: 0.3,
-                ease: 'power2.out',
-                onComplete: () => {
-                    gsap.to(toggleButton, { scale: 1, duration: 0.3 });
-                }
-            });
+      // Button micro-interactions
+      document.querySelectorAll(".menu a").forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+          gsap.to(button, {
+            scale: 1.05,
+            translateZ: 10,
+            duration: 0.4,
+            ease: "power3.out",
+          });
         });
-
-        // Button micro-interactions
-        document.querySelectorAll('.menu a').forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                gsap.to(button, {
-                    scale: 1.05,
-                    translateZ: 10,
-                    duration: 0.4,
-                    ease: 'power3.out'
-                });
-            });
-            button.addEventListener('mouseleave', () => {
-                gsap.to(button, {
-                    scale: 1,
-                    translateZ: 0,
-                    duration: 0.4,
-                    ease: 'power3.out'
-                });
-            });
+        button.addEventListener("mouseleave", () => {
+          gsap.to(button, {
+            scale: 1,
+            translateZ: 0,
+            duration: 0.4,
+            ease: "power3.out",
+          });
         });
+      });
 
-        // Particles.js starry sky with lighter settings
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
-                color: { value: ['#ffffff', '#ffcd38', '#e67e22'] },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.2 } },
-                size: { value: 2, random: true },
-                line_linked: { enable: false },
-                move: { enable: true, speed: 0.5, direction: 'none', random: true, out_mode: 'out' }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: { onhover: { enable: false, mode: 'repulse' }, onclick: { enable: false, mode: 'push' } },
-                modes: { repulse: { distance: 80 }, push: { particles_nb: 2 } }
-            },
-            retina_detect: true
-        });
+      // Particles.js starry sky with lighter settings
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: ["#ffffff", "#ffcd38", "#e67e22"] },
+          shape: { type: "circle" },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: { enable: true, speed: 0.4, opacity_min: 0.2 },
+          },
+          size: { value: 2, random: true },
+          line_linked: { enable: false },
+          move: {
+            enable: true,
+            speed: 0.5,
+            direction: "none",
+            random: true,
+            out_mode: "out",
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: false, mode: "repulse" },
+            onclick: { enable: false, mode: "push" },
+          },
+          modes: { repulse: { distance: 80 }, push: { particles_nb: 2 } },
+        },
+        retina_detect: true,
+      });
     </script>
-</body>
+  </body>
 </html>
