@@ -47,6 +47,7 @@ body {
   font-size: 2.2rem;
   font-family: 'Georgia', serif;
   background-color: #eee;
+  opacity: 80%;
 }
 
 /* Image du plat */
@@ -66,16 +67,20 @@ body {
   margin: 2rem auto;
   padding: 0 1.5rem;
   text-align: justify;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   background-color: #fff;
   border-left: 6px solid #d6b161;
   padding-left: 1rem;
+  opacity: 80%;
+  border-radius: 10px;
 }
 
 /* Titres de section */
 
-h2.it-prn {
 
+.it-prn {
+
+  margin: auto;
   font-size: 1.8rem;
   margin-top: 2rem;
   font-weight: bold;
@@ -83,8 +88,11 @@ h2.it-prn {
   background-color: #eee;
   width: 250px;
   color: #7b2e2e;
-
-
+  text-align: center;
+  align-items: center;
+  opacity: 80%;
+  border-radius: 10px;
+ 
 }
 
 /* Liste des ingrédients */
@@ -97,7 +105,65 @@ h2.it-prn {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 0.5rem;
+  opacity: 80%;
+  border-radius: 10px;
 }
+
+.popup-checkbox {
+  display: none;
+}
+
+.emoji-button {
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.emoji-button:hover {
+  transform: scale(2.2);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.popup-checkbox:checked + label + .popup {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 .it-ingredients li {
   background-color: #f3e0d2;
@@ -108,6 +174,14 @@ h2.it-prn {
 }
 
 /* Préparation */
+
+.span-num {
+  font-weight: bold;
+  color: white;
+  background-color: #e79f0d;
+  padding: 0.2rem 0.5rem; 
+}
+
 p {
   max-width: 800px;
   margin: 1rem auto;
@@ -126,4 +200,5 @@ p {
   font-size: 0.9rem;
   color: #fff;
   margin-top: 3rem;
+  align-items: center;
 }
