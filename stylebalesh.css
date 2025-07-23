@@ -66,3 +66,27 @@ img {
     color: #3a3a3a;
     line-height: 1,6;
 }
+
+.about-degustation {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 90%;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1,6;
+}
+
+.info-supplementaire {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 90%;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1,6;
+}

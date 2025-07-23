@@ -29,3 +29,10 @@ button{
     }
     a{color: #ffffff;
     text-decoration: none;}
+
+    img{transition: all ease 1s ;
+    overflow: hidden;
+    object-fit: cover;}
+
+    img:hover{cursor: pointer;
+    transform: scale(1.2);}
