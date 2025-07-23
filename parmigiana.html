@@ -26,134 +26,131 @@
       </nav>
     </header>
     <!--Titre Page-->
-    <h1 class="it-titre-page">Découverte du Plat Italien: Parmigiana</h1>
-    <main class="it-main">
-      <!-- Image du plat et description-->
-      <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" />
-      <p class="it-parm">
-        " La parmigiana, ou parmigiana di melanzane (littéralement « d'aubergine
-        »), est un plat du sud de l'Italie. Bien que recouvrant une multitude de
-        recettes, on peut résumer l'essence du plat à un gratin d'aubergines à
-        la tomate et au fromage (souvent pecorino, mozzarella, scamorza ou
-        caciocavallo). Cuisiner les légumes alla parmigiana désigne à l'origine
-        une manière de préparer les légumes en couches successives, comme on
-        préparerait des lasagnes. Contrairement à une idée reçue, le nom de
-        parmigiana ne vient pas de l'utilisation de parmesan, qui n'est pas le
-        fromage utilisé et n'était d'ailleurs pas présent dans le sud de
-        l'Italie à la période de création de la recette en Sicile ou à Naples.
-        Il existe autant de recettes que de cuisiniers, certaines incluant une
-        sauce tomate, d'autres un ragù (sauce carnée), d'autres encore excluant
-        la tomate, etc. En Campanie, dans les Pouilles et en Sicile, la
-        parmigiana di melanzane bénéficie d'une appellation au titre des
-        produits agroalimentaires traditionnels italiens.
-      </p>
+    <main >
+      <h1 class="it-titre-page">Découverte du Plat Italien: La Parmigiana
+        <p>Il suffit de la nommer pour qu'il y ait une ovation à table. 
+          C'est la reine des plats uniques, la consolatrice des humeurs abattues : 
+          la parmigiana d'aubergines. Une recette partagée et disputée quant à ses origines du nord au sud : 
+          Émilie-Romagne, Campanie (Parmigiana 'e mulignane) et Sicile (Parmiciana ou Patrociane) 
+          avec quelques variantes d'ingrédients et de modes de composition, mais toutes absolument fabuleuses ! 
+          Vous êtes-vous déjà demandé pourquoi elle s'appelle ainsi ? Le nom "parmigiana" dériverait justement du sicilien "parmiciana", 
+          qui en dialecte indique la pile de lamelles de bois des persiennes : pensez en effet à la façon dont les tranches d'aubergines sont disposées dans le plat et vous remarquerez les similitudes. 
+          Peu d'ingrédients comme la tomate, les aubergines frites, le basilic et la mozzarella, et tant de saveurs pour un plat symbole de la cuisine méditerranéenne !</p>
+        </h1>
+        <!-- Image du plat -->
+        <div class="emoji-container">
+        <img src="parmitciana.jpg" alt="Plat Parmigiana" class="it-image" />
+        <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" />
     </main>
 
     <!-- Ingrédients avec popup -->
-    <div class="it-prn"><h3>Ingrédients :</h3></div>
+    <section>
+          <div class="it-prn">
+          <h3>Ingrédients :</h3>
+          </div>
 
-    <!-- Aubergines -->
-    <div class="emoji-container">
-      <input type="checkbox" id="popup-aubergine" class="popup-checkbox" />
-      <label for="popup-aubergine" class="emoji-button" title="Aubergines"
-        >🍆</label
-      >
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-aubergine" class="popup-close">&times;</label>
-          <h3>Aubergines</h3>
-          <p>
-            Ingrédient principal de la parmigiana, elles sont coupées en
-            tranches puis frites ou grillées.
-          </p>
+        <!-- Aubergines -->
+        <div class="emoji-container">
+        <input type="checkbox" id="popup-aubergine" class="popup-checkbox" />
+        <label for="popup-aubergine" class="emoji-button" title="Aubergines"
+          >🍆</label
+        >
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-aubergine" class="popup-close">&times;</label>
+            <h3>Aubergines: clic ici pour plus infos</h3>
+            <p>
+              Aubergines ovales noires 1.7Kg  -  Ingrédient principal de la parmigiana, elles sont coupées en
+              tranches puis frites ou grillées.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Tomates -->
-      <input type="checkbox" id="popup-tomate" class="popup-checkbox" />
-      <label for="popup-tomate" class="emoji-button" title="Tomates">🍅</label>
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-tomate" class="popup-close">&times;</label>
-          <h3>Purée de tomates</h3>
-          <p>Base de la sauce, souvent mijotée avec oignon et basilic.</p>
+        <!-- Tomates -->
+        <input type="checkbox" id="popup-tomate" class="popup-checkbox" />
+        <label for="popup-tomate" class="emoji-button" title="Tomates">🍅</label>
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-tomate" class="popup-close">&times;</label>
+            <h3>Purée de tomates: clic ici pour plus infos</h3>
+            <p>Colis de Tomates 1Kg - Base de la sauce, a mijotée avec oignon et basilic.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Mozzarella -->
-      <input type="checkbox" id="popup-mozza" class="popup-checkbox" />
-      <label for="popup-mozza" class="emoji-button" title="Mozzarella"
-        >⚪</label
-      >
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-mozza" class="popup-close">&times;</label>
-          <h3>Mozzarella</h3>
-          <p>Donne fondant et douceur entre les couches d’aubergines.</p>
+        <!-- Mozzarella -->
+        <input type="checkbox" id="popup-mozza" class="popup-checkbox" />
+        <label for="popup-mozza" class="emoji-button" title="Mozzarella"
+          >⚪</label
+        >
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-mozza" class="popup-close">&times;</label>
+            <h3>Mozzarella: clic ici pour plus infos</h3>
+            <p>La Mozzarella 500g - Donne fondant et douceur entre les couches d’aubergines.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Basilic -->
-      <input type="checkbox" id="popup-basilic" class="popup-checkbox" />
-      <label for="popup-basilic" class="emoji-button" title="Basilic">🌿</label>
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-basilic" class="popup-close">&times;</label>
-          <h3>Basilic</h3>
-          <p>Ajoute fraîcheur et parfum typique de la cuisine italienne.</p>
+        <!-- Basilic -->
+        <input type="checkbox" id="popup-basilic" class="popup-checkbox" />
+        <label for="popup-basilic" class="emoji-button" title="Basilic">🌿</label>
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-basilic" class="popup-close">&times;</label>
+            <h3>Basilic: clic ici pour plus infos</h3>
+            <p>Foeuilles de Basilic frais à volonté - Ajoute fraîcheur et parfum typique de la cuisine italienne.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Huile d'olive -->
-      <input type="checkbox" id="popup-huile" class="popup-checkbox" />
-      <label for="popup-huile" class="emoji-button" title="Huile d'olive"
-        >🫒</label
-      >
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-huile" class="popup-close">&times;</label>
-          <h3>Huile d'olive</h3>
-          <p>Utilisée pour frire les aubergines et préparer la sauce.</p>
+        <!-- Huile d'olive -->
+        <input type="checkbox" id="popup-huile" class="popup-checkbox" />
+        <label for="popup-huile" class="emoji-button" title="Huile d'olive"
+          >🫒</label
+        >
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-huile" class="popup-close">&times;</label>
+            <h3>Huile EVO: clic ici pour plus infos</h3>
+            <p>Huile extra vierge d'olive à volonté - Utilisée pour frire les aubergines et préparer la sauce.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Oignon -->
-      <input type="checkbox" id="popup-oignon" class="popup-checkbox" />
-      <label for="popup-oignon" class="emoji-button" title="Oignon">🧅</label>
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-oignon" class="popup-close">&times;</label>
-          <h3>Oignons</h3>
-          <p>Faits revenir pour parfumer la sauce tomate.</p>
+        <!-- Oignon -->
+        <input type="checkbox" id="popup-oignon" class="popup-checkbox" />
+        <label for="popup-oignon" class="emoji-button" title="Oignon">🧅</label>
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-oignon" class="popup-close">&times;</label>
+            <h3>Oignons: clic ici pour plus infos</h3>
+            <p>Un oignon jaune - Faits revenir pour parfumer la sauce tomate.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Sel et poivre -->
-      <input type="checkbox" id="popup-selpoivre" class="popup-checkbox" />
-      <label for="popup-selpoivre" class="emoji-button" title="Sel et poivre"
-        >🧂</label
-      >
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-selpoivre" class="popup-close">&times;</label>
-          <h3>Sel & Poivre</h3>
-          <p>Assaisonnement essentiel pour équilibrer les saveurs.</p>
+        <!-- Sel et poivre -->
+        <input type="checkbox" id="popup-selpoivre" class="popup-checkbox" />
+        <label for="popup-selpoivre" class="emoji-button" title="Sel et poivre"
+          >🧂</label
+        >
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-selpoivre" class="popup-close">&times;</label>
+            <h3>Sel & Poivre: clic ici pour plus infos</h3>
+            <p>Sel et poivre, la juste quantité à adjouter sur la sauce de tomate - Assaisonnement essentiel pour équilibrer les saveurs.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Parmesan -->
-      <input type="checkbox" id="popup-parmesan" class="popup-checkbox" />
-      <label for="popup-parmesan" class="emoji-button" title="Parmesan"
-        >🧀</label
-      >
-      <div class="popup">
-        <div class="popup-box">
-          <label for="popup-parmesan" class="popup-close">&times;</label>
-          <h3>Parmigiano Reggiano</h3>
-          <p>Fromage râpé qui gratine à la cuisson pour une croûte dorée.</p>
+        <!-- Parmesan -->
+        <input type="checkbox" id="popup-parmesan" class="popup-checkbox" />
+        <label for="popup-parmesan" class="emoji-button" title="Parmesan"
+          >🧀</label
+        >
+        <div class="popup">
+          <div class="popup-box">
+            <label for="popup-parmesan" class="popup-close">&times;</label>
+            <h3>Parmigiano Reggiano: clic ici pour plus infos</h3>
+            <p>Parmesan : Le Fromage râpé qui gratine à la cuisson pour une croûte dorée.</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
 
     <div class="it-prn"><h3>Préparation :</h3></div>
     <img
@@ -255,7 +252,7 @@
       parmigiana d'aubergines <span class="span-num">24</span> !
     </p>
     <footer class="footer">
-      <p>&copy; 2025 Découverte des Plats Cachés</p>
+      <p>&copy; 2025 - Découverte des Plats Cachés - La Parmigiana</p>
     </footer>
   </body>
 </html>

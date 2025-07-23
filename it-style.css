@@ -18,20 +18,26 @@ body {
 }
 .it-logo {
   width: 125px;
-  height: auto;
+  height: auto; 
   display: inline-block;
   vertical-align: middle;
 }   
 
+.nav-accueil {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Main content */
 
-.it-main {
-  
+main {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: auto 3rem;
-  display: flex;
-  flex-direction: row;
-  align-items: space-between;
-  
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .it-header nav ul {
@@ -49,7 +55,6 @@ body {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  font-size: x-large;
   transition: color 0.3s ease;
 }
 
@@ -71,11 +76,11 @@ body {
 /* Image du plat */
 .it-image {
   
-  width: 500px;
+  max-width: px;
   height: auto;
   margin: 4rem auto;
   border-radius: 10px;
-  background-color: #eee;
+  background-color:#d6b161;
   padding: 30px;
   
 }
@@ -91,7 +96,7 @@ body {
   background-color: #fff;
   border-left: 15px solid #d6b161;
   padding-left: 1rem;
-  opacity: 75%;
+  opacity: 65%;
   border-radius: 10px;
 }
 
@@ -140,7 +145,7 @@ body {
   display: inline-block;
   transition: transform 0.2s ease;
   background-color: #d7d59f;
-  border-radius: 50%;
+  border-radius: 10%;
   gap: 50px;
   align-items: center;
   padding: 0.5rem;
@@ -237,15 +242,20 @@ p {
     max-width: 100%;
     height: auto;
     margin: 1rem auto;
-    flex-direction: column; 
+    display: block;
     padding: 10px;
   }
 
   body {
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 0;
   }
-
+  .it-header {
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+  }
   .it-header nav ul {
     display: flex;
     flex-direction: column;
@@ -264,7 +274,10 @@ p {
     flex-direction: column;
   }
 
-    }
+  .it-image {
+    width: 90%;
+    padding: 1rem;
+  }
 
   .it-parm {
     font-size: 1rem;
@@ -302,6 +315,4 @@ p {
     font-size: 0.9rem;
     padding: 1rem 0;
   }
-
-
 }
