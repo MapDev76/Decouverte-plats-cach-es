@@ -1,0 +1,1393 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="60+ interesting facts about food and cooking, expanded quiz, and fun tests. Share your results!">
+    <meta name="keywords" content="food facts, cooking facts, food quiz, cooking test">
+    <title>Super Facts about Food and Cooking - Facts and Quizzes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f7f4; /* Soft off-white for elegance */
+            --text-color: #1a1a1a; /* Deep charcoal */
+            --header-bg: linear-gradient(to bottom, #b5965a, #8b6d3e); /* Gold-inspired gradient for luxury */
+            --header-text: #ffffff;
+            --fact-bg: #ffffff;
+            --quiz-bg: #ffffff;
+            --option-bg: #f8f7f4;
+            --option-border: #e0e0e0;
+            --option-hover: #f0ebe3;
+            --selected-bg: #b5965a;
+            --selected-text: #ffffff;
+            --button-bg: #b5965a;
+            --button-text: #ffffff;
+            --button-hover-bg: #8b6d3e;
+            --ad-bg: #f8f7f4;
+            --footer-bg: #1a1a1a;
+            --footer-text: #ffffff;
+            --progress-bg: #e0e0e0;
+            --progress-bar: #b5965a;
+            --input-border: #e0e0e0;
+            --lang-bg: #b5965a;
+            --lang-text: #ffffff;
+            --spin-bg: #b5965a;
+            --spin-text: #ffffff;
+            --spin-hover-bg: #8b6d3e;
+            --fact-hover-bg: #f0ebe3;
+        }
+
+        body.dark {
+            --bg-color: #1a1a1a;
+            --text-color: #f8f7f4;
+            --header-bg: linear-gradient(to bottom, #8b6d3e, #5c4827);
+            --header-text: #f8f7f4;
+            --fact-bg: #2a2a2a;
+            --quiz-bg: #2a2a2a;
+            --option-bg: #3a3a3a;
+            --option-border: #505050;
+            --option-hover: #484848;
+            --selected-bg: #8b6d3e;
+            --selected-text: #f8f7f4;
+            --button-bg: #8b6d3e;
+            --button-text: #f8f7f4;
+            --button-hover-bg: #b5965a;
+            --ad-bg: #2a2a2a;
+            --footer-bg: #0d0d0d;
+            --footer-text: #f8f7f4;
+            --progress-bg: #505050;
+            --progress-bar: #8b6d3e;
+            --input-border: #505050;
+            --lang-bg: #8b6d3e;
+            --lang-text: #f8f7f4;
+            --spin-bg: #8b6d3e;
+            --spin-text: #f8f7f4;
+            --spin-hover-bg: #b5965a;
+            --fact-hover-bg: #484848;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .fact {
+            background: var(--fact-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s, background 0.4s;
+            animation: factAppear 0.8s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .fact img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 1rem;
+            animation: imageFadeIn 1s ease-out;
+            transition: transform 0.4s;
+        }
+
+        .fact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .fact:hover::before {
+            opacity: 1;
+        }
+
+        .fact:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            background: var(--fact-hover-bg);
+        }
+
+        .fact:hover img {
+            transform: scale(1.05);
+        }
+
+        .fact:hover::after {
+            content: '▶';
+            position: absolute;
+            top: 100px; /* Center vertically on the image */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+            transition: opacity 0.4s;
+        }
+
+        .fact::after {
+            content: '';
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .quiz-section {
+            margin: 3rem 0;
+            background: var(--quiz-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            animation: bounceIn 0.6s;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background 0.4s, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+        }
+
+        .quiz-option:hover {
+            background: var(--option-hover);
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .quiz-option.selected {
+            background: var(--selected-bg);
+            color: var(--selected-text);
+            animation: pulse 0.6s;
+            transform: scale(1.05);
+        }
+
+        #quiz-progress {
+            height: 6px;
+            background: var(--progress-bg);
+            margin-bottom: 1.5rem;
+            border-radius: 3px;
+        }
+
+        #quiz-progress-bar {
+            height: 100%;
+            background: var(--progress-bar);
+            width: 0;
+            transition: width 0.4s ease-in-out;
+            border-radius: 3px;
+        }
+
+        button {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.4s, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background: var(--button-hover-bg);
+            transform: scale(1.05);
+        }
+
+        .ad {
+            background: var(--ad-bg);
+            padding: 1rem;
+        }
+
+        .share, .subscribe {
+            text-align: center;
+            margin: 3rem 0;
+            animation: fadeIn 1.2s;
+        }
+
+        input {
+            padding: 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--input-border);
+            width: 350px;
+            max-width: 100%;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-select {
+            margin: 1.5rem auto;
+            display: block;
+            padding: 0.75rem;
+            border-radius: 50px;
+            background: var(--lang-bg);
+            color: var(--lang-text);
+            border: none;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes factAppear {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes imageFadeIn {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes bounceIn {
+            from { transform: scale(0.95); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spin-button {
+            display: inline-block;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            background: var(--spin-bg);
+            color: var(--spin-text);
+            border-radius: 50px;
+            transition: background 0.4s, transform 0.4s;
+        }
+
+        .spin-button:hover {
+            background: var(--spin-hover-bg);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        #quiz-timer {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        table th, table td {
+            border: 1px solid var(--option-border);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--option-hover);
+            font-weight: 600;
+        }
+
+        #videoModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #videoModal .modal-content {
+            position: relative;
+            max-width: 80vw;
+            max-height: 80vh;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        #videoModal video {
+            width: 100%;
+            height: auto;
+        }
+
+        #videoModal button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 data-key="title">Super Facts about Food and Cooking</h1>
+        <p data-key="subtitle">60+ facts, expanded quiz and tests.</p>
+        <select class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+            <option value="es">Español</option>
+        </select>
+        <button id="theme-toggle" data-key="themeToggle">Change Brightness</button>
+    </header>
+
+    <div class="container">
+        <!-- Ad banner -->
+        <div class="ad">
+            <!-- Insert Google Adsense code here -->
+        </div>
+
+        <section id="facts">
+            <h2 data-key="factsHeader">Interesting Facts</h2>
+            <div class="fact-grid" id="factGrid">
+                <!-- Facts added via JS -->
+            </div>
+            <button onclick="showMoreFacts()" data-key="moreFactsBtn">Show More Facts</button>
+        </section>
+
+        <!-- Expanded Quiz -->
+        <section class="quiz-section">
+            <h2 data-key="quizHeader">Expanded Quiz: Test Your Food and Cooking Knowledge!</h2>
+            <button id="start-quiz-btn" onclick="startQuiz()" data-key="startQuizBtn">Start Quiz</button>
+            <div id="quiz-progress" style="display:none;"><div id="quiz-progress-bar"></div></div>
+            <div id="quiz-question" class="quiz-question" style="display:none;"></div>
+            <div id="quiz-timer" style="display:none;"></div>
+            <div id="quiz-options" class="quiz-options" style="display:none;"></div>
+            <button id="next-btn" onclick="nextQuestion()" style="display:none;" data-key="nextBtn">Next</button>
+            <div id="quiz-result" style="display:none; text-align:center; margin-top:2rem;"></div>
+        </section>
+
+        <!-- Ad -->
+        <div class="ad">
+            <!-- Insert Adsense code here -->
+        </div>
+
+        <div class="share">
+            <h3 data-key="shareHeader">Share Your Result!</h3>
+            <button onclick="shareOnSocial('WhatsApp')">WhatsApp</button>
+            <button onclick="shareOnSocial('Telegram')">Telegram</button>
+        </div>
+
+        <div class="subscribe">
+            <h3 data-key="subscribeHeader">Subscribe to Weekly Facts!</h3>
+            <input type="email" id="subscribe-email" data-key="emailPlaceholder" placeholder="Your email">
+            <button onclick="subscribe()" data-key="subscribeBtn">Subscribe</button>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 SuperFacts. <div>info@superfacts.fr</div>
+    </footer>
+
+    <button class="spin-button" onclick="window.location.href='superfact.html'" data-key="spinBtn">Go to the second series of Super Facts</button>
+
+    <div id="videoModal">
+        <div class="modal-content">
+            <video id="modalVideo" controls></video>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const factKeywords = [
+            "chocolate",
+            "sushi",
+            "pizza",
+            "honey",
+            "olive oil",
+            "saffron",
+            "banana",
+            "tomato",
+            "bread",
+            "coffee",
+            "pasta",
+            "cheese",
+            "wine",
+            "avocado",
+            "garlic",
+            "egg",
+            "rice",
+            "apple",
+            "potato",
+            "chili pepper",
+            "strawberry",
+            "mango",
+            "carrot",
+            "onion",
+            "mushroom",
+            "lemon",
+            "cinnamon",
+            "ginger",
+            "tea",
+            "ice cream",
+            "salmon",
+            "beef",
+            "chicken",
+            "salt",
+            "sugar",
+            "butter",
+            "milk",
+            "yogurt",
+            "vanilla",
+            "blueberry",
+            "pineapple",
+            "corn",
+            "cucumber",
+            "broccoli",
+            "spinach",
+            "peanut",
+            "almond",
+            "coconut",
+            "pomegranate",
+            "kiwi",
+            "watermelon",
+            "orange",
+            "grape",
+            "cherry",
+            "pear",
+            "fig",
+            "date",
+            "quinoa",
+            "lentil",
+            "tofu"
+        ];
+
+        const translations = {
+            en: {
+                title: 'Super Facts about Food and Cooking',
+                subtitle: '60+ facts, expanded quiz and tests.',
+                factsHeader: 'Interesting Facts',
+                moreFactsBtn: 'Show More Facts',
+                quizHeader: 'Expanded Quiz: Test Your Food and Cooking Knowledge!',
+                startQuizBtn: 'Start Quiz',
+                nextBtn: 'Next',
+                restartQuizBtn: 'Restart Quiz',
+                shareHeader: 'Share Your Result!',
+                subscribeHeader: 'Subscribe to Weekly Facts!',
+                emailPlaceholder: 'Your email',
+                subscribeBtn: 'Subscribe',
+                subscribeAlert: 'Subscription successful!',
+                themeToggle: 'Change Brightness',
+                spinBtn: 'Go to the second series of Super Facts',
+                yourResult: 'Your result:',
+                outOf: 'out of',
+                facts: [
+                    "1. Chocolate was once used as currency by the Aztecs.",
+                    "2. Sushi originated in Southeast Asia as a way to preserve fish in fermented rice.",
+                    "3. Pizza was invented in Naples, Italy, in the late 18th century.",
+                    "4. Honey never spoils due to its natural preservatives like low water content.",
+                    "5. Olive oil can be traced back to 6000 BC in the Mediterranean.",
+                    "6. Saffron is the most expensive spice, costing up to $10,000 per kg.",
+                    "7. Bananas are technically berries, but strawberries are not.",
+                    "8. Tomatoes were once thought to be poisonous in Europe.",
+                    "9. Bread is one of the oldest prepared foods, dating back to 8000 BC.",
+                    "10. Coffee is the second most traded commodity globally, after oil.",
+                    "11. Pasta was brought to Italy from China by Marco Polo.",
+                    "12. Cheese was discovered accidentally when milk was stored in animal stomachs.",
+                    "13. Wine has been produced for over 8,000 years.",
+                    "14. Avocados ripen faster when stored with an apple or banana.",
+                    "15. Garlic has natural antibacterial properties.",
+                    "16. Eggs can absorb flavors through their porous shells.",
+                    "17. Rice is a staple food for over half the world's population.",
+                    "18. Apples float because 25% of their volume is air.",
+                    "19. Potatoes were the first food grown in space.",
+                    "20. Chili peppers can reduce pain by triggering endorphin release.",
+                    "21. Strawberries are the only fruit with seeds on the outside.",
+                    "22. Mangoes are the most consumed fruit in the world.",
+                    "23. Carrots were originally purple or yellow, not orange.",
+                    "24. Onions make you cry because they release sulfur compounds.",
+                    "25. Mushrooms are closer to animals than plants genetically.",
+                    "26. Lemons can power a small light bulb due to their citric acid.",
+                    "27. Cinnamon was once more valuable than gold.",
+                    "28. Ginger can help reduce nausea and improve digestion.",
+                    "29. Tea is the second most consumed beverage worldwide, after water.",
+                    "30. Ice cream was invented in China around 200 BC.",
+                    "31. Salmon can contain up to 2,500 calories per kg.",
+                    "32. Beef is aged to enhance flavor and tenderness.",
+                    "33. Chicken is the most consumed meat globally.",
+                    "34. Salt was used as currency in ancient Rome.",
+                    "35. Sugar was once so rare it was called 'white gold'.",
+                    "36. Butter was used as a skincare product in ancient Egypt.",
+                    "37. Milk from different animals varies in fat content.",
+                    "38. Yogurt contains probiotics that aid gut health.",
+                    "39. Vanilla is the second most expensive spice after saffron.",
+                    "40. Blueberries were used as a natural dye by Native Americans.",
+                    "41. Pineapples take two years to grow.",
+                    "42. Corn is used in over 4,000 grocery products.",
+                    "43. Cucumbers are 95% water.",
+                    "44. Broccoli contains more vitamin C than oranges.",
+                    "45. Spinach can boost muscle strength due to its nitrates.",
+                    "46. Peanuts are not nuts but legumes.",
+                    "47. Almonds are seeds, not nuts.",
+                    "48. Coconuts can float across oceans to spread their seeds.",
+                    "49. Pomegranates are considered a superfood due to antioxidants.",
+                    "50. Kiwi was originally called Chinese gooseberry.",
+                    "51. Watermelons are both a fruit and a vegetable.",
+                    "52. Oranges are a hybrid of pomelos and mandarins.",
+                    "53. Grapes explode when microwaved due to plasma formation.",
+                    "54. Cherries can reduce inflammation and aid sleep.",
+                    "55. Pears ripen from the inside out.",
+                    "56. Figs are technically flowers, not fruits.",
+                    "57. Dates are one of the oldest cultivated fruits.",
+                    "58. Quinoa is a complete protein, containing all nine essential amino acids.",
+                    "59. Lentils were one of the first domesticated crops.",
+                    "60. Tofu was invented in China over 2,000 years ago."
+                ],
+                quizQuestions: [
+                    { question: "Which fruit is technically a berry?", options: ["Banana", "Strawberry", "Apple"], correct: 0 },
+                    { question: "Was pizza invented in Italy?", options: ["Yes", "No"], correct: 0 },
+                    { question: "Which spice is the most expensive?", options: ["Cinnamon", "Saffron", "Paprika"], correct: 1 },
+                    { question: "What was once thought to be poisonous in Europe?", options: ["Tomato", "Carrot", "Potato"], correct: 0 },
+                    { question: "Which food is a staple for over half the world's population?", options: ["Rice", "Bread", "Pasta"], correct: 0 },
+                    { question: "Do strawberries have seeds on the outside?", options: ["Yes", "No"], correct: 0 },
+                    { question: "Can garlic act as an antibacterial?", options: ["Yes", "No"], correct: 0 },
+                    { question: "Is coffee the most traded commodity globally?", options: ["Yes", "No"], correct: 1 },
+                    { question: "Do avocados ripen faster with an apple?", options: ["Yes", "No"], correct: 0 },
+                    { question: "Was yogurt invented in China?", options: ["Yes", "No"], correct: 1 }
+                ],
+                resultExcellent: 'Excellent! You are a food and cooking expert.',
+                resultGood: 'Good, but you can do better.',
+                resultTryAgain: 'Try again!',
+                invalidEmail: 'Please enter your email',
+                timeout: 'Time out',
+                correct: 'Correct',
+                incorrect: 'Incorrect',
+                questionHeader: 'Question',
+                yourAnswerHeader: 'Your Answer',
+                correctAnswerHeader: 'Correct Answer',
+                statusHeader: 'Status'
+            },
+            ru: {
+                title: 'Super Facts о Еде и Кулинарии',
+                subtitle: '60+ фактов, расширенный квиз и тесты.',
+                factsHeader: 'Интересные Факты',
+                moreFactsBtn: 'Показать больше фактов',
+                quizHeader: 'Расширенный Квиз: Проверь Знания о Еде и Кулинарии!',
+                startQuizBtn: 'Начать Квиз',
+                nextBtn: 'Далее',
+                restartQuizBtn: 'Пройти заново',
+                shareHeader: 'Поделись результатом!',
+                subscribeHeader: 'Подпишись на еженедельные факты!',
+                emailPlaceholder: 'Ваш email',
+                subscribeBtn: 'Подписаться',
+                subscribeAlert: 'Подписка оформлена!',
+                themeToggle: 'Изменить освещенность',
+                spinBtn: 'Перейти ко второй серии Super Facts',
+                yourResult: 'Ваш результат:',
+                outOf: 'из',
+                facts: [
+                    "1. Шоколад использовался как валюта ацтеками.",
+                    "2. Суши возникли в Юго-Восточной Азии как способ сохранения рыбы в ферментированном рисе.",
+                    "3. Пицца была изобретена в Неаполе, Италия, в конце 18 века.",
+                    "4. Мёд никогда не портится благодаря низкому содержанию воды.",
+                    "5. Оливковое масло известно с 6000 года до н.э. в Средиземноморье.",
+                    "6. Шафран — самая дорогая специя, до $10,000 за кг.",
+                    "7. Бананы — это ягоды, а клубника — нет.",
+                    "8. Помидоры считались ядовитыми в Европе.",
+                    "9. Хлеб — один из старейших продуктов, с 8000 года до н.э.",
+                    "10. Кофе — второй по торговле товар в мире после нефти.",
+                    "11. Паста была привезена в Италию из Китая Марко Поло.",
+                    "12. Сыр был открыт случайно при хранении молока в желудках животных.",
+                    "13. Вино производится более 8000 лет.",
+                    "14. Авокадо быстрее созревает с яблоком или бананом.",
+                    "15. Чеснок обладает антибактериальными свойствами.",
+                    "16. Яйца могут впитывать ароматы через пористую скорлупу.",
+                    "17. Рис — основная пища для половины населения мира.",
+                    "18. Яблоки плавают, так как 25% их объёма — воздух.",
+                    "19. Картофель — первый продукт, выращенный в космосе.",
+                    "20. Перец чили снижает боль, вызывая выброс эндорфинов.",
+                    "21. Клубника — единственный фрукт с семенами снаружи.",
+                    "22. Манго — самый потребляемый фрукт в мире.",
+                    "23. Морковь изначально была фиолетовой или жёлтой.",
+                    "24. Лук заставляет плакать из-за серных соединений.",
+                    "25. Грибы генетически ближе к животным, чем к растениям.",
+                    "26. Лимоны могут питать маленькую лампочку из-за лимонной кислоты.",
+                    "27. Корица когда-то стоила дороже золота.",
+                    "28. Имбирь помогает от тошноты и улучшает пищеварение.",
+                    "29. Чай — второй по потреблению напиток после воды.",
+                    "30. Мороженое было изобретено в Китае около 200 года до н.э.",
+                    "31. Лосось может содержать до 2500 калорий на кг.",
+                    "32. Говядина выдерживается для улучшения вкуса и мягкости.",
+                    "33. Курица — самое потребляемое мясо в мире.",
+                    "34. Соль использовалась как валюта в Древнем Риме.",
+                    "35. Сахар называли 'белым золотом' из-за редкости.",
+                    "36. Масло использовалось как косметика в Древнем Египте.",
+                    "37. Молоко разных животных различается по жирности.",
+                    "38. Йогурт содержит пробиотики, полезные для кишечника.",
+                    "39. Ваниль — вторая по дороговизне специя после шафрана.",
+                    "40. Голубика использовалась как натуральный краситель коренными американцами.",
+                    "41. Ананасы растут два года.",
+                    "42. Кукуруза используется в более чем 4000 продуктах.",
+                    "43. Огурцы на 95% состоят из воды.",
+                    "44. Брокколи содержит больше витамина C, чем апельсины.",
+                    "45. Шпинат укрепляет мышцы благодаря нитратам.",
+                    "46. Арахис — это бобовые, а не орехи.",
+                    "47. Миндаль — это семена, а не орехи.",
+                    "48. Кокосы могут плавать по океанам, распространяя семена.",
+                    "49. Гранаты — суперфуд из-за антиоксидантов.",
+                    "50. Киви раньше называли китайским крыжовником.",
+                    "51. Арбузы — и фрукт, и овощ.",
+                    "52. Апельсины — гибрид помело и мандарина.",
+                    "53. Виноград взрывается в микроволновке из-за плазмы.",
+                    "54. Вишня уменьшает воспаление и помогает спать.",
+                    "55. Груши созревают изнутри наружу.",
+                    "56. Инжир — это цветы, а не фрукты.",
+                    "57. Финики — один из старейших культивируемых фруктов.",
+                    "58. Киноа — полный белок с девятью аминокислотами.",
+                    "59. Чечевица — одна из первых одомашненных культур.",
+                    "60. Тофу был изобретён в Китае более 2000 лет назад."
+                ],
+                quizQuestions: [
+                    { question: "Какой фрукт является ягодой?", options: ["Банан", "Клубника", "Яблоко"], correct: 0 },
+                    { question: "Пицца была изобретена в Италии?", options: ["Да", "Нет"], correct: 0 },
+                    { question: "Какая специя самая дорогая?", options: ["Корица", "Шафран", "Паприка"], correct: 1 },
+                    { question: "Что считалось ядовитым в Европе?", options: ["Помидор", "Морковь", "Картофель"], correct: 0 },
+                    { question: "Какая пища основная для половины мира?", options: ["Рис", "Хлеб", "Паста"], correct: 0 },
+                    { question: "У клубники семена снаружи?", options: ["Да", "Нет"], correct: 0 },
+                    { question: "Чеснок обладает антибактериальными свойствами?", options: ["Да", "Нет"], correct: 0 },
+                    { question: "Кофе — самый торгуемый товар в мире?", options: ["Да", "Нет"], correct: 1 },
+                    { question: "Авокадо быстрее созревает с яблоком?", options: ["Да", "Нет"], correct: 0 },
+                    { question: "Йогурт изобрели в Китае?", options: ["Да", "Нет"], correct: 1 }
+                ],
+                resultExcellent: 'Отлично! Вы эксперт по еде и кулинарии.',
+                resultGood: 'Хорошо, но можно лучше.',
+                resultTryAgain: 'Попробуйте снова!',
+                invalidEmail: 'Пожалуйста, введите ваш email',
+                timeout: 'Время вышло',
+                correct: 'Правильно',
+                incorrect: 'Неправильно',
+                questionHeader: 'Вопрос',
+                yourAnswerHeader: 'Ваш ответ',
+                correctAnswerHeader: 'Правильный ответ',
+                statusHeader: 'Статус'
+            },
+            fr: {
+                title: 'Super Facts sur la Nourriture et la Cuisine',
+                subtitle: '60+ faits, quiz étendu et tests.',
+                factsHeader: 'Faits Intéressants',
+                moreFactsBtn: 'Afficher Plus de Faits',
+                quizHeader: 'Quiz Étendu : Testez Vos Connaissances sur la Nourriture et la Cuisine !',
+                startQuizBtn: 'Commencer le Quiz',
+                nextBtn: 'Suivant',
+                restartQuizBtn: 'Recommencer le Quiz',
+                shareHeader: 'Partagez Votre Résultat !',
+                subscribeHeader: 'Abonnez-vous aux Faits Hebdomadaires !',
+                emailPlaceholder: 'Votre email',
+                subscribeBtn: 'S\'abonner',
+                subscribeAlert: 'Abonnement réussi !',
+                themeToggle: 'Changer Luminosité',
+                spinBtn: 'Aller à la deuxième série de Super Facts',
+                yourResult: 'Votre résultat :',
+                outOf: 'sur',
+                facts: [
+                    "1. Le chocolat était utilisé comme monnaie par les Aztèques.",
+                    "2. Les sushis sont originaires d'Asie du Sud-Est pour conserver le poisson dans du riz fermenté.",
+                    "3. La pizza a été inventée à Naples, en Italie, à la fin du 18e siècle.",
+                    "4. Le miel ne se gâte jamais grâce à sa faible teneur en eau.",
+                    "5. L'huile d'olive remonte à 6000 av. J.-C. en Méditerranée.",
+                    "6. Le safran est l'épice la plus chère, jusqu'à 10 000 $ par kg.",
+                    "7. Les bananes sont des baies, mais les fraises ne le sont pas.",
+                    "8. Les tomates étaient considérées comme toxiques en Europe.",
+                    "9. Le pain est l'un des aliments préparés les plus anciens, datant de 8000 av. J.-C.",
+                    "10. Le café est la deuxième marchandise la plus échangée au monde après le pétrole.",
+                    "11. Les pâtes ont été ramenées en Italie depuis la Chine par Marco Polo.",
+                    "12. Le fromage a été découvert par hasard en stockant du lait dans des estomacs d'animaux.",
+                    "13. Le vin est produit depuis plus de 8000 ans.",
+                    "14. Les avocats mûrissent plus vite avec une pomme ou une banane.",
+                    "15. L'ail a des propriétés antibactériennes naturelles.",
+                    "16. Les œufs peuvent absorber les saveurs à travers leur coquille poreuse.",
+                    "17. Le riz est un aliment de base pour plus de la moitié de la population mondiale.",
+                    "18. Les pommes flottent car 25 % de leur volume est de l'air.",
+                    "19. Les pommes de terre ont été le premier aliment cultivé dans l'espace.",
+                    "20. Les piments réduisent la douleur en déclenchant la libération d'endorphines.",
+                    "21. Les fraises sont le seul fruit avec des graines à l'extérieur.",
+                    "22. Les mangues sont le fruit le plus consommé au monde.",
+                    "23. Les carottes étaient à l'origine violettes ou jaunes, pas oranges.",
+                    "24. Les oignons font pleurer à cause de composés soufrés.",
+                    "25. Les champignons sont génétiquement plus proches des animaux que des plantes.",
+                    "26. Les citrons peuvent alimenter une petite ampoule grâce à leur acide citrique.",
+                    "27. La cannelle valait autrefois plus que l'or.",
+                    "28. Le gingembre aide à réduire les nausées et améliore la digestion.",
+                    "29. Le thé est la deuxième boisson la plus consommée au monde, après l'eau.",
+                    "30. La glace a été inventée en Chine vers 200 av. J.-C.",
+                    "31. Le saumon peut contenir jusqu'à 2500 calories par kg.",
+                    "32. Le bœuf est vieilli pour améliorer la saveur et la tendreté.",
+                    "33. Le poulet est la viande la plus consommée dans le monde.",
+                    "34. Le sel était utilisé comme monnaie dans la Rome antique.",
+                    "35. Le sucre était autrefois si rare qu'on l'appelait 'l'or blanc'.",
+                    "36. Le beurre était utilisé comme produit de soin de la peau en Égypte ancienne.",
+                    "37. Le lait des différents animaux varie en teneur en matières grasses.",
+                    "38. Le yaourt contient des probiotiques bénéfiques pour la santé intestinale.",
+                    "39. La vanille est la deuxième épice la plus chère après le safran.",
+                    "40. Les myrtilles étaient utilisées comme teinture naturelle par les Amérindiens.",
+                    "41. Les ananas mettent deux ans à pousser.",
+                    "42. Le maïs est utilisé dans plus de 4000 produits d'épicerie.",
+                    "43. Les concombres sont composés à 95 % d'eau.",
+                    "44. Le brocoli contient plus de vitamine C que les oranges.",
+                    "45. Les épinards renforcent les muscles grâce à leurs nitrates.",
+                    "46. Les cacahuètes sont des légumineuses, pas des noix.",
+                    "47. Les amandes sont des graines, pas des noix.",
+                    "48. Les noix de coco peuvent flotter sur les océans pour disperser leurs graines.",
+                    "49. Les grenades sont considérées comme un super-aliment en raison de leurs antioxydants.",
+                    "50. Le kiwi était à l'origine appelé groseille de Chine.",
+                    "51. Les pastèques sont à la fois un fruit et un légume.",
+                    "52. Les oranges sont un hybride de pomelos et de mandarines.",
+                    "53. Le raisin explose dans le micro-ondes en raison de la formation de plasma.",
+                    "54. Les cerises réduisent l'inflammation et aident au sommeil.",
+                    "55. Les poires mûrissent de l'intérieur vers l'extérieur.",
+                    "56. Les figues sont techniquement des fleurs, pas des fruits.",
+                    "57. Les dattes sont l'un des fruits cultivés les plus anciens.",
+                    "58. Le quinoa est une protéine complète avec neuf acides aminés essentiels.",
+                    "59. Les lentilles étaient l'une des premières cultures domestiquées.",
+                    "60. Le tofu a été inventé en Chine il y a plus de 2000 ans."
+                ],
+                quizQuestions: [
+                    { question: "Quel fruit est techniquement une baie ?", options: ["Banane", "Fraise", "Pomme"], correct: 0 },
+                    { question: "La pizza a-t-elle été inventée en Italie ?", options: ["Oui", "Non"], correct: 0 },
+                    { question: "Quelle épice est la plus chère ?", options: ["Cannelle", "Safran", "Paprika"], correct: 1 },
+                    { question: "Qu'est-ce qui était considéré comme toxique en Europe ?", options: ["Tomate", "Carotte", "Pomme de terre"], correct: 0 },
+                    { question: "Quel aliment est de base pour plus de la moitié de la population mondiale ?", options: ["Riz", "Pain", "Pâtes"], correct: 0 },
+                    { question: "Les fraises ont-elles des graines à l'extérieur ?", options: ["Oui", "Non"], correct: 0 },
+                    { question: "L'ail a-t-il des propriétés antibactériennes ?", options: ["Oui", "Non"], correct: 0 },
+                    { question: "Le café est-il la marchandise la plus échangée au monde ?", options: ["Oui", "Non"], correct: 1 },
+                    { question: "Les avocats mûrissent-ils plus vite avec une pomme ?", options: ["Oui", "Non"], correct: 0 },
+                    { question: "Le yaourt a-t-il été inventé en Chine ?", options: ["Oui", "Non"], correct: 1 }
+                ],
+                resultExcellent: 'Excellent ! Vous êtes un expert en nourriture et cuisine.',
+                resultGood: 'Bien, mais vous pouvez faire mieux.',
+                resultTryAgain: 'Essayez à nouveau !',
+                invalidEmail: 'Veuillez entrer votre email',
+                timeout: 'Temps écoulé',
+                correct: 'Correct',
+                incorrect: 'Incorrect',
+                questionHeader: 'Question',
+                yourAnswerHeader: 'Votre réponse',
+                correctAnswerHeader: 'Réponse correcte',
+                statusHeader: 'Statut'
+            },
+            it: {
+                title: 'Super Fatti su Cibo e Cucina',
+                subtitle: '60+ fatti, quiz espanso e test.',
+                factsHeader: 'Fatti Interessanti',
+                moreFactsBtn: 'Mostra Più Fatti',
+                quizHeader: 'Quiz Espanso: Testa la Tua Conoscenza su Cibo e Cucina!',
+                startQuizBtn: 'Inizia Quiz',
+                nextBtn: 'Successivo',
+                restartQuizBtn: 'Ricomincia il Quiz',
+                shareHeader: 'Condividi il Tuo Risultato!',
+                subscribeHeader: 'Iscriviti ai Fatti Settimanali!',
+                emailPlaceholder: 'La tua email',
+                subscribeBtn: 'Iscriviti',
+                subscribeAlert: 'Iscrizione riuscita!',
+                themeToggle: 'Cambia Luminosità',
+                spinBtn: 'Vai alla seconda serie di Super Facts',
+                yourResult: 'Il tuo risultato:',
+                outOf: 'su',
+                facts: [
+                    "1. Il cioccolato era usato come moneta dagli Aztechi.",
+                    "2. Il sushi ha origine nel Sud-est asiatico come metodo per conservare il pesce nel riso fermentato.",
+                    "3. La pizza è stata inventata a Napoli, in Italia, alla fine del 18° secolo.",
+                    "4. Il miele non si deteriora mai grazie al basso contenuto d'acqua.",
+                    "5. L'olio d'oliva risale al 6000 a.C. nel Mediterraneo.",
+                    "6. Lo zafferano è la spezia più costosa, fino a 10.000 $ al kg.",
+                    "7. Le banane sono tecnicamente bacche, ma le fragole no.",
+                    "8. I pomodori erano considerati velenosi in Europa.",
+                    "9. Il pane è uno dei cibi preparati più antichi, risalente all'8000 a.C.",
+                    "10. Il caffè è la seconda merce più commercializzata al mondo dopo il petrolio.",
+                    "11. La pasta è stata portata in Italia dalla Cina da Marco Polo.",
+                    "12. Il formaggio è stato scoperto per caso conservando il latte nello stomaco degli animali.",
+                    "13. Il vino è prodotto da oltre 8000 anni.",
+                    "14. Gli avocado maturano più velocemente con una mela o una banana.",
+                    "15. L'aglio ha proprietà antibatteriche naturali.",
+                    "16. Le uova possono assorbire sapori attraverso il loro guscio poroso.",
+                    "17. Il riso è un alimento base per oltre la metà della popolazione mondiale.",
+                    "18. Le mele galleggiano perché il 25% del loro volume è aria.",
+                    "19. Le patate sono state il primo cibo coltivato nello spazio.",
+                    "20. I peperoncini riducono il dolore stimolando il rilascio di endorfine.",
+                    "21. Le fragole sono l'unico frutto con semi all'esterno.",
+                    "22. I mango sono il frutto più consumato al mondo.",
+                    "23. Le carote erano originariamente viola o gialle, non arancioni.",
+                    "24. Le cipolle fanno piangere a causa dei composti di zolfo.",
+                    "25. I funghi sono geneticamente più vicini agli animali che alle piante.",
+                    "26. I limoni possono alimentare una piccola lampadina grazie al loro acido citrico.",
+                    "27. La cannella valeva più dell'oro in passato.",
+                    "28. Lo zenzero aiuta a ridurre la nausea e migliora la digestione.",
+                    "29. Il tè è la seconda bevanda più consumata al mondo, dopo l'acqua.",
+                    "30. Il gelato è stato inventato in Cina intorno al 200 a.C.",
+                    "31. Il salmone può contenere fino a 2500 calorie per kg.",
+                    "32. La carne di manzo viene stagionata per migliorare sapore e morbidezza.",
+                    "33. Il pollo è la carne più consumata al mondo.",
+                    "34. Il sale era usato come moneta nell'antica Roma.",
+                    "35. Lo zucchero era così raro da essere chiamato 'oro bianco'.",
+                    "36. Il burro era usato come prodotto per la pelle nell'antico Egitto.",
+                    "37. Il latte di diversi animali varia nel contenuto di grassi.",
+                    "38. Lo yogurt contiene probiotici benefici per la salute intestinale.",
+                    "39. La vaniglia è la seconda spezia più costosa dopo lo zafferano.",
+                    "40. I mirtilli erano usati come colorante naturale dai nativi americani.",
+                    "41. Gli ananas impiegano due anni per crescere.",
+                    "42. Il mais è usato in oltre 4000 prodotti alimentari.",
+                    "43. I cetrioli sono composti al 95% da acqua.",
+                    "44. I broccoli contengono più vitamina C delle arance.",
+                    "45. Gli spinaci rafforzano i muscoli grazie ai loro nitrati.",
+                    "46. Le arachidi sono legumi, non noci.",
+                    "47. Le mandorle sono semi, non noci.",
+                    "48. Le noci di cocco possono galleggiare sugli oceani per disperdere i loro semi.",
+                    "49. I melograni sono considerati un superfood per i loro antiossidanti.",
+                    "50. Il kiwi era originariamente chiamato uva spina cinese.",
+                    "51. Le angurie sono sia un frutto che una verdura.",
+                    "52. Le arance sono un ibrido di pomelos e mandarini.",
+                    "53. L'uva esplode nel microonde a causa della formazione di plasma.",
+                    "54. Le ciliegie riducono l'infiammazione e aiutano il sonno.",
+                    "55. Le pere maturano dall'interno verso l'esterno.",
+                    "56. I fichi sono tecnicamente fiori, non frutti.",
+                    "57. I datteri sono uno dei frutti coltivati più antichi.",
+                    "58. La quinoa è una proteina completa con nove amminoacidi essenziali.",
+                    "59. Le lenticchie erano una delle prime colture domesticate.",
+                    "60. Il tofu è stato inventato in Cina oltre 2000 anni fa."
+                ],
+                quizQuestions: [
+                    { question: "Quale frutto è tecnicamente una bacca?", options: ["Banana", "Fragola", "Mela"], correct: 0 },
+                    { question: "La pizza è stata inventata in Italia?", options: ["Sì", "No"], correct: 0 },
+                    { question: "Quale spezia è la più costosa?", options: ["Cannella", "Zafferano", "Paprika"], correct: 1 },
+                    { question: "Cosa era considerato velenoso in Europa?", options: ["Pomodoro", "Carota", "Patata"], correct: 0 },
+                    { question: "Quale cibo è di base per oltre la metà della popolazione mondiale?", options: ["Riso", "Pane", "Pasta"], correct: 0 },
+                    { question: "Le fragole hanno semi all'esterno?", options: ["Sì", "No"], correct: 0 },
+                    { question: "L'aglio ha proprietà antibatteriche?", options: ["Sì", "No"], correct: 0 },
+                    { question: "Il caffè è la merce più commercializzata al mondo?", options: ["Sì", "No"], correct: 1 },
+                    { question: "Gli avocado maturano più velocemente con una mela?", options: ["Sì", "No"], correct: 0 },
+                    { question: "Lo yogurt è stato inventato in Cina?", options: ["Sì", "No"], correct: 1 }
+                ],
+                resultExcellent: 'Eccellente! Sei un esperto di cibo e cucina.',
+                resultGood: 'Bene, ma puoi fare meglio.',
+                resultTryAgain: 'Riprova!',
+                invalidEmail: 'Inserisci la tua email',
+                timeout: 'Tempo scaduto',
+                correct: 'Corretto',
+                incorrect: 'Sbagliato',
+                questionHeader: 'Domanda',
+                yourAnswerHeader: 'Tua risposta',
+                correctAnswerHeader: 'Risposta corretta',
+                statusHeader: 'Stato'
+            },
+            es: {
+                title: 'Super Datos sobre Comida y Cocina',
+                subtitle: 'Más de 60 datos, cuestionario ampliado y pruebas.',
+                factsHeader: 'Datos Interesantes',
+                moreFactsBtn: 'Mostrar Más Datos',
+                quizHeader: 'Cuestionario Ampliado: ¡Pon a Prueba tu Conocimiento sobre Comida y Cocina!',
+                startQuizBtn: 'Iniciar Cuestionario',
+                nextBtn: 'Siguiente',
+                restartQuizBtn: 'Reiniciar Cuestionario',
+                shareHeader: '¡Comparte tu Resultado!',
+                subscribeHeader: '¡Suscríbete a Datos Semanales!',
+                emailPlaceholder: 'Tu correo electrónico',
+                subscribeBtn: 'Suscribirse',
+                subscribeAlert: '¡Suscripción exitosa!',
+                themeToggle: 'Cambiar Brillo',
+                spinBtn: 'Ir a la segunda serie de Super Datos',
+                yourResult: 'Tu resultado:',
+                outOf: 'de',
+                facts: [
+                    "1. El chocolate se usaba como moneda por los aztecas.",
+                    "2. El sushi se originó en el sudeste asiático para conservar pescado en arroz fermentado.",
+                    "3. La pizza fue inventada en Nápoles, Italia, a finales del siglo XVIII.",
+                    "4. La miel nunca se echa a perder debido a su bajo contenido de agua.",
+                    "5. El aceite de oliva se remonta al 6000 a.C. en el Mediterráneo.",
+                    "6. El azafrán es la especia más cara, hasta $10,000 por kg.",
+                    "7. Los plátanos son técnicamente bayas, pero las fresas no.",
+                    "8. Los tomates se consideraban venenosos en Europa.",
+                    "9. El pan es uno de los alimentos preparados más antiguos, desde el 8000 a.C.",
+                    "10. El café es la segunda mercancía más comercializada del mundo después del petróleo.",
+                    "11. La pasta fue traída a Italia desde China por Marco Polo.",
+                    "12. El queso se descubrió por accidente al almacenar leche en estómagos de animales.",
+                    "13. El vino se produce desde hace más de 8000 años.",
+                    "14. Los aguacates maduran más rápido con una manzana o plátano.",
+                    "15. El ajo tiene propiedades antibacterianas naturales.",
+                    "16. Los huevos pueden absorber sabores a través de su cáscara porosa.",
+                    "17. El arroz es un alimento básico para más de la mitad de la población mundial.",
+                    "18. Las manzanas flotan porque el 25% de su volumen es aire.",
+                    "19. Las papas fueron el primer alimento cultivado en el espacio.",
+                    "20. Los chiles reducen el dolor al provocar la liberación de endorfinas.",
+                    "21. Las fresas son el único fruto con semillas en el exterior.",
+                    "22. Los mangos son la fruta más consumida del mundo.",
+                    "23. Las zanahorias eran originalmente moradas o amarillas, no naranjas.",
+                    "24. Las cebollas hacen llorar debido a compuestos de azufre.",
+                    "25. Los hongos están genéticamente más cerca de los animales que de las plantas.",
+                    "26. Los limones pueden alimentar una bombilla pequeña debido a su ácido cítrico.",
+                    "27. La canela valía más que el oro en el pasado.",
+                    "28. El jengibre ayuda a reducir las náuseas y mejora la digestión.",
+                    "29. El té es la segunda bebida más consumida del mundo, después del agua.",
+                    "30. El helado fue inventado en China alrededor del 200 a.C.",
+                    "31. El salmón puede contener hasta 2500 calorías por kg.",
+                    "32. La carne de res se envejece para mejorar el sabor y la ternura.",
+                    "33. El pollo es la carne más consumida del mundo.",
+                    "34. La sal se usaba como moneda en la antigua Roma.",
+                    "35. El azúcar era tan raro que se le llamaba 'oro blanco'.",
+                    "36. La mantequilla se usaba como producto para la piel en el antiguo Egipto.",
+                    "37. La leche de diferentes animales varía en contenido de grasa.",
+                    "38. El yogur contiene probióticos beneficiosos para la salud intestinal.",
+                    "39. La vainilla es la segunda especia más cara después del azafrán.",
+                    "40. Los arándanos se usaban como tinte natural por los nativos americanos.",
+                    "41. Las piñas tardan dos años en crecer.",
+                    "42. El maíz se usa en más de 4000 productos de supermercado.",
+                    "43. Los pepinos son 95% agua.",
+                    "44. El brócoli contiene más vitamina C que las naranjas.",
+                    "45. Las espinacas fortalecen los músculos gracias a sus nitratos.",
+                    "46. Los cacahuetes son legumbres, no nueces.",
+                    "47. Las almendras son semillas, no nueces.",
+                    "48. Los cocos pueden flotar en los océanos para dispersar sus semillas.",
+                    "49. Las granadas se consideran un superalimento por sus antioxidantes.",
+                    "50. El kiwi se llamaba originalmente grosella china.",
+                    "51. Las sandías son tanto fruta como verdura.",
+                    "52. Las naranjas son un híbrido de pomelos y mandarinas.",
+                    "53. Las uvas explotan en el microondas debido a la formación de plasma.",
+                    "54. Las cerezas reducen la inflamación y ayudan a dormir.",
+                    "55. Las peras maduran de adentro hacia afuera.",
+                    "56. Los higos son técnicamente flores, no frutas.",
+                    "57. Los dátiles son una de las frutas cultivadas más antiguas.",
+                    "58. La quinoa es una proteína completa con nueve aminoácidos esenciales.",
+                    "59. Las lentejas fueron uno de los primeros cultivos domesticados.",
+                    "60. El tofu fue inventado en China hace más de 2000 años."
+                ],
+                quizQuestions: [
+                    { question: "¿Qué fruta es técnicamente una baya?", options: ["Plátano", "Fresa", "Manzana"], correct: 0 },
+                    { question: "¿La pizza fue inventada en Italia?", options: ["Sí", "No"], correct: 0 },
+                    { question: "¿Cuál es la especia más cara?", options: ["Canela", "Azafrán", "Pimentón"], correct: 1 },
+                    { question: "¿Qué se consideraba venenoso en Europa?", options: ["Tomate", "Zanahoria", "Papa"], correct: 0 },
+                    { question: "¿Qué alimento es básico para más de la mitad de la población mundial?", options: ["Arroz", "Pan", "Pasta"], correct: 0 },
+                    { question: "¿Las fresas tienen semillas en el exterior?", options: ["Sí", "No"], correct: 0 },
+                    { question: "¿El ajo tiene propiedades antibacterianas?", options: ["Sí", "No"], correct: 0 },
+                    { question: "¿El café es la mercancía más comercializada del mundo?", options: ["Sí", "No"], correct: 1 },
+                    { question: "¿Los aguacates maduran más rápido con una manzana?", options: ["Sí", "No"], correct: 0 },
+                    { question: "¿El yogur fue inventado en China?", options: ["Sí", "No"], correct: 1 }
+                ],
+                resultExcellent: '¡Excelente! Eres un experto en comida y cocina.',
+                resultGood: 'Bien, pero puedes hacerlo mejor.',
+                resultTryAgain: '¡Inténtalo de nuevo!',
+                invalidEmail: 'Por favor, introduce tu correo electrónico',
+                timeout: 'Tiempo agotado',
+                correct: 'Correcto',
+                incorrect: 'Incorrecto',
+                questionHeader: 'Pregunta',
+                yourAnswerHeader: 'Tu respuesta',
+                correctAnswerHeader: 'Respuesta correcta',
+                statusHeader: 'Estado'
+            }
+        };
+
+        let currentLang = 'en';
+        let currentQuestion = 0;
+        let score = 0;
+        let shownFacts = 10;
+        let answers = [];
+        let timerInterval;
+
+        async function fetchImage(keyword) {
+            const apiKey = 'LatMoB4k1mc3f3QzoByNoT8rK5L1EYnozaqLyMnWi9LPgvHsi6LmZ3HO'; // Replace with your Pexels API key
+            const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(keyword)}&per_page=1`;
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: apiKey
+                    }
+                });
+                if (!response.ok) throw new Error('Pexels API request failed');
+                const data = await response.json();
+                if (data.photos && data.photos.length > 0) {
+                    return data.photos[0].src.medium;
+                }
+                return 'https://via.placeholder.com/350x200?text=Image+Not+Found';
+            } catch (error) {
+                console.error(`Error fetching image for ${keyword}:`, error);
+                return 'https://via.placeholder.com/350x200?text=Image+Not+Found';
+            }
+        }
+
+        async function fetchVideo(keyword) {
+            const apiKey = 'LatMoB4k1mc3f3QzoByNoT8rK5L1EYnozaqLyMnWi9LPgvHsi6LmZ3HO';
+            const url = `https://api.pexels.com/videos/search?query=${encodeURIComponent(keyword)}&per_page=1`;
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: apiKey
+                    }
+                });
+                if (!response.ok) throw new Error('Pexels Video API request failed');
+                const data = await response.json();
+                if (data.videos && data.videos.length > 0) {
+                    const videoFiles = data.videos[0].video_files;
+                    return videoFiles.find(file => file.quality === 'hd')?.link || videoFiles[0].link;
+                }
+                return null;
+            } catch (error) {
+                console.error(`Error fetching video for ${keyword}:`, error);
+                return null;
+            }
+        }
+
+        async function showVideo(keyword) {
+            const videoUrl = await fetchVideo(keyword);
+            if (videoUrl) {
+                const modalVideo = document.getElementById('modalVideo');
+                modalVideo.src = videoUrl;
+                document.getElementById('videoModal').style.display = 'flex';
+                modalVideo.play();
+            } else {
+                alert('No video found for this fact.');
+            }
+        }
+
+        function closeModal() {
+            const modalVideo = document.getElementById('modalVideo');
+            modalVideo.pause();
+            modalVideo.src = '';
+            document.getElementById('videoModal').style.display = 'none';
+        }
+
+        async function loadFacts() {
+            const grid = document.getElementById('factGrid');
+            grid.innerHTML = '';
+            const langFacts = translations[currentLang].facts.slice(0, shownFacts);
+            for (let index = 0; index < langFacts.length; index++) {
+                const fact = langFacts[index];
+                const factDiv = document.createElement('div');
+                factDiv.classList.add('fact');
+                factDiv.style.animationDelay = `${index * 0.15}s`;
+                factDiv.onclick = () => showVideo(factKeywords[index]);
+
+                const img = document.createElement('img');
+                img.src = await fetchImage(factKeywords[index]);
+                img.alt = factKeywords[index];
+                img.onerror = () => {
+                    img.src = 'https://via.placeholder.com/350x200?text=Image+Not+Found';
+                };
+                factDiv.appendChild(img);
+
+                const textP = document.createElement('p');
+                textP.textContent = fact;
+                factDiv.appendChild(textP);
+
+                grid.appendChild(factDiv);
+            }
+        }
+
+        async function showMoreFacts() {
+            const oldShown = shownFacts;
+            shownFacts = Math.min(shownFacts + 10, translations[currentLang].facts.length);
+            const grid = document.getElementById('factGrid');
+            const newFacts = translations[currentLang].facts.slice(oldShown, shownFacts);
+            for (let index = 0; index < newFacts.length; index++) {
+                const fact = newFacts[index];
+                const factDiv = document.createElement('div');
+                factDiv.classList.add('fact');
+                factDiv.style.animationDelay = `${index * 0.1}s`;
+                factDiv.onclick = () => showVideo(factKeywords[oldShown + index]);
+
+                const img = document.createElement('img');
+                img.src = await fetchImage(factKeywords[oldShown + index]);
+                img.alt = factKeywords[oldShown + index];
+                img.onerror = () => {
+                    img.src = 'https://via.placeholder.com/350x200?text=Image+Not+Found';
+                };
+                factDiv.appendChild(img);
+
+                const textP = document.createElement('p');
+                textP.textContent = fact;
+                factDiv.appendChild(textP);
+
+                grid.appendChild(factDiv);
+            }
+            if (shownFacts >= translations[currentLang].facts.length) {
+                document.querySelector('#facts button').style.display = 'none';
+            }
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            loadFacts();
+            resetQuiz();
+            updateThemeButton();
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answers = [];
+            document.getElementById('start-quiz-btn').style.display = 'block';
+            document.getElementById('quiz-progress').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-timer').style.display = 'none';
+            document.getElementById('quiz-options').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'none';
+        }
+
+        function startQuiz() {
+            document.getElementById('start-quiz-btn').style.display = 'none';
+            document.getElementById('quiz-progress').style.display = 'block';
+            loadQuestion();
+        }
+
+        function restartQuiz() {
+            resetQuiz();
+            startQuiz();
+        }
+
+        function loadQuestion() {
+            clearInterval(timerInterval);
+            const q = translations[currentLang].quizQuestions[currentQuestion];
+            document.getElementById('quiz-question').textContent = q.question;
+            document.getElementById('quiz-question').style.display = 'block';
+            const optionsDiv = document.getElementById('quiz-options');
+            optionsDiv.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const optDiv = document.createElement('div');
+                optDiv.classList.add('quiz-option');
+                optDiv.textContent = opt;
+                optDiv.onclick = () => selectOption(idx, q);
+                optionsDiv.appendChild(optDiv);
+            });
+            optionsDiv.style.display = 'flex';
+            document.getElementById('next-btn').style.display = 'none';
+            updateProgress();
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-timer').style.display = 'block';
+
+            let timeLeft = 10;
+            document.getElementById('quiz-timer').textContent = timeLeft;
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('quiz-timer').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    answers.push({
+                        question: q.question,
+                        userChoice: translations[currentLang].timeout,
+                        correctChoice: q.options[q.correct],
+                        isCorrect: false
+                    });
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        function selectOption(idx, q) {
+            clearInterval(timerInterval);
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[idx].classList.add('selected');
+            const isCorrect = idx === q.correct;
+            if (isCorrect) score++;
+            answers.push({
+                question: q.question,
+                userChoice: q.options[idx],
+                correctChoice: q.options[q.correct],
+                isCorrect: isCorrect
+            });
+            document.getElementById('next-btn').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < translations[currentLang].quizQuestions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / translations[currentLang].quizQuestions.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${progress}%`;
+        }
+
+        function showResult() {
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('quiz-options').style.display = 'none';
+            document.getElementById('quiz-timer').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.style.display = 'block';
+            let message;
+            if (score > 7) message = translations[currentLang].resultExcellent;
+            else if (score > 4) message = translations[currentLang].resultGood;
+            else message = translations[currentLang].resultTryAgain;
+
+            let tableHtml = `<table><thead><tr><th>${translations[currentLang].questionHeader}</th><th>${translations[currentLang].yourAnswerHeader}</th><th>${translations[currentLang].correctAnswerHeader}</th><th>${translations[currentLang].statusHeader}</th></tr></thead><tbody>`;
+            answers.forEach(ans => {
+                tableHtml += `<tr><td>${ans.question}</td><td>${ans.userChoice}</td><td>${ans.correctChoice}</td><td>${ans.isCorrect ? translations[currentLang].correct : translations[currentLang].incorrect}</td></tr>`;
+            });
+            tableHtml += '</tbody></table>';
+
+            resultDiv.innerHTML = `<h3>${translations[currentLang].yourResult} ${score} ${translations[currentLang].outOf} ${translations[currentLang].quizQuestions.length}</h3><p>${message}</p>${tableHtml}<button onclick="restartQuiz()" data-key="restartQuizBtn">Restart Quiz</button>`;
+        }
+
+        function shareOnSocial(network) {
+            let shareText = `I scored ${score} in the food and cooking quiz on Super Facts!`;
+            if (currentLang === 'ru') {
+                shareText = `Я набрал ${score} в квизе о еде и кулинарии на Super Facts!`;
+            } else if (currentLang === 'fr') {
+                shareText = `J'ai marqué ${score} au quiz sur la nourriture et la cuisine sur Super Facts !`;
+            } else if (currentLang === 'it') {
+                shareText = `Ho ottenuto ${score} nel quiz su cibo e cucina su Super Facts!`;
+            } else if (currentLang === 'es') {
+                shareText = `¡Obtuve ${score} en el cuestionario de comida y cocina en Super Datos!`;
+            }
+            const encodedShareText = encodeURIComponent(shareText);
+            const shareUrl = encodeURIComponent(window.location.href);
+            let url;
+            if (network === 'WhatsApp') {
+                url = `https://api.whatsapp.com/send?text=${encodedShareText}%20${shareUrl}`;
+            } else if (network === 'Telegram') {
+                url = `https://t.me/share/url?url=${shareUrl}&text=${encodedShareText}`;
+            }
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        function subscribe() {
+            const emailInput = document.getElementById('subscribe-email');
+            const email = emailInput.value.trim();
+            if (email) {
+                const subject = encodeURIComponent(currentLang === 'es' ? 'Solicitud de suscripción' : 'Subscription Request');
+                const body = encodeURIComponent(`Please subscribe me to weekly facts: ${email}`);
+                window.location.href = `mailto:info@superfacts.fr?subject=${subject}&body=${body}`;
+                alert(translations[currentLang].subscribeAlert);
+            } else {
+                alert(translations[currentLang].invalidEmail);
+            }
+        }
+
+        function updateThemeButton() {
+            const icon = document.body.classList.contains('dark') ? '🌙' : '☀️';
+            const text = translations[currentLang].themeToggle;
+            document.getElementById('theme-toggle').innerHTML = `${icon} ${text}`;
+        }
+
+        // Theme toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            updateThemeButton();
+        });
+
+        // Initialization
+        changeLanguage('en');
+    </script>
+</body>
+</html>
