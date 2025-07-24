@@ -9,6 +9,7 @@ body {
       height: 100vh;         
 }
 
+
 header {
     text-align: center;
     padding: 1rem;
@@ -58,3 +59,255 @@ img {
     background-color: white;
     padding: 30px;
 }
+
+
+/* .slider-1 {
+  max-width: 400px;
+  overflow: hidden;
+  border: 1px solid #f1f1f1;
+
+}
+.slider-1 .slider {
+  animation: slider-1 30s infinite ease-in-out;
+  display: flex;
+
+
+}
+.slider-1 img {
+  background: #000;
+  flex-shrink: 0;
+  width: 80%;
+  height:60%;
+  text-align: center;
+  font-size: 45px;
+  color: #f1f1f1;
+}
+
+
+
+@keyframes slider-1 {
+  0%,
+  99% {
+    transform: translateX(0);
+  }
+  
+  99%,
+  100% {
+    transform: translateX(-240%);
+  }
+} 
+
+.img {
+   width: 100%; 
+}
+
+.slider-container {
+    position: fixed;
+    left: -50vw;
+    top: -10vw;
+    z-index: -10;
+    min-height: 200vw;
+    min-width: 200vw;
+    transform: rotate(-45deg);
+} */
+
+
+
+/* ----------------------------------------------- */
+
+/* Cacher la checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* Style du bouton burger */
+    .menu-icon {
+      width: 30px;
+      height: 25px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon .mspan {
+      height: 4%;
+      background: #333;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      padding-top: 60px;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .menu .link {
+      display: block;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu .link:hover {
+      background: #444;
+    }
+
+    /* Quand on coche la checkbox, afficher le menu */
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    #menu-toggle:checked ~ .menu {
+      left: 0;
+    }
+
+    .dlink {
+    text-decoration: none;
+    list-style:decimal;
+    color: white;
+}
+
+/* ------------------------------------- */
+
+.fondbulle {
+    position: absolute;
+    height: 100%;
+}
+#fonddecal {
+    left:-1.55vw;
+}
+#fonddecal1 {
+    left:-1.9vw;
+}
+
+
+
+.circle-container {
+      position: relative;
+      width: 40VW;
+      height: 40VW;
+      z-index: 55;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 8vw;
+      height: 8vw;
+      border-radius: 50%;
+      /* background: linear-gradient(145deg, #4a90e2, #357abd); */
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 0.1vw solid black;
+      z-index: 50;
+    }
+
+    .bubble .short-text {
+      font-weight: bold;
+      font-size: 1.5vw;
+      z-index: 1;
+      pointer-events: none;
+      text-shadow:
+      0.1vw 0.1vw 0.2vw rgb(255, 255, 255),
+      0 0 1em rgb(255, 255, 255),
+      0 0 0.2em rgb(255, 255, 255);
+    }
+
+    .bubble .long-content {
+      display: none;
+      font-size: 1.2vw;
+      padding: 1vw;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .bubble:hover {
+      transform: scale(2);
+      box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.3);
+      z-index: 22;
+    }
+
+    .bubble:hover .short-text {
+      display: none;
+    }
+
+    .bubble:hover .long-content {
+      display: block;
+    }
+
+    .long-content {
+      font-family: 'Space Grotesk', sans-serif;
+      color: rgb(0, 0, 0);
+      -webkit-text-fill-color: rgb(255, 255, 255); /* Will override color (regardless of order) */
+      -webkit-text-stroke: 0.05vw rgb(0, 0, 0);
+      text-decoration: none;
+    }
+
+  /* Positionnement des 6 bulles en cercle */
+  /* Calculs basés sur un cercle avec centre 200px,200px et rayon 150px */
+  /* Angles : 0°, 60°, 120°, 180°, 240°, 300° */
+  .bubble:nth-child(1) {
+    top: calc(50% - 15vw);
+    left: calc(50% + 30vw - 4vw);
+  }
+  .bubble:nth-child(2) {
+    top: calc(50% - 5vw);
+    left: calc(50% + 40vw - 4vw);
+  }
+  .bubble:nth-child(3) {
+    top: calc(50% + 5vw);
+    left: calc(50% + 50vw - 4vw);
+  }
+  .bubble:nth-child(4) {
+    top: calc(50% + 15vw);
+    left: calc(50% + 40vw - 4vw);
+  }
+  .bubble:nth-child(5) {
+    top: calc(50% + 25vw);
+    left: calc(50% + 30vw - 4vw);
+  }
+  .bubble:nth-child(6) {
+    top: calc(50% + 15vw);
+    left: calc(50% + 20vw - 4vw);
+  }
+  .bubble:nth-child(7) {
+    top: calc(50% + 5vw);
+    left: calc(50% + 10vw - 4vw);
+  }
+  .bubble:nth-child(8) {
+    top: calc(50% - 5vw);
+    left: calc(50% + 20vw - 4vw);
+  }
+
+
+/* --------------------------------------- */
+
+
