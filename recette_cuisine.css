@@ -1,0 +1,196 @@
+body {
+  color: rgb(245, 245, 243);
+  background-image: url(OIP.jpg);
+  background-size: cover; /* Couvre toute la page */
+  background-position: right; /* position de l'image */
+  background-repeat: no-repeat; /* Empêche la répétition */
+  background-attachment: fixed; /* Fixe l'image lors du défilement */
+  margin: 20px;
+  height: 50px;
+}
+.div1 {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  font-size: 20px;
+  text-shadow: #e9a513;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 90px;
+  text-decoration: underline;
+}
+h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-height: 80px;
+  text-decoration: underline;
+}
+h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  text-decoration: underline;
+}
+h5 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-height: 70px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.logo {
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+.logo2 {
+  width: 300px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid rgb(11, 100, 11);
+  box-shadow: 3px 2px 6px color rgb(223, 233, 220);
+}
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  color: rgb(30, 64, 78);
+  background-color: bisque;
+  border-style: groove;
+  background-size: center;
+
+  font-weight: bold;
+}
+/*le carrossel de plat*/
+.slider-1 {
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  border: 4px solid #41c79f;
+  border-radius: 20%;
+  box-shadow: 3px 2px 5px #e9a513;
+}
+.slider-1 .slider {
+  animation: slider-1 20s infinite ease-in-out;
+  display: flex;
+}
+.slider-1 img {
+  background: #f3a20a;
+  flex-shrink: 0;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 45px;
+  color: #f1f1f1;
+}
+
+@keyframes slider-1 {
+  0%,
+  24% {
+    transform: translateX(0);
+  }
+  24%,
+  49% {
+    transform: translateX(-100%);
+  }
+  49%,
+  74% {
+    transform: translateX(-200%);
+  }
+  74%,
+  99% {
+    transform: translateX(-300%);
+  }
+  99%,
+  100% {
+    transform: translateX(-400%);
+  }
+}
+
+.img {
+  /* margin-right:200px;
+    margin-left:15px; */
+  height: 100vw;
+  min-width: 420px;
+  max-width: 420px;
+}
+
+.slider-container {
+  /* position: absolute; */
+  left: 50px;
+  max-height: 300px;
+  width: 420px;
+}
+
+#imgs1 {
+  max-height: 260px;
+}
+#imgs2 {
+  max-height: 260px;
+}
+#imgs3 {
+  min-height: 260px;
+}
+select {
+  padding: 12px;
+  width: 250px;
+  border: 1px solid #e9a513;
+  border-radius: 4px;
+  background-color: bisque;
+  font-size: 16px;
+  box-shadow: 0 2px 4px cornflowerblue;
+  appearance: none;
+  background-repeat: none;
+  background-position: right 10px center;
+}
+select:focus {
+  outline: none;
+  border-color: aquamarine;
+  box-shadow: 2px 3px 5px color(black);
+}
+.cuisson {
+  color: #702a02;
+  background-color: rgb(241, 165, 66);
+  border-style: ridge;
+  padding-bottom: 15px;
+  margin-top: auto;
+  font-size: 20px;
+}
+caption {
+  color: #f7f8f8;
+  font-size: 25px;
+  margin-top: 40px;
+}
+table {
+  border-collapse: separate; /* Sépare les bordures des cellules */
+  border-spacing: 5px; /* Espacement entre les cellules */
+  padding: 45px;
+  margin-left: 120px;
+}
+
+td,
+th {
+  border: 1px solid rgb(243, 239, 239); /* Bordure des cellules */
+  padding: 8px; /* Espacement interne */
+  background-color: rgb(241, 165, 66); /* Couleur de fond optionnelle */
+  color: #6d1f01;
+}
+#fin {
+  text-align: center;
+  padding-bottom: auto;
+  font-size: 35px;
+  font-weight: bold;
+  color: #f2f3f3;
+}

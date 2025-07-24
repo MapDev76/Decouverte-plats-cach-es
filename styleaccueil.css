@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    max-height: 70vw;
+    min-height: 65vw;
 }
 header {
     /* background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255)); */
@@ -291,10 +291,10 @@ header {
 
 footer {
   background-color: #000;
-  height: 20vw;
+  height: 10vw;
   width: 100%;
   position: absolute;
-  top:70vw;
+  top:100%;
   left: 0;
   z-index: 100;
 }

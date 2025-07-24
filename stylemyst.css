@@ -133,18 +133,17 @@ header {
 }
 
 
-/* Cacher la checkbox */
+/* Menu burger */
     #menu-toggle {
       display: none;
     }
 
-    /* Style du bouton burger */
     .menu-icon {
-      width: 30px;
-      height: 25px;
+      width: 3vh;
+      height: 2vh;
       position: fixed;
-      top: 20px;
-      left: 20px;
+      top: 2vh;
+      left: 2vh;
       z-index: 1001;
       cursor: pointer;
       display: flex;
@@ -153,21 +152,20 @@ header {
     }
 
     .menu-icon .mspan {
-      height: 4px;
+      height: 0.4vh;
       background: #333;
-      border-radius: 2px;
+      border-radius: 0.2vh;
       transition: 0.4s;
     }
 
-    /* Menu */
     .menu {
       position: fixed;
       top: 0;
-      left: -250px;
-      width: 250px;
+      left: -25vh;
+      width: 25vh;
       height: 100%;
       background: #222;
-      padding-top: 60px;
+      padding-top: 6vh;
       transition: 0.3s ease;
       z-index: 1000;
     }
@@ -175,7 +173,7 @@ header {
     .menu .link {
       display: block;
       color: white;
-      padding: 15px 20px;
+      padding: 1vh 2vh;
       text-decoration: none;
       transition: 0.3s;
     }
@@ -184,28 +182,29 @@ header {
       background: #444;
     }
 
-    /* Quand on coche la checkbox, afficher le menu */
     #menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg) translate(0.5vh, 0.5vh);
+      background-color: white;
     }
 
     #menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
       opacity: 0;
     }
-    
 
     #menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
+      transform: rotate(-45deg) translate(0.6vh, -0.6vh);
+      background-color: white;
     }
 
     #menu-toggle:checked ~ .menu {
       left: 0;
+      padding-left: 2vw;
     }
 
     .dlink {
-    text-decoration: none;
-    list-style:decimal;
-    color: white;
-}
+      text-decoration: none;
+      list-style: decimal;
+      color: white;
+    }
 
 /* ------------------------------------- */
