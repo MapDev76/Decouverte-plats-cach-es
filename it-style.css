@@ -238,7 +238,6 @@ main {
   padding: 30px;
 }
 
-<<<<<<< HEAD
 /* Texte principal */
 .it-parm {
   max-width: 900px;
@@ -361,7 +360,6 @@ main {
   padding: 0.2rem 0.5rem; 
 }
 
-=======
 .span-num {
   font-weight: bold;
   color: white;
@@ -369,7 +367,6 @@ main {
   padding: 0.2rem 0.5rem; 
 }
 
->>>>>>> d0cb53778f7a02f3afb59bdc37ab0c36c60d9098
 p {
   max-width: 800px;
   margin: 1rem auto;
