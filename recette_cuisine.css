@@ -26,6 +26,7 @@ h1 {
   height: 100px;
   display: flex;
   flex-direction: row;
+  padding-left: 70px;
 }
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -69,7 +70,7 @@ p {
   background-color: bisque;
   border-style: groove;
   background-size: center;
-
+  border-radius: 10px;
   font-weight: bold;
 }
 /*le carrossel de plat*/
@@ -143,6 +144,7 @@ p {
 #imgs3 {
   min-height: 260px;
 }
+/*--formulaire ingredients*/
 select {
   padding: 12px;
   width: 250px;
@@ -168,6 +170,7 @@ select:focus {
   margin-top: auto;
   font-size: 20px;
 }
+/*tableau caloriques*/
 caption {
   color: #f7f8f8;
   font-size: 25px;
@@ -193,4 +196,39 @@ th {
   font-size: 35px;
   font-weight: bold;
   color: #f2f3f3;
+}
+/*espaces commentaires*/
+.body2 {
+  color: rgb(241, 241, 239);
+}
+
+form,
+label,
+input {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  height: 25px;
+  width: 300px;
+}
+
+textarea {
+  height: 150px;
+  width: 350px;
+}
+
+select {
+  height: 45px;
+  width: 115px;
+}
+
+option {
+  height: 4px;
+}
+
+button {
+  height: 35px;
+  width: 150px;
+  border-radius: 5px;
 }

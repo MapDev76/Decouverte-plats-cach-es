@@ -7,23 +7,36 @@
     <link rel="stylesheet" href="it-style.css" />
   </head>
   <body>
-    <header class="it-header">
-      <img
-        src="it-logo.png"
-        alt="plat fourchette et couteaux tricolors"
-        class="it-logo"
-      />
-      <nav>
-        <ul>
-          <li><a href="index.html" class="nav-accueil">Accueil</a></li>
-          <li><a href="parmigiana.html">Parmiggiana</a></li>
-          <li><a href="balesh.html">Zur Balesh</a></li>
-          <li><a href="baeckeoffe.html">Baeckeoffe</a></li>
-          <li><a href="solad-olivier.html">Salade Olivier</a></li>
-          <li><a href="borscht.html">Borscht</a></li>
-          <li><a href="site_recettes_cuisines.html">Foss Wakanda</a></li>
+    <img
+      src="it-logo.png"
+      alt="plat fourchette et couteaux tricolors"
+      class="it-logo"
+    />
+    <!-- Checkbox cachée -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- Icône burger -->
+  <label class="menu-icon" for="menu-toggle">
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+  </label>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a class="link" href="accueil.html">Accueil</a>
+    <a class="link" href="#">Recettes</a>
+        <ul class="dlink">
+            <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+            <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+            <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+            <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
+            <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
+            <li class="dlink"><a class="link" href="#">Cameroun</a></li>
+            <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
+            <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
         </ul>
-      </nav>
+  </nav>
     </header>
     <!--Titre Page-->
     <main >
@@ -41,6 +54,12 @@
         <div class="emoji-container">
         <img src="parmitciana.jpg" alt="Plat Parmigiana" class="it-image" />
         <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" />
+     <ul class="icones-cuisine">
+            <li>👨‍🍳 Difficulté: Moyenne</li>
+            <li>🍲 Temps de cuisson: 1 h 40 min</li>
+            <li>🍴 Portion: 8 Personnes</li>
+            <li>⏲️ Temps de préparation: 40 min</li>
+            </ul>
     </main>
 
     <!-- Ingrédients avec popup -->
@@ -253,7 +272,7 @@
     </p>
     </section>
       <h2 class="it-prn">Conseils et Astuces</h2>
-      <p class="it-titre-page">
+      <p class="it-conseil-page">
         Les aubergines parfaites pour cette recette sont grandes, 
         ovales, d'un beau violet foncé et brillant, et doivent être fermes au toucher -
         ni trop dures ni trop molles. Si elles ne sont pas disponibles, les aubergines 
@@ -264,8 +283,53 @@
         En ce qui concerne les variantes : certains farinent les aubergines ou les passent dans l'œuf, ou font les deux. 
         Pour le choix des fromages, vous pouvez opter pour du caciocavallo, comme on le fait en Sicile ou en Calabre. 
         De plus, quelqu'un pourrait vouloir faire un ajout délicieux comme les œufs durs en tranches.</p>
-    </section>
-    <footer class="footer">
+        
+<aside><h2 class="it-prn">Valeurs nutritionnelles (pour 100 g)</h2>
+  <table class="nutri-table">
+  <thead>
+    <tr>
+      <th>Composant</th>
+      <th>Quantité</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Énergie</td>
+      <td>135 kcal</td>
+    </tr>
+    <tr>
+      <td>Protéines</td>
+      <td>5 g</td>
+    </tr>
+    <tr>
+      <td>Glucides</td>
+      <td>7 g</td>
+    </tr>
+    <tr>
+      <td>Sucres</td>
+      <td>3 g</td>
+    </tr>
+    <tr>
+      <td>Matières grasses</td>
+      <td>9 g</td>
+    </tr>
+    <tr>
+      <td>Graisses saturées</td>
+      <td>3,5 g</td>
+    </tr>
+    <tr>
+      <td>Fibres</td>
+      <td>2 g</td>
+    </tr>
+    <tr>
+      <td>Sel</td>
+      <td>0,8 g</td>
+    </tr>
+  </tbody>
+</table>
+</aside>
+      </section>
+      <footer class="footer">
       <p>&copy; 2025 - Découverte des Plats Cachés - La Parmigiana</p>
     </footer>
   </body>

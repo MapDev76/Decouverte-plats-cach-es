@@ -12,6 +12,13 @@ body {
 }
 
 /* Header */
+
+img.it-logo {
+  width: 125px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .it-header {
   background-color: blue;
   padding: 1rem 0;
@@ -20,8 +27,8 @@ body {
 .it-logo {
   width: 125px;
   height: auto; 
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  align-items: center;
 }   
 
 .nav-accueil {
@@ -86,6 +93,23 @@ main {
   
 }
 
+/* Liste des icônes de cuisine */
+
+.icones-cuisine {
+
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;    
+  color: #7b2e2e;
+  padding: 0.2rem;
+  
+  
+}
+
 /* Texte principal */
 .it-parm {
 
@@ -97,7 +121,7 @@ main {
   background-color: #fff;
   border-left: 15px solid #d6b161;
   padding-left: 1rem;
-  opacity: 80%;
+  opacity: 0.8;
   border-radius: 10px;
 }
 
@@ -116,7 +140,7 @@ main {
   color: #7b2e2e;
   text-align: center;
   align-items: center;
-  opacity: 75%;
+  opacity: 0.9;
   border-radius: 10px;
  
 }
@@ -222,8 +246,20 @@ p {
   font-size: 1.05rem;
   text-align: justify;
   align-items: center;
-
 }
+
+.it-conseil-page {
+    font-size: 1.2rem;
+    color: #7b2e2e;
+    margin-top: 1.5rem;
+    text-align: center;
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    opacity: 80%;
+}
+
+
 
 /* Footer */
 .footer {
@@ -288,7 +324,7 @@ p {
   }
 
   .it-prn {
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     width: 90%;
     padding: 0.5rem;
     margin-top: 1rem;
@@ -317,3 +353,117 @@ p {
     padding: 1rem 0;
   }
 }
+.nutri-table {
+  width: 90%;
+  margin: 0rem auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 50px solid #ccc;
+  font-size: 1.5rem;
+  opacity: 85%;
+  
+}
+
+.nutri-table thead {
+  background-color: #d6b161;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+.nutri-table th,
+.nutri-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  .nutri-table {
+    font-size: 0.9rem;
+  }
+
+  .nutri-table th,
+  .nutri-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* ----------------------------------------------- */
+
+/* Cacher la checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* Style du bouton burger */
+    .menu-icon {
+      width: 30px;
+      height: 25px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon .mspan {
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      padding-top: 60px;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .menu .link {
+      display: block;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu .link:hover {
+      background: #444;
+    }
+
+    /* Quand on coche la checkbox, afficher le menu */
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    #menu-toggle:checked ~ .menu {
+      left: 0;
+    }
+
+    .dlink {
+    text-decoration: none;
+    list-style:decimal;
+    color: white;
+}
+
+/* ------------------------------------- */
+

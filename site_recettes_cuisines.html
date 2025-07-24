@@ -8,6 +8,31 @@
   </head>
   <body>
     <header>
+      <!-- Checkbox cachée -->
+    <input type="checkbox" id="menu-toggle">
+    
+    <!-- Icône burger -->
+    <label class="menu-icon" for="menu-toggle">
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+    </label>
+    
+    <!-- Menu -->
+    <nav class="menu">
+    <a class="link" href="accueil.html">Accueil</a>
+    <a class="link" href="#">Recettes</a>
+      <ul class="dlink">
+          <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+          <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+          <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+          <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
+          <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
+          <li class="dlink"><a class="link" href="#">Cameroun</a></li>
+          <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
+          <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
+      </ul>
+    </nav>
       <!-- fond de page principal -->
       <br />
       <div class="div1">
@@ -18,9 +43,10 @@
         />
         <h1>AFRICAN FOOD</h1>
       </div>
+      <!-- Barre de navigation -->
       <nav>
         <a style="color: #ebeaeb" href="/">Accueil</a>
-        <a style="color: rgb(248, 241, 248)" href="/about">A propos</a>
+        <a style="color: rgb(248, 241, 248)" href="https://www.facebook.com/profile.php?id=100083289875105">A propos</a>
       </nav>
       <br />
     </header>
@@ -76,10 +102,10 @@
         que une fois par an sur la montagne du WAKANDA.
       </p>
       <h4>Ingredients (pour 4 pers)</h4>
-      <!-- Menu deroulant de la recette -->
+      <!-- Menu deroulant des ingredients -->
       <label for="ingredients">voir les ingredients</label>
       <select id="ingredients" name="ingredients">
-        <option value="">--Ingredients Recette--</option>
+        <option value="">*Ingredients Recette</option>
         <option value="foss">Foss(hannetons) 200g</option>
         <option value="huile">huile de palme 0.5L</option>
         <option value="messep">messep 10g</option>
@@ -104,9 +130,9 @@
           </li>
           <li>Ajouter le foss, puis les feuilles de Wakanda</li>
           <li>laisser mijoter pendant 15mn ,et tout est PRET!</li>
-          </li>
         </ol>
       </div>
+      <!-- tableau calorifique -->
       <table>
     <caption>Tableau Caloriques du plat</caption>
     <thead>
@@ -175,7 +201,24 @@
         <td>136</td>
         <td>582</td>
       </tr>
-    </main>
-    <div id="fin">BON APPETIT!!!</div>
+  </main>
+     <div id="fin">BON APPETIT!!!</div>
+     <div class="body2">
+  <form onsubmit="alert('formulaire envoyé'); return false;">
+      <label>Pays d'Origine: <input name="nom" type="text" /> 
+        <br>
+      <label>Commentaires: <textarea></textarea></label>
+    <br>
+      <label
+        >Déjà degusté?:
+        <select>
+          <option value="1">OUI</option>
+          <option value="2">NON</option>
+        </select> </label
+      >
+      <br>
+      <button type="submit">Envoyer Avis</button>
+    </form>  
+    </div> 
   </body>
 </html>
