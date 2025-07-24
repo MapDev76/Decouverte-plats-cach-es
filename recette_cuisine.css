@@ -67,6 +67,7 @@ p {
   height: 100%;
   color: rgb(30, 64, 78);
   background-color: bisque;
+  border-style: groove;
   background-size: center;
 
   font-weight: bold;
@@ -162,26 +163,34 @@ select:focus {
 .cuisson {
   color: #702a02;
   background-color: rgb(241, 165, 66);
+  border-style: ridge;
   padding-bottom: 15px;
   margin-top: auto;
   font-size: 20px;
 }
+caption {
+  color: #f7f8f8;
+  font-size: 25px;
+  margin-top: 40px;
+}
 table {
   border-collapse: separate; /* Sépare les bordures des cellules */
-  border-spacing: 10px; /* Espacement entre les cellules */
+  border-spacing: 5px; /* Espacement entre les cellules */
+  padding: 45px;
+  margin-left: 120px;
 }
 
 td,
 th {
-  border: 1px solid black; /* Bordure des cellules */
+  border: 1px solid rgb(243, 239, 239); /* Bordure des cellules */
   padding: 8px; /* Espacement interne */
   background-color: rgb(241, 165, 66); /* Couleur de fond optionnelle */
   color: #6d1f01;
 }
 #fin {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: auto;
   font-size: 35px;
   font-weight: bold;
-  color: #e9a513;
+  color: #f2f3f3;
 }
