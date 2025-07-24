@@ -12,6 +12,13 @@ body {
 }
 
 /* Header */
+
+img.it-logo {
+  width: 125px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .it-header {
   background-color: blue;
   padding: 1rem 0;
@@ -20,8 +27,8 @@ body {
 .it-logo {
   width: 125px;
   height: auto; 
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  align-items: center;
 }   
 
 .nav-accueil {
@@ -114,7 +121,7 @@ main {
   background-color: #fff;
   border-left: 15px solid #d6b161;
   padding-left: 1rem;
-  opacity: 80%;
+  opacity: 0.8;
   border-radius: 10px;
 }
 
@@ -133,7 +140,7 @@ main {
   color: #7b2e2e;
   text-align: center;
   align-items: center;
-  opacity: 75%;
+  opacity: 0.9;
   border-radius: 10px;
  
 }
