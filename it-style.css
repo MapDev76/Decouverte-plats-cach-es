@@ -8,13 +8,44 @@ body {
   background: url('../paesaggio.jpg') no-repeat center center fixed;
   background-size: cover;
   border-radius: 5px;
+  
 }
 
 /* Header */
+
+img.it-logo {
+  width: 125px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .it-header {
-  background-color: #0b19b4;
+  background-color: blue;
   padding: 1rem 0;
   text-align: center;
+}
+.it-logo {
+  width: 125px;
+  height: auto; 
+  display: block;
+  align-items: center;
+}   
+
+.nav-accueil {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Main content */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .it-main {
@@ -58,8 +89,148 @@ body {
 
 /* Image du plat */
 .it-image {
+  
+  max-width: px;
+  height: auto;
+  margin: 4rem auto;
+  border-radius: 10px;
+  background-color:#d6b161;
+  padding: 30px;
+  
+}
+
+/* Liste des icônes de cuisine */
+
+.icones-cuisine {
+
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;    
+  color: #7b2e2e;
+  padding: 0.2rem;
+  
+  
+}
+
+/* Texte principal */
+.it-parm {
+
+  max-width: auto;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  text-align: justify;
+  font-size: 3.2 rem;
+  background-color: #fff;
+  border-left: 15px solid #d6b161;
+  padding-left: 1rem;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+/* Titres de section */
+
+
+.it-prn {
+
+  margin: auto;
+  font-size: 1.8rem;
+  margin-top: 2.8 rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background-color: #eee;
+  width: 250px;
+  color: #7b2e2e;
+  text-align: center;
+  align-items: center;
+  opacity: 0.9;
+  border-radius: 10px;
+ 
+}
+
+/* Liste des ingrédients */
+
+.popup-checkbox {
+  display: none;
+}
+
+.emoji-container {
+  
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.emoji-button {
+
+  font-size: 4rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  background-color: #d7d59f;
+  border-radius: 10%;
+  gap: 50px;
+  align-items: center;
+  padding: 0.5rem;
+
+}
+.emoji-button:hover {
+  transform: scale(2.2);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.popup-checkbox:checked + label + .popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Préparation */
+
+.it-strip-image {
   display: block;
-  width: 500px;
+  width: 75%;
   height: auto;
   margin: 1rem auto;
   border-radius: 10px;
@@ -67,6 +238,7 @@ body {
   padding: 30px;
 }
 
+<<<<<<< HEAD
 /* Texte principal */
 .it-parm {
   max-width: 900px;
@@ -189,6 +361,15 @@ body {
   padding: 0.2rem 0.5rem; 
 }
 
+=======
+.span-num {
+  font-weight: bold;
+  color: white;
+  background-color: #e79f0d;
+  padding: 0.2rem 0.5rem; 
+}
+
+>>>>>>> d0cb53778f7a02f3afb59bdc37ab0c36c60d9098
 p {
   max-width: 800px;
   margin: 1rem auto;
@@ -196,8 +377,20 @@ p {
   font-size: 1.05rem;
   text-align: justify;
   align-items: center;
-
 }
+
+.it-conseil-page {
+    font-size: 1.2rem;
+    color: #7b2e2e;
+    margin-top: 1.5rem;
+    text-align: center;
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    opacity: 80%;
+}
+
+
 
 /* Footer */
 .footer {
@@ -209,3 +402,199 @@ p {
   margin-top: 3rem;
   align-items: center;
 }
+/* ========== Responsive Mobile Styles ========== */
+@media (max-width: 768px) {
+   
+  .it-image {
+    width: 90%;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    padding: 10px;
+  }
+
+  body {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .it-header {
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+  }
+  .it-header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .it-header nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .it-titre-page {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    margin: 1.5rem auto;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .it-image {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .it-parm {
+    font-size: 1rem;
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .it-prn {
+    font-size: 1.9rem;
+    width: 90%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .emoji-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1rem auto;
+  }
+
+  .emoji-button {
+    font-size: 2rem;
+    margin: 0.3rem;
+  }
+
+  .popup-box {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
+}
+.nutri-table {
+  width: 90%;
+  margin: 0rem auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 50px solid #ccc;
+  font-size: 1.5rem;
+  opacity: 85%;
+  
+}
+
+.nutri-table thead {
+  background-color: #d6b161;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+.nutri-table th,
+.nutri-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  .nutri-table {
+    font-size: 0.9rem;
+  }
+
+  .nutri-table th,
+  .nutri-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* ----------------------------------------------- */
+
+/* Cacher la checkbox */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* Style du bouton burger */
+    .menu-icon {
+      width: 30px;
+      height: 25px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon .mspan {
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      padding-top: 60px;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .menu .link {
+      display: block;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu .link:hover {
+      background: #444;
+    }
+
+    /* Quand on coche la checkbox, afficher le menu */
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    #menu-toggle:checked ~ .menu {
+      left: 0;
+    }
+
+    .dlink {
+    text-decoration: none;
+    list-style:decimal;
+    color: white;
+}
+
+/* ------------------------------------- */
+

@@ -90,3 +90,92 @@ img {
     color: #3a3a3a;
     line-height: 1,6;
 }
+
+h1 {
+    text-align: center;
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    background-color: #f9f5f2;
+    padding: 30px;
+
+}
+
+.about-history {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+.about-ingredients {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+.about-preparation {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+.about-degustation {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+.info-supplementaire {
+    margin: 40px auto;
+    background-color: #f9f5f2;
+    opacity: 0.9;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+}
