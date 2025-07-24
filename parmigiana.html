@@ -7,23 +7,36 @@
     <link rel="stylesheet" href="it-style.css" />
   </head>
   <body>
-    <header class="it-header">
-      <nav>
-        <ul>
-          <img
-            src="it-logo.png"
-            alt="plat fourchette et couteaux tricolors"
-            class="it-logo"
-          />
-          <li><a href="index.html" class="nav-accueil">Accueil</a></li>
-          <li><a href="parmigiana.html">Parmiggiana</a></li>
-          <li><a href="balesh.html">Zur Balesh</a></li>
-          <li><a href="baeckeoffe.html">Baeckeoffe</a></li>
-          <li><a href="solad-olivier.html">Salade Olivier</a></li>
-          <li><a href="borscht.html">Borscht</a></li>
-          <li><a href="site_recettes_cuisines.html">Foss Wakanda</a></li>
+    <img
+      src="it-logo.png"
+      alt="plat fourchette et couteaux tricolors"
+      class="it-logo"
+    />
+    <!-- Checkbox cachée -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- Icône burger -->
+  <label class="menu-icon" for="menu-toggle">
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+  </label>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a class="link" href="accueil.html">Accueil</a>
+    <a class="link" href="#">Recettes</a>
+        <ul class="dlink">
+            <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+            <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+            <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+            <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
+            <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
+            <li class="dlink"><a class="link" href="#">Cameroun</a></li>
+            <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
+            <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
         </ul>
-      </nav>
+  </nav>
     </header>
     <!--Titre Page-->
     <main >
@@ -42,7 +55,7 @@
         <img src="parmitciana.jpg" alt="Plat Parmigiana" class="it-image" />
         <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" />
      <ul class="icones-cuisine">
-            <li><👨‍🍳 Difficulté: Moyenne</li>
+            <li>👨‍🍳 Difficulté: Moyenne</li>
             <li>🍲 Temps de cuisson: 1 h 40 min</li>
             <li>🍴 Portion: 8 Personnes</li>
             <li>⏲️ Temps de préparation: 40 min</li>
