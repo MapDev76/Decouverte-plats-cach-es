@@ -48,28 +48,22 @@ main {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.it-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+header {
+    /* background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255)); */
+    height: 5vw;
+    width: 100%;
+    border-bottom: 0.2vw solid black;
+    text-align: center;
+    background: linear-gradient(135deg, #8B5A2B, #A0522D, #CD853F, #D2B48C);
+    background-size: 400% 400%;
+    animation: woodGrain 15s ease infinite;
 }
 
-.it-header nav ul li {
-  display: inline-block;
-  margin: 0 1rem;
+@keyframes woodGrain {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-.it-header nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.it-header nav ul li a:hover {
-  color: #ffd700;
-}
-
 /* Titre principal */
 .it-titre-page {
   text-align: center;
