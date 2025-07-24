@@ -8,19 +8,37 @@ body {
   background: url('../paesaggio.jpg') no-repeat center center fixed;
   background-size: cover;
   border-radius: 5px;
+  
 }
 
 /* Header */
 .it-header {
-  background-color: #0b19b4;
+  background-color: blue;
   padding: 1rem 0;
   text-align: center;
 }
+.it-logo {
+  width: 125px;
+  height: auto; 
+  display: inline-block;
+  vertical-align: middle;
+}   
 
-.it-main {
+.nav-accueil {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Main content */
+
+main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .it-header nav ul {
@@ -58,24 +76,26 @@ body {
 
 /* Image du plat */
 .it-image {
-  display: block;
-  width: 500px;
+  
+  max-width: px;
   height: auto;
-  margin: 1rem auto;
+  margin: 4rem auto;
   border-radius: 10px;
-  background-color: #eee;
+  background-color:#d6b161;
   padding: 30px;
+  
 }
 
 /* Texte principal */
 .it-parm {
-  max-width: 900px;
+
+  max-width: auto;
   margin: 2rem auto;
   padding: 0 1.5rem;
   text-align: justify;
-  font-size: 1.5rem;
+  font-size: 3.2 rem;
   background-color: #fff;
-  border-left: 6px solid #d6b161;
+  border-left: 15px solid #d6b161;
   padding-left: 1rem;
   opacity: 80%;
   border-radius: 10px;
@@ -88,7 +108,7 @@ body {
 
   margin: auto;
   font-size: 1.8rem;
-  margin-top: 2rem;
+  margin-top: 2.8 rem;
   font-weight: bold;
   margin-bottom: 1rem;
   background-color: #eee;
@@ -96,7 +116,7 @@ body {
   color: #7b2e2e;
   text-align: center;
   align-items: center;
-  opacity: 80%;
+  opacity: 75%;
   border-radius: 10px;
  
 }
@@ -108,8 +128,14 @@ body {
 }
 
 .emoji-container {
-  text-align: center;
+  
   margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
 }
 
 .emoji-button {
@@ -120,7 +146,7 @@ body {
   display: inline-block;
   transition: transform 0.2s ease;
   background-color: #d7d59f;
-  border-radius: 50%;
+  border-radius: 10%;
   gap: 50px;
   align-items: center;
   padding: 0.5rem;
@@ -208,4 +234,86 @@ p {
   color: #fff;
   margin-top: 3rem;
   align-items: center;
+}
+/* ========== Responsive Mobile Styles ========== */
+@media (max-width: 768px) {
+   
+  .it-image {
+    width: 90%;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    padding: 10px;
+  }
+
+  body {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .it-header {
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+  }
+  .it-header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .it-header nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .it-titre-page {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    margin: 1.5rem auto;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .it-image {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .it-parm {
+    font-size: 1rem;
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .it-prn {
+    font-size: 1.3rem;
+    width: 90%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .emoji-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1rem auto;
+  }
+
+  .emoji-button {
+    font-size: 2rem;
+    margin: 0.3rem;
+  }
+
+  .popup-box {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
 }
