@@ -74,7 +74,7 @@
                         radial-gradient(1px 1px at 230px 90px, var(--star-color) 100%, transparent),
                         radial-gradient(1px 1px at 270px 160px, var(--star-color) 100%, transparent),
                         radial-gradient(1px 1px at 320px 120px, var(--star-color) 100%, transparent),
-                        radial-gradient(1px 1px at 370px 230px, var(--star-color) 100%, transparent),
+                        quinto-gradient(1px 1px at 370px 230px, var(--star-color) 100%, transparent),
                         radial-gradient(1px 1px at 420px 60px, var(--star-color) 100%, transparent),
                         radial-gradient(1px 1px at 470px 170px, var(--star-color) 100%, transparent);
             animation: mix-tw 3s infinite;
@@ -427,6 +427,8 @@
             text-decoration: none;
             transition: 0.3s;
             font-family: 'News Cycle', sans-serif;
+
+
             text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
         }
 
@@ -728,6 +730,7 @@
 </head>
 <body>
     <audio id="lightsaberSound" src="lightsaber.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="1.mp3" preload="auto" loop></audio>
     <div class="header-bar">
         <div class="title">Découverte des Plats Cachés</div>
     </div>
@@ -781,7 +784,7 @@
                     <p>Соль, перец — по вкусу</p>
                     <p>Способ приготовления:</p>
                     <p>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</p>
-                    <p>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</p>
+                    <p>Сварите яйца вкрутую, понадите, очистите и нарежьте кубиками.</p>
                     <p>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</p>
                     <p>Слейте жидкость из банки с зелёным горошком.</p>
                     <p>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</p>
@@ -827,7 +830,9 @@
                 </div>
             </section>
             <h2>Conseils</h2>
-            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
+            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant的部分
+
+            <p>croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
             <a href="#" onclick="downloadRecipe()" class="download-link">Télécharger la recette</a>
             <div class="images">
                 <img src="image-1.jpg" alt="Salade Olivier 1">
@@ -866,15 +871,27 @@
         document.querySelectorAll('p, h2, .images img, .back-link, .download-link, .theme-toggle').forEach(el => observer.observe(el));
         switchLanguage('ru');
 
-        // Добавление звука lightsaber при клике на кнопки
+        // Воспроизведение музыки 1.mp3 при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            // Попытка автоматического воспроизведения
+            backgroundMusic.play().catch(error => {
+                console.error('Ошибка автоматического воспроизведения музыки:', error);
+                // Воспроизведение после первого взаимодействия пользователя
+                document.addEventListener('click', function startMusic() {
+                    backgroundMusic.play().catch(err => console.error('Ошибка после взаимодействия:', err));
+                    document.removeEventListener('click', startMusic);
+                }, { once: true });
+            });
+
+            // Существующий код для звука lightsaber
             const sound = document.getElementById('lightsaberSound');
             const clickableElements = document.querySelectorAll('button, a.back-link, a.download-link, .menu a.link, label.menu-icon');
             clickableElements.forEach(element => {
                 element.addEventListener('click', function() {
                     sound.currentTime = 0;
                     sound.play().catch(error => {
-                        console.error('Ошибка воспроизведения звука:', error);
+                        console.error('Ошибка воспроизведения звука lightsaber:', error);
                     });
                 });
             });
