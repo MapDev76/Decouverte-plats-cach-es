@@ -8,7 +8,7 @@ body {
 
 h1 {
     text-align: center;
-    margin: 40px auto;
+    margin: 40px 5%;
     background-color: #f9f5f2;
     opacity: 90%;
     padding: 25px 30px;
@@ -17,91 +17,6 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3a3a3a;
     line-height: 1,6;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    height: auto;
-    border-radius: 10px;
-    background-color: white;
-    padding: 30px;
-
-}
-
-.about-history {
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 90%;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1,6;
-}
-
-.about-ingredients {
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 90%;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1,6;
-}
-
-.about-preparation {
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 90%;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1,6;
-}
-
-.about-degustation {
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 90%;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1,6;
-}
-
-.info-supplementaire {
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 90%;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0,1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1,6;
-}
-
-h1 {
-    text-align: center;
-    margin: 40px auto;
-    background-color: #f9f5f2;
-    opacity: 0.9;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3a3a3a;
-    line-height: 1.6;
 }
 
 img {
@@ -122,15 +37,15 @@ img {
 .about-degustation,
 .info-supplementaire 
 {
-    margin: 40px auto;
-    background-color: #f9f5f2;
+    margin: 40px 5%;
+    background-color:  #f9f5f2;
     opacity: 0.9;
-    padding: 25px 30px;
+    padding: 25px 60px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3a3a3a;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 
@@ -140,21 +55,29 @@ h2 {
 
 
 header {
-    /* background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255)); */
-    height: 1vw;
+    /* background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255));   */
+    height: 5vw;
     width: 100%;
-    /* border-bottom: 0.2vw solid black; */
+    border-bottom: 0.2vw solid black; 
     text-align: center;
-    /* background: linear-gradient(135deg, #8B5A2B, #A0522D, #CD853F, #D2B48C);
+    background: linear-gradient(-45deg, #c2c515, #546a40, #929e4a, #92aa47);
+    opacity: 0.9;
     background-size: 400% 400%;
-    animation: woodGrain 15s ease infinite; */
+    animation: woodGrain 15s ease infinite; 
 }
 
-/* @keyframes woodGrain {
+.title {
+    margin: 0;
+    padding-top: 1vw ;
+    font-size: 3vw;
+    display: inline-block;
+}
+
+@keyframes woodGrain {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-} */
+} 
 
 .title {
     margin: 0;
@@ -421,6 +344,43 @@ header {
 
 
 /* --------------------------------------- */
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  color: #3a3a3a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 50px;
+  opacity: 0.9;
+  border-radius: 12px;
+}
+
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 12px 28px;
+  background-color: #f9f5f2;
+  color: #3a3a3a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid #3a3a3a;
+  box-shadow: 0 4px 15px rgba(58, 58, 58, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-retour:hover,
+.btn-retour:focus {
+  background-color: #3a3a3a;
+  color: #f9f5f2;
+  box-shadow: 0 6px 20px rgba(58, 58, 58, 0.4);
+}
+
 
 
 

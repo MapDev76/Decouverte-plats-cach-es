@@ -292,6 +292,7 @@ header {
 
 
 footer {
+  color: white;
   background-color: #000;
   height: 10vw;
   width: 100%;
@@ -299,4 +300,14 @@ footer {
   top:150%;
   left: 0;
   z-index: 100;
+  display: flex;
+  flex-flow: row wrap; 
+  gap: 3vw;
+  text-align: center;
+  align-items: center;
+}
+
+.txtfoot {  
+  position: absolute;
+  left: 40%;
 }
