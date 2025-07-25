@@ -1,346 +1,80 @@
-<!DOCTYPE html>
+</head>
+<body>
+    <header>
+      <p class="title"><strong>Découverte des Plats Cachés</strong></p>
+      <!-- Checkbox cachée -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- Icône burger -->
+  <label class="menu-icon" for="menu-toggle">
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+    <span class="mspan"></span>
+  </label>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a class="link" href="accueil.html">Accueil</a>
+    <a class="link" href="#">Recettes</a>
+        <ul class="dlink">
+            <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+            <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+            <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+            <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
+            <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
+            <li class="dlink"><a class="link" href="site_recettes_cuisines.html">Cameroun</a></li>
+            <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
+            <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
+        </ul>
+  </nav>
+    </header>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Салат Оливье / Salade Olivier</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1A3C34; /* Deep forest green */
-            --accent-color: #D4A017; /* Luxurious gold */
-            --bg-color: #F8F1E9; /* Soft ivory */
-            --text-color: #2C2C2C; /* Charcoal */
-            --neumorph-bg: #F8F1E9;
-            --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
-            --header-bg: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url no-repeat center/cover;
-        }
-        [data-theme="dark"] {
-            --bg-color: #1C2526;
-            --text-color: #E8ECEF;
-            --primary-color: #2E7D32;
-            --accent-color: #E8B923;
-            --neumorph-bg: #2A2F31;
-            --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.1);
-            --header-bg: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),  no-repeat center/cover;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color 0.5s ease, color 0.5s ease;
-            overflow-x: hidden;
-        }
-        header {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: var(--header-bg);
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            perspective: 1200px;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            opacity: 0.3;
-            z-index: 1;
-            animation: pulse 10s infinite ease-in-out;
-        }
-        header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 0.1px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            animation: fadeInScale 1.2s ease-out;
-            transform-style: preserve-3d;
-            z-index: 2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-        header:hover h1 {
-            transform: scale(1.05) rotateY(3deg);
-        }
-        #language-switch {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            z-index: 10;
-            opacity: 0;
-            animation: slideInRight 1s ease-out 0.5s forwards;
-        }
-        #language-switch button {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 12px 24px;
-            margin: 0 8px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        #language-switch button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--accent-color);
-            opacity: 0.3;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
-        }
-        #language-switch button:hover::after {
-            width: 200px;
-            height: 200px;
-            opacity: 0;
-        }
-        #language-switch button:hover {
-            background: var(--accent-color);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
-            transform: translateY(-2px) scale(1.05);
-        }
-        .content {
-            max-width: 1400px;
-            margin: 60px auto;
-            padding: 0 30px;
-        }
-        h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            position: relative;
-            letter-spacing: 1px;
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        h2.in-view {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 0;
-            height: 4px;
-            background: var(--accent-color);
-            transition: width 0.6s ease;
-        }
-        h2.in-view::after {
-            width: 120px;
-        }
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        p.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .recipe {
-            background: var(--neumorph-bg);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: var(--neumorph-shadow);
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.6s ease;
-        }
-        .recipe.in-view {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .recipe:hover {
-            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15), -15px -15px 30px rgba(255, 255, 255, 0.8);
-            transform: translateY(-5px) scale(1.02);
-        }
-        .recipe ul, .recipe ol {
-            margin-left: 25px;
-            font-size: 1.1rem;
-        }
-        .recipe li {
-            margin-bottom: 15px;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .recipe li.in-view {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .recipe li:hover {
-            transform: translateX(8px);
-            color: var(--accent-color);
-        }
-        .images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        .images img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s ease;
-            object-fit: cover;
-            height: 250px;
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        .images img.in-view {
-            opacity: 1;
-            transform: scale(1);
-            animation: imagePop 0.8s ease-out;
-        }
-        .images img:hover {
-            transform: scale(1.08);
-            filter: brightness(1.15) drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
-        }
-        .back-link {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #fff;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            margin-bottom: 50px;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .back-link.in-view {
-            opacity: 1;
-            transform: translateY(0);
-            animation: slideUp 0.6s ease-out;
-        }
-        .back-link::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--accent-color);
-            opacity: 0.3;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
-        }
-        .back-link:hover::after {
-            width: 300px;
-            height: 300px;
-            opacity: 0;
-        }
-        .back-link:hover {
-            background: var(--accent-color);
-            box-shadow: 0 0 20px rgba(212, 160, 23, 0.5);
-            transform: translateY(-3px) scale(1.05);
-        }
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-color);
-            color: #fff;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: rotate(45deg);
-        }
-        .theme-toggle.in-view {
-            opacity: 1;
-            transform: rotate(0);
-            animation: rotateIn 0.8s ease-out;
-        }
-        .theme-toggle:hover {
-            background: var(--primary-color);
-            box-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
-            transform: rotate(360deg) scale(1.1);
-        }
-        .hidden {
-            display: none;
-        }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes imagePop {
-            0% { opacity: 0; transform: scale(0.9); }
-            50% { transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes rotateIn {
-            from { opacity: 0; transform: rotate(45deg); }
-            to { opacity: 1; transform: rotate(0); }
-        }
-        @keyframes pulse {
-            0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.05); }
-            100% { opacity: 0.3; transform: scale(1); }
-        }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .content { padding: 0 15px; }
-            .recipe { padding: 25px; }
-            .images img { height: 200px; }
-            #language-switch button { padding: 10px 18px; font-size: 0.8rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="style-ru.css">
 </head>
 <body>
     <header>
@@ -355,7 +89,7 @@
         
         <div id="ru-content">
             <h2>История салата Оливье</h2>
-            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.<grok:render type="render_inline_citation"><argument name="citation_id">0</argument></grok:render></p>
+            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.</p>
             <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
             
             <div class="recipe">
@@ -394,7 +128,7 @@
 
         <div id="fr-content" class="hidden">
             <h2>Histoire de la salade Olivier</h2>
-            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.<grok:render type="render_inline_citation"><argument name="citation_id">0</argument></grok:render></p>
+            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.</p>
             <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
             
             <div class="recipe">

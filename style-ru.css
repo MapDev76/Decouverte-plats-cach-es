@@ -28,6 +28,91 @@ body {
     background-color: var(--bg-color);
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: hidden;
+    header {
+    /* background: linear-gradient(to right top, rgb(151, 250, 255), rgb(15, 115, 255)); */
+    height: 5vw;
+    width: 100%;
+    border-bottom: 0.2vw solid black;
+    text-align: center;
+    background: linear-gradient(135deg, #8B5A2B, #A0522D, #CD853F, #D2B48C);
+    background-size: 400% 400%;
+    animation: woodGrain 15s ease infinite;
+}
+
+@keyframes woodGrain {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.title {
+    margin: 0;
+    padding-top: 1vw ;
+    font-size: 3vw;
+}
+/* ------------------- */
+
+.fondacc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -20;
+}
+
+
+/* .slider-1 {
+  max-width: 400px;
+  overflow: hidden;
+  border: 1px solid #f1f1f1;
+
+}
+.slider-1 .slider {
+  animation: slider-1 30s infinite ease-in-out;
+  display: flex;
+
+
+}
+.slider-1 img {
+  background: #000;
+  flex-shrink: 0;
+  width: 80%;
+  height:60%;
+  text-align: center;
+  font-size: 45px;
+  color: #f1f1f1;
+}
+
+
+
+@keyframes slider-1 {
+  0%,
+  99% {
+    transform: translateX(0);
+  }
+  
+  99%,
+  100% {
+    transform: translateX(-240%);
+  }
+} 
+
+.img {
+   width: 100%; 
+}
+
+.slider-container {
+    position: fixed;
+    left: -50vw;
+    top: -10vw;
+    z-index: -10;
+    min-height: 200vw;
+    min-width: 200vw;
+    transform: rotate(-45deg);
+} */
+
+
 }
 header {
     height: 70vh;
