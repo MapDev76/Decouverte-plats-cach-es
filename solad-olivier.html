@@ -13,6 +13,7 @@
             padding: 0;
             overflow-x: hidden;
             min-height: 65vw;
+            background: var(--bg-color);
         }
         .header-bar {
             height: 5vw;
@@ -502,16 +503,18 @@
             --text-color: #2C2C2C;
             --neumorph-bg: #F8F1E9;
             --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
-            --header-bg: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url no-repeat center/cover;
+            --header-bg: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('') no-repeat center/cover;
+            --star-color: #eee;
         }
         [data-theme="dark"] {
-            --bg-color: #1C2526;
-            --text-color: #E8ECEF;
             --primary-color: #2E7D32;
             --accent-color: #E8B923;
+            --bg-color: #1C2526;
+            --text-color: #E8ECEF;
             --neumorph-bg: #2A2F31;
-            --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.1);
-            --header-bg: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), no-repeat center/cover;
+            --neumorph-shadow: none;
+            --header-bg: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('') no-repeat center/cover;
+            --star-color: #ccc;
         }
 
         @keyframes fadeInScale {
@@ -519,12 +522,12 @@
             to { opacity: 1; transform: scale(1); }
         }
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from: { opacity: 0; transform: translateX(50px); }
+            to: { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from: { opacity: 0; transform: translateY(20px); }
+            to: { opacity: 1; transform: translateY(0); }
         }
         @keyframes imagePop {
             0% { opacity: 0; transform: scale(0.9); }
@@ -532,48 +535,89 @@
             100% { opacity: 1; transform: scale(1); }
         }
         @keyframes rotateIn {
-            from { opacity: 0; transform: rotate(45deg); }
-            to { opacity: 1; transform: rotate(0); }
+            from: { opacity: 0; transform: rotate(45deg); }
+            to: { opacity: 1; transform: rotate(0); }
         }
         @keyframes pulse {
             0% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.05); }
             100% { opacity: 0.3; transform: scale(1); }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             header h1 { font-size: 2.5rem; }
-            .content { padding: 0 15px; }
+            .content { padding: 0; }
             .images img { height: 200px; }
-            #language-switch button { padding: 10px 18px; font-size: 0.8rem; }
+            #language-switch button { padding: 10px 2px; font-size: 10px; }
             .header-bar .title { font-size: 2.5vw; }
+            .star-wars { font-size: 30px; }
+            .content { padding: 10px; }
         }
 
-        /* Star Wars Crawl Styles */
-        .fade {
-            position: relative;
-            width: 100%;
-            min-height: 60vh;
-            top: -25px;
-            background-image: linear-gradient(0deg, transparent, black 75%);
-            z-index: 1;
-        }
-
+        /* Star Wars Crawl */
         .star-wars {
             display: flex;
             justify-content: center;
             position: relative;
-            height: 800px;
-            background: #000;
+            height: 900px;
+            background-color: #000;
             overflow: hidden;
-            color: var(--accent-color);
+            color: var(--text-color);
             font-family: 'Pathway Gothic One', sans-serif;
-            font-size: 300%;
+            font-size: 4rem;
             font-weight: 600;
-            letter-spacing: 6px;
             line-height: 150%;
             perspective: 400px;
-            text-align: justify;
+            text-align: center;
             margin-bottom: 50px;
+        }
+
+        /* Starry Background */
+        .star-wars::before,
+        .star-wars::after,
+        .star-wars .stars {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+        }
+
+        .star-wars::before {
+            background: radial-gradient(2px 2px at 20px 30px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 40px 150px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 50px 260px, var(--star-color, #ddd) 0),
+                        radial-gradient(2px 2px at 90px 40px, var(--star-color, #fff) 0),
+                        radial-gradient(2px 2px at 130px 80px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 160px 120px, var(--star-color, #ddd) 100%, transparent);
+            animation: mix-tw 2s infinite;
+        }
+
+        .star-wars::after {
+            background: radial-gradient(2px 2px at 30px 200px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 70px 50px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 120px 90px, var(--star-color, #ddd) 0),
+                        radial-gradient(2px 2px at 150px 60px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 180px 150px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 200px 100px, var(--star-color, #ddd) 100%, transparent);
+            animation: mix-tw 4s infinite;
+        }
+
+        .star-wars .stars {
+            background: radial-gradient(1px 1px at 10px 100px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 60px 130px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 100px 50px, var(--star-color, #ddd) 0),
+                        radial-gradient(1px 1px at 140px 110px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 170px 70px, var(--star-color) 100%, transparent);
+            animation: mix-tw 3s infinite;
+        }
+
+        @keyframes mix-tw {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.3; }
         }
 
         .crawl {
@@ -581,10 +625,11 @@
             top: 9999px;
             transform-origin: 50% 100%;
             animation: crawl 60s linear infinite;
+            width: 70%;
         }
 
         .crawl > .title {
-            font-size: 90%;
+            font-size: 70%;
             text-align: center;
         }
 
@@ -597,10 +642,15 @@
             0% {
                 top: 0;
                 transform: rotateX(20deg) translateZ(0);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
             }
             100% { 
                 top: -6000px;
                 transform: rotateX(25deg) translateZ(-2500px);
+                opacity: 0;
             }
         }
     </style>
@@ -693,7 +743,6 @@
             <h2>История салата Оливье</h2>
             <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.</p>
             <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
-            <div class="fade"></div>
             <section class="star-wars">
                 <div class="crawl">
                     <div class="title">
@@ -730,8 +779,7 @@
         <div id="fr-content" class="hidden">
             <h2>Histoire de la salade Olivier</h2>
             <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.</p>
-            <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque sovi/stique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
-            <div class="fade"></div>
+            <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
             <section class="star-wars">
                 <div class="crawl">
                     <div class="title">
