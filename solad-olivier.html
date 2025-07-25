@@ -6,6 +6,7 @@
     <title>Салат Оливье / Salade Olivier</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One:400" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -52,7 +53,7 @@
             position: relative;
             overflow: hidden;
             perspective: 1200px;
-            margin-top: 5vw; /* Adjust to account for fixed header bar */
+            margin-top: 5vw;
         }
 
         header::before {
@@ -141,7 +142,7 @@
             max-width: 1400px;
             margin: 60px auto;
             padding: 0 30px;
-            margin-top: 5vw; /* Adjust to account for fixed header bar */
+            margin-top: 5vw;
         }
 
         h2 {
@@ -189,49 +190,6 @@
             transform: translateY(0);
         }
 
-        .recipe {
-            background: var(--neumorph-bg);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: var(--neumorph-shadow);
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.6s ease;
-        }
-
-        .recipe.in-view {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .recipe:hover {
-            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15), -15px -15px 30px rgba(255, 255, 255, 0.8);
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        .recipe ul, .recipe ol {
-            margin-left: 25px;
-            font-size: 1.1rem;
-        }
-
-        .recipe li {
-            margin-bottom: 15px;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .recipe li.in-view {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .recipe li:hover {
-            transform: translateX(8px);
-            color: var(--accent-color);
-        }
-
         .images {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -261,7 +219,7 @@
             filter: brightness(1.15) drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
         }
 
-        .back-link {
+        .back-link, .download-link {
             display: inline-block;
             background: var(--primary-color);
             color: #fff;
@@ -281,13 +239,13 @@
             transform: translateY(20px);
         }
 
-        .back-link.in-view {
+        .back-link.in-view, .download-link.in-view {
             opacity: 1;
             transform: translateY(0);
             animation: slideUp 0.6s ease-out;
         }
 
-        .back-link::after {
+        .back-link::after, .download-link::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -301,13 +259,13 @@
             transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
         }
 
-        .back-link:hover::after {
+        .back-link:hover::after, .download-link:hover::after {
             width: 300px;
             height: 300px;
             opacity: 0;
         }
 
-        .back-link:hover {
+        .back-link:hover, .download-link:hover {
             background: var(--accent-color);
             box-shadow: 0 0 20px rgba(212, 160, 23, 0.5);
             transform: translateY(-3px) scale(1.05);
@@ -350,7 +308,7 @@
 
         .fondacc {
             position: fixed;
-            top: 5vw; /* Adjust to account for fixed header bar */
+            top: 5vw;
             left: 0;
             height: 100%;
             width: 100%;
@@ -585,10 +543,65 @@
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             .content { padding: 0 15px; }
-            .recipe { padding: 25px; }
             .images img { height: 200px; }
             #language-switch button { padding: 10px 18px; font-size: 0.8rem; }
             .header-bar .title { font-size: 2.5vw; }
+        }
+
+        /* Star Wars Crawl Styles */
+        .fade {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            top: -25px;
+            background-image: linear-gradient(0deg, transparent, black 75%);
+            z-index: 1;
+        }
+
+        .star-wars {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 800px;
+            background: #000;
+            overflow: hidden;
+            color: var(--accent-color);
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-size: 300%;
+            font-weight: 600;
+            letter-spacing: 6px;
+            line-height: 150%;
+            perspective: 400px;
+            text-align: justify;
+            margin-bottom: 50px;
+        }
+
+        .crawl {
+            position: relative;
+            top: 9999px;
+            transform-origin: 50% 100%;
+            animation: crawl 60s linear infinite;
+        }
+
+        .crawl > .title {
+            font-size: 90%;
+            text-align: center;
+        }
+
+        .crawl > .title h1 {
+            margin: 0 0 100px;
+            text-transform: uppercase;
+        }
+
+        @keyframes crawl {
+            0% {
+                top: 0;
+                transform: rotateX(20deg) translateZ(0);
+            }
+            100% { 
+                top: -6000px;
+                transform: rotateX(25deg) translateZ(-2500px);
+            }
         }
     </style>
     <script type="text/javascript">
@@ -622,6 +635,25 @@
             }
             return gk_fileData[filename] || "";
         }
+
+        function downloadRecipe() {
+            const lang = document.getElementById('ru-content').classList.contains('hidden') ? 'fr' : 'ru';
+            const crawl = document.querySelector(`#${lang}-content .crawl`);
+            const paragraphs = crawl.querySelectorAll('p');
+            let content = '';
+            paragraphs.forEach(p => {
+                content += p.textContent + '\n\n';
+            });
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = lang === 'ru' ? 'Салат_Оливье_Рецепт.txt' : 'Salade_Olivier_Recette.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 </head>
 <body>
@@ -629,9 +661,7 @@
         <div class="title">Découverte des Plats Cachés</div>
     </div>
     <header>
-        <!-- Checkbox cachée -->
         <input type="checkbox" id="menu-toggle" />
-        <!-- Icône burger -->
         <label class="menu-icon" for="menu-toggle">
             <span class="mspan"></span>
             <span class="mspan"></span>
@@ -642,23 +672,14 @@
             <button onclick="switchLanguage('fr')">Français</button>
         </div>
         <h1 id="title">Салат Оливье: История и Рецепт</h1>
-        <!-- Menu -->
         <nav class="menu">
             <a class="link" href="accueil.html">Accueil</a>
             <a class="link" href="#">Recettes</a>
             <ul class="dlink">
-                <li class="dlink">
-                    <a class="link" href="parmigiana.html">Italie</a>
-                </li>
-                <li class="dlink">
-                    <a class="link" href="solad-olivier.html">Russie</a>
-                </li>
-                <li class="dlink">
-                    <a class="link" href="balesh.html">Bashkirie</a>
-                </li>
-                <li class="dlink">
-                    <a class="link" href="Baeckaoffe.html">France</a>
-                </li>
+                <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+                <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+                <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+                <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
                 <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
                 <li class="dlink"><a class="link" href="#">Cameroun</a></li>
                 <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
@@ -672,32 +693,35 @@
             <h2>История салата Оливье</h2>
             <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.</p>
             <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
-            <div class="recipe">
-                <h2>Классический рецепт салата Оливье</h2>
-                <h3>Основные ингредиенты:</h3>
-                <ul>
-                    <li>Картофель — 4–5 шт. (среднего размера)</li>
-                    <li>Морковь — 2–3 шт.</li>
-                    <li>Яйца — 4–5 шт.</li>
-                    <li>Огурцы солёные (или маринованные) — 3–4 шт.</li>
-                    <li>Колбаса варёная (или курица, ветчина) — 300–400 г</li>
-                    <li>Горошек зелёный консервированный — 1 банка (200–300 г)</li>
-                    <li>Майонез — 200–250 г</li>
-                    <li>Соль, перец — по вкусу</li>
-                </ul>
-                <h3>Способ приготовления:</h3>
-                <ol>
-                    <li>Отварите картофель и морковь в мunдире до готовности, остудите, очистите и нарежьте мелкими кубиками.</li>
-                    <li>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</li>
-                    <li>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</li>
-                    <li>Слейте жидкость из банки с зелёным горошком.</li>
-                    <li>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</li>
-                    <li>Тщательно перемешайте салат, охладите в холодильнике 30–60 минут перед подачей.</li>
-                    <li>По желанию украсьте зеленью или ломтиками огурца.</li>
-                </ol>
-            </div>
+            <div class="fade"></div>
+            <section class="star-wars">
+                <div class="crawl">
+                    <div class="title">
+                        <p>Классический рецепт</p>
+                        <h1>Салат Оливье</h1>
+                    </div>
+                    <p>Основные ингредиенты:</p>
+                    <p>Картофель — 4–5 шт. (среднего размера)</p>
+                    <p>Морковь — 2–3 шт.</p>
+                    <p>Яйца — 4–5 шт.</p>
+                    <p>Огурцы солёные (или маринованные) — 3–4 шт.</p>
+                    <p>Колбаса варёная (или курица, ветчина) — 300–400 г</p>
+                    <p>Горошек зелёный консервированный — 1 банка (200–300 г)</p>
+                    <p>Майонез — 200–250 г</p>
+                    <p>Соль, перец — по вкусу</p>
+                    <p>Способ приготовления:</p>
+                    <p>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</p>
+                    <p>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</p>
+                    <p>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</p>
+                    <p>Слейте жидкость из банки с зелёным горошком.</p>
+                    <p>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</p>
+                    <p>Тщательно перемешайте салат, охладите в холодильнике 30–60 минут перед подачей.</p>
+                    <p>По желанию украсьте зеленью или ломтиками огурца.</p>
+                </div>
+            </section>
             <h2>Советы</h2>
             <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.</p>
+            <a href="#" onclick="downloadRecipe()" class="download-link">Скачать рецепт</a>
             <div class="images">
                 <img src="image-1.jpg" alt="Салат Оливье 1">
                 <img src="image.jpg" alt="Салат Оливье 2">
@@ -706,33 +730,36 @@
         <div id="fr-content" class="hidden">
             <h2>Histoire de la salade Olivier</h2>
             <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.</p>
-            <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
-            <div class="recipe">
-                <h2>Recette classique de la salade Olivier</h2>
-                <h3>Ingrédients principaux :</h3>
-                <ul>
-                    <li>Pommes de terre — 3–4 pcs. (de taille moyenne)</li>
-                    <li>Carottes — 2–3 pcs.</li>
-                    <li>Œufs — 5 pcs.</li>
-                    <li>Concombres salés (ou marinés) — 4–5 pcs.</li>
-                    <li>Saucisse cuite (ou poulet, jambon) — 300–400 g</li>
-                    <li>Petits pois verts en conserve — 1 boîte (200–300 g)</li>
-                    <li>Mayonnaise — 200–250 g</li>
-                    <li>Sel, poivre — au goût</li>
-                </ul>
-                <h3>Méthode de préparation :</h3>
-                <ol>
-                    <li>Faites bouillir les pommes de terre et les carottes avec la peau jusqu'à ce qu'elles soient cuites, laissez refroidir, pelez et coupez en petits cubes.</li>
-                    <li>Faites cuire les œufs durs, laissez refroidir, pelez et coupez en cubes.</li>
-                    <li>Coupez les concombres salés et la saucisse (ou autre viande) en cubes de la même taille.</li>
-                    <li>Égouttez le liquide de la boîte de petits pois verts.</li>
-                    <li>Mélangez tous les ingrédients dans un grand bol, ajoutez la mayonnaise, le sel et le poivre au goût.</li>
-                    <li>Mélangez bien la salade, réfrigérez 30–60 minutes avant de servir.</li>
-                    <li>Si désiré, décorez avec des herbes ou des tranches de concombre.</li>
-                </ol>
-            </div>
+            <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque sovi/stique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
+            <div class="fade"></div>
+            <section class="star-wars">
+                <div class="crawl">
+                    <div class="title">
+                        <p>Recette classique</p>
+                        <h1>Salade Olivier</h1>
+                    </div>
+                    <p>Ingrédients principaux :</p>
+                    <p>Pommes de terre — 3–4 pcs. (de taille moyenne)</p>
+                    <p>Carottes — 2–3 pcs.</p>
+                    <p>Œufs — 5 pcs.</p>
+                    <p>Concombres salés (ou marinés) — 4–5 pcs.</p>
+                    <p>Saucisse cuite (ou poulet, jambon) — 300–400 g</p>
+                    <p>Petits pois verts en conserve — 1 boîte (200–300 g)</p>
+                    <p>Mayonnaise — 200–250 g</p>
+                    <p>Sel, poivre — au goût</p>
+                    <p>Méthode de préparation :</p>
+                    <p>Faites bouillir les pommes de terre et les carottes avec la peau jusqu'à ce qu'elles soient cuites, laissez refroidir, pelez et coupez en petits cubes.</p>
+                    <p>Faites cuire les œufs durs, laissez refroidir, pelez et coupez en cubes.</p>
+                    <p>Coupez les concombres salés et la saucisse (ou autre viande) en cubes de la même taille.</p>
+                    <p>Égouttez le liquide de la boîte de petits pois verts.</p>
+                    <p>Mélangez tous les ingrédients dans un grand bol, ajoutez la mayonnaise, le sel et le poivre au goût.</p>
+                    <p>Mélangez bien la salade, réfrigérez 30–60 minutes avant de servir.</p>
+                    <p>Si désiré, décorez avec des herbes ou des tranches de concombre.</p>
+                </div>
+            </section>
             <h2>Conseils</h2>
             <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
+            <a href="#" onclick="downloadRecipe()" class="download-link">Télécharger la recette</a>
             <div class="images">
                 <img src="image-1.jpg" alt="Salade Olivier 1">
                 <img src="image.jpg" alt="Salade Olivier 2">
@@ -767,7 +794,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('p, h2, .recipe, .recipe li, .images img, .back-link, .theme-toggle').forEach(el => observer.observe(el));
+        document.querySelectorAll('p, h2, .images img, .back-link, .download-link, .theme-toggle').forEach(el => observer.observe(el));
         switchLanguage('ru');
     </script>
 </body>
