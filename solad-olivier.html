@@ -4,289 +4,829 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Салат Оливье / Salade Olivier</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #4CAF50; /* Green for freshness */
-            --accent-color: #FF9800; /* Orange for warmth */
-            --bg-color: #fffaf0; /* Light cream background */
-            --text-color: #333;
-            --neumorph-bg: #e0e0e0;
-            --neumorph-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
-            --header-bg: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://source.unsplash.com/random/1920x1080/?salad') no-repeat center/cover;
-        }
-        [data-theme="dark"] {
-            --bg-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --primary-color: #66BB6A;
-            --accent-color: #FFA726;
-            --neumorph-bg: #2c2c2c;
-            --neumorph-shadow: 8px 8px 16px #1a1a1a, -8px -8px 16px #3e3e3e;
-            --header-bg: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?salad') no-repeat center/cover;
-        }
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: #000000;
             color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color 0.3s, color 0.3s;
+            position: relative;
         }
+
+        body::before,
+        body::after,
+        body .stars {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+        }
+
+        body::before {
+            background: radial-gradient(2px 2px at 20px 30px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 40px 150px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 50px 260px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 90px 40px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 130px 80px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 160px 120px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 210px 50px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 250px 180px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 300px 100px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 350px 220px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 400px 70px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 450px 300px, var(--star-color) 100%, transparent);
+            animation: mix-tw 2s infinite;
+        }
+
+        body::after {
+            background: radial-gradient(2px 2px at 30px 200px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 70px 50px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 120px 90px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 150px 60px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 180px 150px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 200px 100px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 220px 220px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 260px 70px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 310px 140px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 360px 250px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 410px 80px, var(--star-color) 100%, transparent),
+                        radial-gradient(2px 2px at 460px 190px, var(--star-color) 100%, transparent);
+            animation: mix-tw 4s infinite;
+        }
+
+        body .stars {
+            background: radial-gradient(1px 1px at 10px 100px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 60px 130px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 100px 50px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 140px 110px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 170px 70px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 190px 200px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 230px 90px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 270px 160px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 320px 120px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 370px 230px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 420px 60px, var(--star-color) 100%, transparent),
+                        radial-gradient(1px 1px at 470px 170px, var(--star-color) 100%, transparent);
+            animation: mix-tw 3s infinite;
+        }
+
+        @keyframes mix-tw {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.3; }
+        }
+
+        .header-bar {
+            height: 5vw;
+            width: 100%;
+            border-bottom: 0.2vw solid #FFD700;
+            text-align: center;
+            background: #000000;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-bar .title {
+            margin: 0;
+            padding-top: 1vw;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 3vw;
+            color: #FFD700;
+            text-shadow: 0 0 0.5vw rgba(255, 215, 0, 0.8);
+        }
+
         header {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: var(--header-bg);
-            color: white;
+            background: #000000;
+            color: #FFD700;
             position: relative;
             overflow: hidden;
-            perspective: 1000px;
+            perspective: 1200px;
+            margin-top: 5vw;
         }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse 10s infinite ease-in-out;
+        }
+
         header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            margin-bottom: 10px;
-            animation: fadeInDown 1s ease-out;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            animation: fadeInScale 1.2s ease-out;
             transform-style: preserve-3d;
-            transition: transform 0.3s;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
+
         header:hover h1 {
-            transform: rotateY(5deg) rotateX(5deg);
+            transform: scale(1.05) rotateY(3deg);
         }
+
         #language-switch {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             z-index: 10;
+            opacity: 1;
         }
+
         #language-switch button {
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 30px;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 12px 24px;
+            margin: 0 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-        #language-switch button:hover {
-            background: rgba(255,255,255,0.4);
-            transform: scale(1.05);
-        }
-        .content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
             position: relative;
+            overflow: hidden;
         }
+
+        #language-switch button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-color);
+            opacity: 0.3;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+        }
+
+        #language-switch button:hover::after {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+        }
+
+        #language-switch button:hover {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .content {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 30px;
+            margin-top: 5vw;
+            background: transparent;
+        }
+
+        h2 {
+            font-family: 'News Cycle', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            position: relative;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        h2.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 0;
+            height: 4px;
             background: var(--accent-color);
-            transition: width 0.3s;
+            transition: width 0.6s ease;
         }
-        h2:hover::after {
-            width: 100px;
+
+        h2.in-view::after {
+            width: 120px;
         }
+
         p {
-            margin-bottom: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            color: var(--text-color);
         }
+
         p.in-view {
             opacity: 1;
             transform: translateY(0);
         }
-        .recipe {
-            background: var(--neumorph-bg);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--neumorph-shadow);
-            margin-bottom: 40px;
-            transition: box-shadow 0.3s;
-        }
-        .recipe:hover {
-            box-shadow: 12px 12px 24px #bebebe, -12px -12px 24px #ffffff; /* Enhanced neumorph on hover */
-        }
-        .recipe ul, .recipe ol {
-            margin-left: 20px;
-        }
-        .recipe li {
-            margin-bottom: 10px;
-            transition: transform 0.2s;
-        }
-        .recipe li:hover {
-            transform: translateX(5px);
-        }
+
         .images {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
+
         .images img {
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, filter 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            object-fit: cover;
+            height: 250px;
+            opacity: 0;
+            transform: scale(0.9);
         }
+
+        .images img.in-view {
+            opacity: 1;
+            transform: scale(1);
+            animation: imagePop 0.8s ease-out;
+        }
+
         .images img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1) drop-shadow(0 0 10px rgba(255,152,0,0.5)); /* Glow effect */
+            transform: scale(1.08);
+            filter: brightness(1.15) drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
         }
-        .back-link {
+
+        .back-link, .download-link {
             display: inline-block;
             background: var(--primary-color);
-            color: white;
-            padding: 15px 32px;
+            color: #fff;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        .back-link:hover {
-            background: darken(var(--primary-color), 10%);
+
+        .back-link.in-view, .download-link.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .back-link::after, .download-link::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-color);
+            opacity: 0.3;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+        }
+
+        .back-link:hover::after, .download-link:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        .back-link:hover, .download-link:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             transform: translateY(-3px) scale(1.05);
         }
+
         .theme-toggle {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background: var(--accent-color);
-            color: white;
+            color: #000;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 25px;
             border-radius: 50px;
             cursor: pointer;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
             z-index: 1000;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: rotate(45deg);
         }
+
+        .theme-toggle.in-view {
+            opacity: 1;
+            transform: rotate(0);
+            animation: rotateIn 0.8s ease-out;
+        }
+
         .theme-toggle:hover {
-            background: var(--secondary-color);
-            transform: rotate(360deg);
+            background: var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transform: rotate(360deg) scale(1.1);
         }
+
         .hidden {
             display: none;
         }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
+
+        .fondacc {
+            position: fixed;
+            top: 5vw;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -20;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 25px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-icon .mspan {
+            height: 4px;
+            background: #FFD700;
+            border-radius: 2px;
+            transition: 0.4s;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #000000;
+            padding-top: 60px;
+            transition: 0.3s ease;
+            z-index: 1000;
+            border-right: 1px solid #FFD700;
+        }
+
+        .menu .link {
+            display: block;
+            color: #FFD700;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-family: 'News Cycle', sans-serif;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        }
+
+        .menu .link:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        #menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        #menu-toggle:checked ~ .menu {
+            left: 0;
+        }
+
+        .dlink {
+            text-decoration: none;
+            list-style: decimal;
+            color: #FFD700;
+        }
+
+        .fondbulle {
+            position: absolute;
+            height: 100%;
+        }
+        #fonddecal {
+            left: -1.55vw;
+        }
+        #fonddecal1 {
+            left: -1.9vw;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 40vw;
+            height: 40vw;
+            z-index: 55;
+        }
+
+        .bubble {
+            position: absolute;
+            width: 8vw;
+            height: 8vw;
+            border-radius: 50%;
+            color: #FFD700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 0.1vw solid #FFD700;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .bubble .short-text {
+            font-family: 'News Cycle', sans-serif;
+            font-weight: bold;
+            font-size: 1.5vw;
+            z-index: 1;
+            pointer-events: none;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        }
+
+        .bubble .long-content {
+            display: none;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 1.2vw;
+            padding: 1vw;
+            text-align: center;
+            z-index: 20;
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        }
+
+        .bubble:hover {
+            transform: scale(2);
+            box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.3);
+            z-index: 22;
+        }
+
+        .bubble:hover .short-text {
+            display: none;
+        }
+
+        .bubble:hover .long-content {
+            display: block;
+        }
+
+        .bubble:nth-child(1) {
+            top: calc(50% - 15vw);
+            left: calc(50% + 30vw - 4vw);
+        }
+        .bubble:nth-child(2) {
+            top: calc(50% - 5vw);
+            left: calc(50% + 40vw - 4vw);
+        }
+        .bubble:nth-child(3) {
+            top: calc(50% + 5vw);
+            left: calc(50% + 50vw - 4vw);
+        }
+        .bubble:nth-child(4) {
+            top: calc(50% + 15vw);
+            left: calc(50% + 40vw - 4vw);
+        }
+        .bubble:nth-child(5) {
+            top: calc(50% + 25vw);
+            left: calc(50% + 30vw - 4vw);
+        }
+        .bubble:nth-child(6) {
+            top: calc(50% + 15vw);
+            left: calc(50% + 20vw - 4vw);
+        }
+        .bubble:nth-child(7) {
+            top: calc(50% + 5vw);
+            left: calc(50% + 10vw - 4vw);
+        }
+        .bubble:nth-child(8) {
+            top: calc(50% - 5vw);
+            left: calc(50% + 20vw - 4vw);
+        }
+
+        :root {
+            --primary-color: #1A3C34;
+            --accent-color: #FFD700;
+            --bg-color: #000000;
+            --text-color: #FFFFFF;
+            --neumorph-bg: #000000;
+            --neumorph-shadow: none;
+            --header-bg: #000000;
+            --star-color: #FFFFFF;
+        }
+        [data-theme="dark"] {
+            --primary-color: #2E7D32;
+            --accent-color: #FFD700;
+            --bg-color: #000000;
+            --text-color: #FFFFFF;
+            --neumorph-bg: #000000;
+            --neumorph-shadow: none;
+            --header-bg: #000000;
+            --star-color: #FFFFFF;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            .content { padding: 0 10px; }
+        @keyframes imagePop {
+            0% { opacity: 0; transform: scale(0.9); }
+            50% { transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(45deg); }
+            to { opacity: 1; transform: rotate(0); }
+        }
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
+        @media (max-width: 767px) {
+            header h1 { font-size: 2.5rem; }
+            .content { padding: 0; }
+            .images img { height: 200px; }
+            #language-switch button { padding: 10px 2px; font-size: 10px; }
+            .header-bar .title { font-size: 2.5vw; }
+            .star-wars { font-size: 3rem; }
+            .content { padding: 10px; }
+        }
+
+        /* Star Wars Crawl */
+        .star-wars {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 900px;
+            background-color: #000;
+            overflow: hidden;
+            color: #FFD700;
+            font-family: 'News Cycle', sans-serif;
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 150%;
+            perspective: 400px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .star-wars p {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .crawl {
+            position: relative;
+            top: 9999px;
+            transform-origin: 50% 100%;
+            animation: crawl 60s linear infinite;
+            width: 70%;
+        }
+
+        .crawl > .title {
+            font-size: 70%;
+            text-align: center;
+        }
+
+        .crawl > .title h1 {
+            margin: 0 0 100px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes crawl {
+            0% {
+                top: 0;
+                transform: rotateX(20deg) translateZ(0);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                top: -6000px;
+                transform: rotateX(25deg) translateZ(-2500px);
+                opacity: 0;
+            }
         }
     </style>
+    <script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+            return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+                try {
+                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                    var firstSheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[firstSheetName];
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                    var filteredData = jsonData.filter(row => row.some(filledCell));
+                    var headerRowIndex = filteredData.findIndex((row, index) =>
+                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    );
+                    if (headerRowIndex === -1 || headerRowIndex > 25) {
+                        headerRowIndex = 0;
+                    }
+                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                    return csv;
+                } catch (e) {
+                    console.error(e);
+                    return "";
+                }
+            }
+            return gk_fileData[filename] || "";
+        }
+
+        function downloadRecipe() {
+            const lang = document.getElementById('ru-content').classList.contains('hidden') ? 'fr' : 'ru';
+            const crawl = document.querySelector(`#${lang}-content .crawl`);
+            const paragraphs = crawl.querySelectorAll('p');
+            let content = '';
+            paragraphs.forEach(p => {
+                content += p.textContent + '\n\n';
+            });
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = lang === 'ru' ? 'Салат_Оливье_Рецепт.txt' : 'Salade_Olivier_Recette.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
 </head>
 <body>
+    <div class="header-bar">
+        <div class="title">Découverte des Plats Cachés</div>
+    </div>
     <header>
+        <input type="checkbox" id="menu-toggle" />
+        <label class="menu-icon" for="menu-toggle">
+            <span class="mspan"></span>
+            <span class="mspan"></span>
+            <span class="mspan"></span>
+        </label>
         <div id="language-switch">
             <button onclick="switchLanguage('ru')">Русский</button>
             <button onclick="switchLanguage('fr')">Français</button>
         </div>
         <h1 id="title">Салат Оливье: История и Рецепт</h1>
+        <nav class="menu">
+            <a class="link" href="accueil.html">Accueil</a>
+            <a class="link" href="#">Recettes</a>
+            <ul class="dlink">
+                <li class="dlink"><a class="link" href="parmigiana.html">Italie</a></li>
+                <li class="dlink"><a class="link" href="solad-olivier.html">Russie</a></li>
+                <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
+                <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
+                <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
+                <li class="dlink"><a class="link" href="#">Cameroun</a></li>
+                <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
+                <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="content">
-        <a href="index.html" class="back-link">Accueil</a>
-        
+        <a href="accueil.html" class="back-link">Accueil</a>
         <div id="ru-content">
             <h2>История салата Оливье</h2>
-            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.<grok:render card_id="a81d13" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">0</argument>
-</grok:render></p>
+            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.</p>
             <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
-            
-            <div class="recipe">
-                <h2>Классический рецепт салата Оливье</h2>
-                <h3>Основные ингредиенты:</h3>
-                <ul>
-                    <li>Картофель — 4–5 шт. (среднего размера)</li>
-                    <li>Морковь — 2–3 шт.</li>
-                    <li>Яйца — 4–5 шт.</li>
-                    <li>Огурцы солёные (или маринованные) — 3–4 шт.</li>
-                    <li>Колбаса варёная (или курица, ветчина) — 300–400 г</li>
-                    <li>Горошек зелёный консервированный — 1 банка (200–300 г)</li>
-                    <li>Майонез — 200–250 г</li>
-                    <li>Соль, перец — по вкусу</li>
-                </ul>
-                <h3>Способ приготовления:</h3>
-                <ol>
-                    <li>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</li>
-                    <li>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</li>
-                    <li>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</li>
-                    <li>Слейте жидкость из банки с зелёным горошком.</li>
-                    <li>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</li>
-                    <li>Тщательно перемешайте салат, охладите в холодильнике 30–60 минут перед подачей.</li>
-                    <li>По желанию украсьте зеленью или ломтиками огурца.</li>
-                </ol>
-            </div>
-
+            <section class="star-wars">
+                <div class="crawl">
+                    <div class="title">
+                        <p>Классический рецепт</p>
+                        <h1>Салат Оливье</h1>
+                    </div>
+                    <p>Основные ингредиенты:</p>
+                    <p>Картофель — 4–5 шт. (среднего размера)</p>
+                    <p>Морковь — 2–3 шт.</p>
+                    <p>Яйца — 4–5 шт.</p>
+                    <p>Огурцы солёные (или маринованные) — 3–4 шт.</p>
+                    <p>Колбаса варёная (или курица, ветчина) — 300–400 г</p>
+                    <p>Горошек зелёный консервированный — 1 банка (200–300 г)</p>
+                    <p>Майонез — 200–250 г</p>
+                    <p>Соль, перец — по вкусу</p>
+                    <p>Способ приготовления:</p>
+                    <p>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</p>
+                    <p>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</p>
+                    <p>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</p>
+                    <p>Слейте жидкость из банки с зелёным горошком.</p>
+                    <p>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</p>
+                    <p>Тщательно перемешайте салат, охладите в холодильнике 30–60 минут перед подачей.</p>
+                    <p>По желанию украсьте зеленью или ломтиками огурца.</p>
+                </div>
+            </section>
             <h2>Советы</h2>
-            <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.<grok:render card_id="5a435b" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">6</argument>
-</grok:render></p>
-
+            <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.</p>
+            <a href="#" onclick="downloadRecipe()" class="download-link">Скачать рецепт</a>
             <div class="images">
                 <img src="image-1.jpg" alt="Салат Оливье 1">
                 <img src="image.jpg" alt="Салат Оливье 2">
             </div>
         </div>
-
         <div id="fr-content" class="hidden">
             <h2>Histoire de la salade Olivier</h2>
-            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.<grok:render card_id="cfc049" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">0</argument>
-</grok:render></p>
+            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.</p>
             <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
-            
-            <div class="recipe">
-                <h2>Recette classique de la salade Olivier</h2>
-                <h3>Ingrédients principaux :</h3>
-                <ul>
-                    <li>Pommes de terre — 3–4 pcs. (de taille moyenne)</li>
-                    <li>Carottes — 2–3 pcs.</li>
-                    <li>Œufs — 5 pcs.</li>
-                    <li>Concombres salés (ou marinés) — 4–5 pcs.</li>
-                    <li>Saucisse cuite (ou poulet, jambon) — 300–400 g</li>
-                    <li>Petits pois verts en conserve — 1 boîte (200–300 g)</li>
-                    <li>Mayonnaise — 200–250 g</li>
-                    <li>Sel, poivre — au goût</li>
-                </ul>
-                <h3>Méthode de préparation :</h3>
-                <ol>
-                    <li>Faites bouillir les pommes de terre et les carottes avec la peau jusqu'à ce qu'elles soient cuites, laissez refroidir, pelez et coupez en petits cubes.</li>
-                    <li>Faites cuire les œufs durs, laissez refroidir, pelez et coupez en cubes.</li>
-                    <li>Coupez les concombres salés et la saucisse (ou autre viande) en cubes de la même taille.</li>
-                    <li>Égouttez le liquide de la boîte de petits pois verts.</li>
-                    <li>Mélangez tous les ingrédients dans un grand bol, ajoutez la mayonnaise, le sel et le poivre au goût.</li>
-                    <li>Mélangez bien la salade, réfrigérez 30–60 minutes avant de servir.</li>
-                    <li>Si désiré, décorez avec des herbes ou des tranches de concombre.</li>
-                </ol>
-            </div>
-
+            <section class="star-wars">
+                <div class="crawl">
+                    <div class="title">
+                        <p>Recette classique</p>
+                        <h1>Salade Olivier</h1>
+                    </div>
+                    <p>Ingrédients principaux :</p>
+                    <p>Pommes de terre — 3–4 pcs. (de taille moyenne)</p>
+                    <p>Carottes — 2–3 pcs.</p>
+                    <p>Œufs — 5 pcs.</p>
+                    <p>Concombres salés (ou marinés) — 4–5 pcs.</p>
+                    <p>Saucisse cuite (ou poulet, jambon) — 300–400 g</p>
+                    <p>Petits pois verts en conserve — 1 boîte (200–300 g)</p>
+                    <p>Mayonnaise — 200–250 g</p>
+                    <p>Sel, poivre — au goût</p>
+                    <p>Méthode de préparation :</p>
+                    <p>Faites bouillir les pommes de terre et les carottes avec la peau jusqu'à ce qu'elles soient cuites, laissez refroidir, pelez et coupez en petits cubes.</p>
+                    <p>Faites cuire les œufs durs, laissez refroidir, pelez et coupez en cubes.</p>
+                    <p>Coupez les concombres salés et la saucisse (ou autre viande) en cubes de la même taille.</p>
+                    <p>Égouttez le liquide de la boîte de petits pois verts.</p>
+                    <p>Mélangez tous les ingrédients dans un grand bol, ajoutez la mayonnaise, le sel et le poivre au goût.</p>
+                    <p>Mélangez bien la salade, réfrigérez 30–60 minutes avant de servir.</p>
+                    <p>Si désiré, décorez avec des herbes ou des tranches de concombre.</p>
+                </div>
+            </section>
             <h2>Conseils</h2>
-            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.<grok:render card_id="79d12d" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">6</argument>
-</grok:render></p>
-
+            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
+            <a href="#" onclick="downloadRecipe()" class="download-link">Télécharger la recette</a>
             <div class="images">
                 <img src="image-1.jpg" alt="Salade Olivier 1">
                 <img src="image.jpg" alt="Salade Olivier 2">
@@ -299,20 +839,29 @@
             document.getElementById('ru-content').classList.toggle('hidden', lang !== 'ru');
             document.getElementById('fr-content').classList.toggle('hidden', lang !== 'fr');
             document.querySelector('header h1').textContent = lang === 'ru' ? 'Салат Оливье: История и Рецепт' : 'Salade Olivier : Histoire et Recette';
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
         }
         function toggleTheme() {
             document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+            document.querySelector('.theme-toggle').textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
         }
-        // Scroll animations
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 200);
                 }
             });
-        });
-        document.querySelectorAll('p').forEach(p => observer.observe(p));
-        // Initial
+        }, { threshold: 0.1 });
+        document.querySelectorAll('p, h2, .images img, .back-link, .download-link, .theme-toggle').forEach(el => observer.observe(el));
         switchLanguage('ru');
     </script>
 </body>

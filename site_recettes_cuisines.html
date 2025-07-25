@@ -8,6 +8,7 @@
   </head>
   <body>
     <header>
+      <div class="brgr">
       <!-- Checkbox cachée -->
     <input type="checkbox" id="menu-toggle">
     
@@ -28,11 +29,12 @@
           <li class="dlink"><a class="link" href="balesh.html">Bashkirie</a></li>
           <li class="dlink"><a class="link" href="Baeckaoffe.html">France</a></li>
           <li class="dlink"><a class="link" href="borscht.html">Ukraine</a></li>
-          <li class="dlink"><a class="link" href="#">Cameroun</a></li>
+          <li class="dlink"><a class="link" href="site_recettes_cuisines.html">Cameroun</a></li>
           <li class="dlink"><a class="link" href="boba.html">Taïwan</a></li>
           <li class="dlink"><a class="link" href="mystere.html">Mystère</a></li>
       </ul>
     </nav>
+    </div>
       <!-- fond de page principal -->
       <br />
       <div class="div1">
@@ -44,15 +46,18 @@
         <h1>AFRICAN FOOD</h1>
       </div>
       <!-- Barre de navigation -->
-      <nav>
-        <a style="color: #ebeaeb" href="/">Accueil</a>
+      <nav class="nav">
+        
         <a style="color: rgb(248, 241, 248)" href="https://www.facebook.com/profile.php?id=100083289875105">A propos</a>
       </nav>
       <br />
     </header>
     <!-- explication et contexte du blog -->
     <main>
+      <div class="logoss">
       <img class="logo2" src="gastronomie-monde-carte.jpg" alt="carte food" />
+      <img class="logo3" src="Cuisine-d01.jpg039un-jour-Traiteur-Plat-du-jour-01.jpg" alt="food carte"/>
+      </div>
       <p>
         "De nos jours chaque continent, chaque pays, chaque culture s'est
         illustré sur le plan culinaire à travers une recette de reference, mais
@@ -103,7 +108,7 @@
       </p>
       <h4>Ingredients (pour 4 pers)</h4>
       <!-- Menu deroulant des ingredients -->
-      <label for="ingredients">voir les ingredients</label>
+      <label class="label" for="ingredients">voir les ingredients</label>
       <select id="ingredients" name="ingredients">
         <option value="">*Ingredients Recette</option>
         <option value="foss">Foss(hannetons) 200g</option>
@@ -201,24 +206,32 @@
         <td>136</td>
         <td>582</td>
       </tr>
-  </main>
-     <div id="fin">BON APPETIT!!!</div>
+
+      <div class="fin">
+        <div id="fin">BON APPETIT!!!</div>
      <div class="body2">
   <form onsubmit="alert('formulaire envoyé'); return false;">
-      <label>Pays d'Origine: <input name="nom" type="text" /> 
+      <label class="label"><p>Pays d'Origine:</p> <input class="input" name="nom" type="text" /> 
         <br>
-      <label>Commentaires: <textarea></textarea></label>
+      <label><p>Commentaires:</p> <textarea></textarea></label>
     <br>
-      <label
-        >Déjà degusté?:
+      <label class="label"
+        ><p>Déjà dégusté?:</p>
         <select>
           <option value="1">OUI</option>
           <option value="2">NON</option>
-        </select> </label
-      >
+        </select> 
+      </label>
       <br>
       <button type="submit">Envoyer Avis</button>
     </form>  
     </div> 
+      </div>   
+  </main><br>
   </body>
+  <footer>
+    <div>
+
+    </div>
+  </footer>
 </html>
