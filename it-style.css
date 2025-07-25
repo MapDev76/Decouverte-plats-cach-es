@@ -258,6 +258,128 @@ header {
   padding: 30px;
 }
 
+/* Texte principal */
+.it-parm {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  text-align: justify;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border-left: 6px solid #d6b161;
+  padding-left: 1rem;
+  opacity: 80%;
+  border-radius: 10px;
+}
+
+/* Titres de section */
+
+
+.it-prn {
+
+  margin: auto;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background-color: #eee;
+  width: 250px;
+  color: #7b2e2e;
+  text-align: center;
+  align-items: center;
+  opacity: 80%;
+  border-radius: 10px;
+ 
+}
+
+/* Liste des ingrédients */
+
+.popup-checkbox {
+  display: none;
+}
+
+.emoji-container {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.emoji-button {
+
+  font-size: 4rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  background-color: #d7d59f;
+  border-radius: 50%;
+  gap: 50px;
+  align-items: center;
+  padding: 0.5rem;
+
+}
+.emoji-button:hover {
+  transform: scale(2.2);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.popup-checkbox:checked + label + .popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Préparation */
+
+.it-strip-image {
+  display: block;
+  width: 75%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 10px;
+  background-color: #eee;
+  padding: 30px;
+}
+
+.span-num {
+  font-weight: bold;
+  color: white;
+  background-color: #e79f0d;
+  padding: 0.2rem 0.5rem; 
+}
+
 .span-num {
   font-weight: bold;
   color: white;

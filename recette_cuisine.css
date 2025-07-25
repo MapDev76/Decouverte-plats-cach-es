@@ -6,19 +6,31 @@ body {
   background-repeat: no-repeat; /* Empêche la répétition */
   background-attachment: fixed; /* Fixe l'image lors du défilement */
   margin: 20px;
-  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
 }
 .div1 {
   display: flex;
   flex-direction: row;
-  gap: 100px;
+  gap: 30px;
 }
-nav {
+.logo3 {
+  width: 570px;
+  height: 180px;
+  border-style: groove;
+  border-radius: 20px;
+}
+.nav {
   display: flex;
   flex-direction: row;
   gap: 15px;
   font-size: 20px;
-  text-shadow: #e9a513;
+}
+.logos {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
 }
 
 h1 {
@@ -27,11 +39,13 @@ h1 {
   display: flex;
   flex-direction: row;
   padding-left: 70px;
+  text-shadow: 4px 4px 5px #f3a20a;
 }
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 90px;
   text-decoration: underline;
+  text-shadow: 4px 4px 5px #f3a20a;
 }
 h3 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -72,6 +86,8 @@ p {
   background-size: center;
   border-radius: 10px;
   font-weight: bold;
+  opacity: 0.8;
+  box-shadow: 4px 4px 5px#e9a513;
 }
 /*le carrossel de plat*/
 .slider-1 {
@@ -79,7 +95,7 @@ p {
   margin: 20px;
   overflow: hidden;
   border: 4px solid #41c79f;
-  border-radius: 20%;
+  border-radius: 40px;
   box-shadow: 3px 2px 5px #e9a513;
 }
 .slider-1 .slider {
@@ -169,6 +185,7 @@ select:focus {
   padding-bottom: 15px;
   margin-top: auto;
   font-size: 20px;
+  opacity: 0.87;
 }
 /*tableau caloriques*/
 caption {
@@ -179,8 +196,8 @@ caption {
 table {
   border-collapse: separate; /* Sépare les bordures des cellules */
   border-spacing: 5px; /* Espacement entre les cellules */
-  padding: 45px;
-  margin-left: 120px;
+  padding-top: 45px;
+  /* margin-left: 120px; */
 }
 
 td,
@@ -192,7 +209,7 @@ th {
 }
 #fin {
   text-align: center;
-  padding-bottom: auto;
+  padding-bottom: 50px;
   font-size: 35px;
   font-weight: bold;
   color: #f2f3f3;
@@ -203,12 +220,12 @@ th {
 }
 
 form,
-label,
-input {
+.label,
+.input {
   display: flex;
   flex-direction: column;
 }
-input {
+.input {
   height: 25px;
   width: 300px;
 }
@@ -231,4 +248,111 @@ button {
   height: 35px;
   width: 150px;
   border-radius: 5px;
+}
+
+.fin {
+  position: absolute;
+  top: 2200px;
+  padding-bottom: 200px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----------------------------------------------- */
+
+.brgr {
+  position: fixed;
+  left: 10px;
+  z-index: 850;
+}
+
+/* Cacher la checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Style du bouton burger */
+.menu-icon {
+  width: 30px;
+  height: 25px;
+  position: static;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-icon .mspan {
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Menu */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  padding-top: 60px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.menu .link {
+  display: block;
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu .link:hover {
+  background: #444;
+}
+
+/* Quand on coche la checkbox, afficher le menu */
+#menu-toggle:checked + .menu-icon .mspan:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: white;
+  z-index: 8800;
+}
+
+#menu-toggle:checked + .menu-icon .mspan:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .menu-icon .mspan:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background-color: white;
+  z-index: 8800;
+}
+
+#menu-toggle:checked ~ .menu {
+  left: 0;
+}
+
+.dlink {
+  text-decoration: none;
+  list-style: decimal;
+  color: white;
+}
+
+/* ------------------------------------- */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
