@@ -250,7 +250,7 @@ header {
 
 .it-strip-image {
   display: block;
-  width: 75%;
+  width: 65%;
   height: auto;
   margin: 1rem auto;
   border-radius: 10px;
@@ -410,6 +410,7 @@ p {
 
 
 /* Footer */
+
 .footer {
   background-color: #7b2e2e;
   text-align: center;
@@ -418,6 +419,7 @@ p {
   color: #fff;
   margin-top: 3rem;
   align-items: center;
+  display: flex;
 }
 /* ========== Responsive Mobile Styles ========== */
 @media (max-width: 768px) {
@@ -623,4 +625,39 @@ p {
 }
 
 /* ------------------------------------- */
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 2rem;
+  text-decoration: none;
+  background-color: #7b2e2e;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+  background-color: #d6b161;
+}
+
+section .it-prn {
+  margin: 1rem auto;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #eee;
+  width: 90%;
+  text-align: center;
+  color: #7b2e2e;
+  border-radius: 10px;
+}
+
 
