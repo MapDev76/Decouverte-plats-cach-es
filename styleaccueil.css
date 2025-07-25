@@ -290,11 +290,10 @@ header {
 
 
 footer {
-  background-color: #000;
+  /* background-color: #000;
   height: 10vw;
   width: 100%;
   position: absolute;
   top:100%;
-  left: 0;
-  z-index: 100;
+  z-index: 100; */
 }
