@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Салат Оливье / Salade Olivier</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4CAF50; /* Green for freshness */
-            --accent-color: #FF9800; /* Orange for warmth */
-            --bg-color: #fffaf0; /* Light cream background */
-            --text-color: #333;
-            --neumorph-bg: #e0e0e0;
-            --neumorph-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
-            --header-bg: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://source.unsplash.com/random/1920x1080/?salad') no-repeat center/cover;
+            --primary-color: #1A3C34; /* Deep forest green */
+            --accent-color: #D4A017; /* Luxurious gold */
+            --bg-color: #F8F1E9; /* Soft ivory */
+            --text-color: #2C2C2C; /* Charcoal */
+            --neumorph-bg: #F8F1E9;
+            --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
+            --header-bg: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url no-repeat center/cover;
         }
         [data-theme="dark"] {
-            --bg-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --primary-color: #66BB6A;
-            --accent-color: #FFA726;
-            --neumorph-bg: #2c2c2c;
-            --neumorph-shadow: 8px 8px 16px #1a1a1a, -8px -8px 16px #3e3e3e;
-            --header-bg: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?salad') no-repeat center/cover;
+            --bg-color: #1C2526;
+            --text-color: #E8ECEF;
+            --primary-color: #2E7D32;
+            --accent-color: #E8B923;
+            --neumorph-bg: #2A2F31;
+            --neumorph-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            --header-bg: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),  no-repeat center/cover;
         }
         * {
             margin: 0;
@@ -31,85 +31,138 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-color);
             background-color: var(--bg-color);
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
         }
         header {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: var(--header-bg);
-            color: white;
+            color: #fff;
             position: relative;
             overflow: hidden;
-            perspective: 1000px;
+            perspective: 1200px;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse 10s infinite ease-in-out;
         }
         header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            margin-bottom: 10px;
-            animation: fadeInDown 1s ease-out;
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 0.1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            animation: fadeInScale 1.2s ease-out;
             transform-style: preserve-3d;
-            transition: transform 0.3s;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         header:hover h1 {
-            transform: rotateY(5deg) rotateX(5deg);
+            transform: scale(1.05) rotateY(3deg);
         }
         #language-switch {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             z-index: 10;
+            opacity: 0;
+            animation: slideInRight 1s ease-out 0.5s forwards;
         }
         #language-switch button {
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 30px;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 12px 24px;
+            margin: 0 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        #language-switch button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-color);
+            opacity: 0.3;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+        }
+        #language-switch button:hover::after {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
         }
         #language-switch button:hover {
-            background: rgba(255,255,255,0.4);
-            transform: scale(1.05);
+            background: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
+            transform: translateY(-2px) scale(1.05);
         }
         .content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 30px;
         }
         h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        h2.in-view {
+            opacity: 1;
+            transform: translateX(0);
         }
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 0;
+            height: 4px;
             background: var(--accent-color);
-            transition: width 0.3s;
+            transition: width 0.6s ease;
         }
-        h2:hover::after {
-            width: 100px;
+        h2.in-view::after {
+            width: 120px;
         }
         p {
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         p.in-view {
             opacity: 1;
@@ -117,82 +170,175 @@
         }
         .recipe {
             background: var(--neumorph-bg);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 25px;
             box-shadow: var(--neumorph-shadow);
-            margin-bottom: 40px;
-            transition: box-shadow 0.3s;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s ease;
+        }
+        .recipe.in-view {
+            opacity: 1;
+            transform: scale(1);
         }
         .recipe:hover {
-            box-shadow: 12px 12px 24px #bebebe, -12px -12px 24px #ffffff; /* Enhanced neumorph on hover */
+            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15), -15px -15px 30px rgba(255, 255, 255, 0.8);
+            transform: translateY(-5px) scale(1.02);
         }
         .recipe ul, .recipe ol {
-            margin-left: 20px;
+            margin-left: 25px;
+            font-size: 1.1rem;
         }
         .recipe li {
-            margin-bottom: 10px;
-            transition: transform 0.2s;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .recipe li.in-view {
+            opacity: 1;
+            transform: translateX(0);
         }
         .recipe li:hover {
-            transform: translateX(5px);
+            transform: translateX(8px);
+            color: var(--accent-color);
         }
         .images {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
         .images img {
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, filter 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            object-fit: cover;
+            height: 250px;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .images img.in-view {
+            opacity: 1;
+            transform: scale(1);
+            animation: imagePop 0.8s ease-out;
         }
         .images img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1) drop-shadow(0 0 10px rgba(255,152,0,0.5)); /* Glow effect */
+            transform: scale(1.08);
+            filter: brightness(1.15) drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
         }
         .back-link {
             display: inline-block;
             background: var(--primary-color);
-            color: white;
-            padding: 15px 32px;
+            color: #fff;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
             font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .back-link.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.6s ease-out;
+        }
+        .back-link::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-color);
+            opacity: 0.3;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+        }
+        .back-link:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
         }
         .back-link:hover {
-            background: darken(var(--primary-color), 10%);
+            background: var(--accent-color);
+            box-shadow: 0 0 20px rgba(212, 160, 23, 0.5);
             transform: translateY(-3px) scale(1.05);
         }
         .theme-toggle {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background: var(--accent-color);
-            color: white;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 25px;
             border-radius: 50px;
             cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
             z-index: 1000;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: rotate(45deg);
+        }
+        .theme-toggle.in-view {
+            opacity: 1;
+            transform: rotate(0);
+            animation: rotateIn 0.8s ease-out;
         }
         .theme-toggle:hover {
-            background: var(--secondary-color);
-            transform: rotate(360deg);
+            background: var(--primary-color);
+            box-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
+            transform: rotate(360deg) scale(1.1);
         }
         .hidden {
             display: none;
         }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes imagePop {
+            0% { opacity: 0; transform: scale(0.9); }
+            50% { transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(45deg); }
+            to { opacity: 1; transform: rotate(0); }
+        }
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
         @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            .content { padding: 0 10px; }
+            header h1 { font-size: 2.5rem; }
+            .content { padding: 0 15px; }
+            .recipe { padding: 25px; }
+            .images img { height: 200px; }
+            #language-switch button { padding: 10px 18px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -209,9 +355,7 @@
         
         <div id="ru-content">
             <h2>История салата Оливье</h2>
-            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.<grok:render card_id="a81d13" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">0</argument>
-</grok:render></p>
+            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.<grok:render type="render_inline_citation"><argument name="citation_id">0</argument></grok:render></p>
             <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
             
             <div class="recipe">
@@ -240,9 +384,7 @@
             </div>
 
             <h2>Советы</h2>
-            <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.<grok:render card_id="5a435b" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">6</argument>
-</grok:render></p>
+            <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.</p>
 
             <div class="images">
                 <img src="image-1.jpg" alt="Салат Оливье 1">
@@ -252,9 +394,7 @@
 
         <div id="fr-content" class="hidden">
             <h2>Histoire de la salade Olivier</h2>
-            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.<grok:render card_id="cfc049" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">0</argument>
-</grok:render></p>
+            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.<grok:render type="render_inline_citation"><argument name="citation_id">0</argument></grok:render></p>
             <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
             
             <div class="recipe">
@@ -283,13 +423,11 @@
             </div>
 
             <h2>Conseils</h2>
-            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.<grok:render card_id="79d12d" card_type="citation_card" type="render_inline_citation">
-<argument name="citation_id">6</argument>
-</grok:render></p>
+            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
 
             <div class="images">
-                <img src="image-1.jpg" alt="Salade Olivier 1">
-                <img src="image.jpg" alt="Salade Olivier 2">
+                <img src="/image-1.jpg" alt="Salade Olivier 1">
+                <img src="/image.jpg" alt="Salade Olivier 2">
             </div>
         </div>
     </div>
@@ -299,19 +437,32 @@
             document.getElementById('ru-content').classList.toggle('hidden', lang !== 'ru');
             document.getElementById('fr-content').classList.toggle('hidden', lang !== 'fr');
             document.querySelector('header h1').textContent = lang === 'ru' ? 'Салат Оливье: История и Рецепт' : 'Salade Olivier : Histoire et Recette';
+            // Trigger animations on language switch
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
         }
         function toggleTheme() {
             document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+            document.querySelector('.theme-toggle').textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+            // Trigger animations on theme switch
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
         }
         // Scroll animations
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 200); // Staggered animation
                 }
             });
-        });
-        document.querySelectorAll('p').forEach(p => observer.observe(p));
+        }, { threshold: 0.1 });
+        document.querySelectorAll('p, h2, .recipe, .recipe li, .images img, .back-link, .theme-toggle').forEach(el => observer.observe(el));
         // Initial
         switchLanguage('ru');
     </script>
