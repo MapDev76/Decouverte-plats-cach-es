@@ -726,6 +726,7 @@
     </script>
 </head>
 <body>
+    <audio id="lightsaberSound" src="lightsaber.mp3" preload="auto"></audio>
     <div class="header-bar">
         <div class="title">Découverte des Plats Cachés</div>
     </div>
@@ -863,6 +864,20 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('p, h2, .images img, .back-link, .download-link, .theme-toggle').forEach(el => observer.observe(el));
         switchLanguage('ru');
+
+        // Добавление звука lightsaber при клике на кнопки
+        document.addEventListener('DOMContentLoaded', function() {
+            const sound = document.getElementById('lightsaberSound');
+            const clickableElements = document.querySelectorAll('button, a.back-link, a.download-link, .menu a.link, label.menu-icon');
+            clickableElements.forEach(element => {
+                element.addEventListener('click', function() {
+                    sound.currentTime = 0;
+                    sound.play().catch(error => {
+                        console.error('Ошибка воспроизведения звука:', error);
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
