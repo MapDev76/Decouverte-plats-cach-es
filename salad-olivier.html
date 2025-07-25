@@ -1,0 +1,174 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Салат Оливье / Salade Olivier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-ru.css">
+</head>
+<body>
+    <header>
+        <div id="language-switch">
+            <button onclick="switchLanguage('ru')">Русский</button>
+            <button onclick="switchLanguage('fr')">Français</button>
+        </div>
+        <h1 id="title">Салат Оливье: История и Рецепт</h1>
+    </header>
+    <div class="content">
+        <a href="index.html" class="back-link">Accueil</a>
+        
+        <div id="ru-content">
+            <h2>История салата Оливье</h2>
+            <p>Салат Оливье — одно из самых известных блюд русской кухни, которое завоевало популярность во многих странах. Его история начинается в 1860-х годах в Москве, в ресторане «Эрмитаж», где работал французский повар Люсьен Оливье. Он создал изысканный салат с деликатесными ингредиентами, такими как рябчики, телячий язык, каперсы, раковые шейки и икра, заправленный фирменным соусом на основе майонеза.</p>
+            <p>После революции 1917 года дорогие продукты стали недоступны, и рецепт трансформировался в более простой и доступный вариант, который мы знаем сегодня. В советское время салат Оливье стал обязательным атрибутом новогоднего стола, символизируя праздничное изобилие.</p>
+            
+            <div class="recipe">
+                <h2>Классический рецепт салата Оливье</h2>
+                <h3>Основные ингредиенты:</h3>
+                <ul>
+                    <li>Картофель — 4–5 шт. (среднего размера)</li>
+                    <li>Морковь — 2–3 шт.</li>
+                    <li>Яйца — 4–5 шт.</li>
+                    <li>Огурцы солёные (или маринованные) — 3–4 шт.</li>
+                    <li>Колбаса варёная (или курица, ветчина) — 300–400 г</li>
+                    <li>Горошек зелёный консервированный — 1 банка (200–300 г)</li>
+                    <li>Майонез — 200–250 г</li>
+                    <li>Соль, перец — по вкусу</li>
+                </ul>
+                <h3>Способ приготовления:</h3>
+                <ol>
+                    <li>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</li>
+                    <li>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</li>
+                    <li>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</li>
+                    <li>Слейте жидкость из банки с зелёным горошком.</li>
+                    <li>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</li>
+                    <li>Тщательно перемешайте салат, охладите в холодильнике 30–60 минут перед подачей.</li>
+                    <li>По желанию украсьте зеленью или ломтиками огурца.</li>
+                </ol>
+            </div>
+
+            <h2>Советы</h2>
+            <p>Для более аутентичного вкуса можно заменить колбасу отварной курицей или говядиной. Также можно добавить свежий огурец для хруста. Пропорции ингредиентов можно менять по своему усмотрению, чтобы добиться идеального баланса вкуса.</p>
+
+            <div class="images">
+                <img src="image-1.jpg" alt="Салат Оливье 1">
+                <img src="image.jpg" alt="Салат Оливье 2">
+            </div>
+        </div>
+
+        <div id="fr-content" class="hidden">
+            <h2>Histoire de la salade Olivier</h2>
+            <p>La salade Olivier est l'un des plats les plus célèbres de la cuisine russe, qui a conquis une popularité dans de nombreux pays. Son histoire commence dans les années 1860 à Moscou, au restaurant « Ermitage », où travaillait le chef Lucien Olivier. Il a créé une salade raffinée avec des ingrédients délicats tels que des tétras, de la langue de veau, des câpres, des queues d'écrevisses et du caviar, assaisonnée d'une sauce maison à base de mayonnaise.</p>
+            <p>Après la révolution de 1917, les produits chers sont devenus inaccessibles, et la recette s'est transformée en une version plus simple et accessible que nous connaissons aujourd'hui. À l'époque soviétique, la salade Olivier est devenue un attribut obligatoire de la table du Nouvel An, symbolisant l'abondance festive.</p>
+            
+            <div class="recipe">
+                <h2>Recette classique de la salade Olivier</h2>
+                <h3>Ingrédients principaux :</h3>
+                <ul>
+                    <li>Pommes de terre — 3–4 pcs. (de taille moyenne)</li>
+                    <li>Carottes — 2–3 pcs.</li>
+                    <li>Œufs — 5 pcs.</li>
+                    <li>Concombres salés (ou marinés) — 4–5 pcs.</li>
+                    <li>Saucisse cuite (ou poulet, jambon) — 300–400 g</li>
+                    <li>Petits pois verts en conserve — 1 boîte (200–300 g)</li>
+                    <li>Mayonnaise — 200–250 g</li>
+                    <li>Sel, poivre — au goût</li>
+                </ul>
+                <h3>Méthode de préparation :</h3>
+                <ol>
+                    <li>Faites bouillir les pommes de terre et les carottes avec la peau jusqu'à ce qu'elles soient cuites, laissez refroidir, pelez et coupez en petits cubes.</li>
+                    <li>Faites cuire les œufs durs, laissez refroidir, pelez et coupez en cubes.</li>
+                    <li>Coupez les concombres salés et la saucisse (ou autre viande) en cubes de la même taille.</li>
+                    <li>Égouttez le liquide de la boîte de petits pois verts.</li>
+                    <li>Mélangez tous les ingrédients dans un grand bol, ajoutez la mayonnaise, le sel et le poivre au goût.</li>
+                    <li>Mélangez bien la salade, réfrigérez 30–60 minutes avant de servir.</li>
+                    <li>Si désiré, décorez avec des herbes ou des tranches de concombre.</li>
+                </ol>
+            </div>
+
+            <h2>Conseils</h2>
+            <p>Pour un goût plus authentique, vous pouvez remplacer la saucisse par du poulet ou du bœuf bouilli. Vous pouvez également ajouter un concombre frais pour du croquant. Les proportions des ingrédients peuvent être ajustées selon vos préférences pour obtenir un équilibre parfait des saveurs.</p>
+
+            <div class="images">
+                <img src="/image-1.jpg" alt="Salade Olivier 1">
+                <img src="/image.jpg" alt="Salade Olivier 2">
+            </div>
+        </div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    <script>
+        function switchLanguage(lang) {
+            document.getElementById('ru-content').classList.toggle('hidden', lang !== 'ru');
+            document.getElementById('fr-content').classList.toggle('hidden', lang !== 'fr');
+            document.querySelector('header h1').textContent = lang === 'ru' ? 'Салат Оливье: История и Рецепт' : 'Salade Olivier : Histoire et Recette';
+            // Trigger animations on language switch
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
+        }
+        function toggleTheme() {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+            document.querySelector('.theme-toggle').textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+            // Trigger animations on theme switch
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.classList.remove('in-view');
+                setTimeout(() => el.classList.add('in-view'), 100);
+            });
+        }
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 200); // Staggered animation
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('p, h2, .recipe, .recipe li, .images img, .back-link, .theme-toggle').forEach(el => observer.observe(el));
+        // Initial
+        switchLanguage('ru');
+    </script>
+</body>
+</html>
