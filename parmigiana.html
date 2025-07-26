@@ -52,28 +52,27 @@
           qui en dialecte indique la pile de lamelles de bois des persiennes : pensez en effet à la façon dont les tranches d'aubergines sont disposées dans le plat et vous remarquerez les similitudes. 
           Peu d'ingrédients comme la tomate, les aubergines frites, le basilic et la mozzarella, et tant de saveurs pour un plat symbole de la cuisine méditerranéenne !</p>
         </h1>
+      </main>
         <!-- Image du plat -->
         <div class="img-container">
         <img src="parmitciana.jpg" alt="Plat Parmigiana" class="it-image" />
-        <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" />
-     <ul class="icones-cuisine">
-            <li>👨‍🍳 Difficulté: Moyenne</li>
-            <li>🍲 Temps de cuisson: 1 h 40 min</li>
-            <li>🍴 Portion: 8 Personnes</li>
-            <li>⏲️ Temps de préparation: 40 min</li>
-            </ul>
-    </main>
-
+        <img src="Parmiggiana.jpg" alt="Plat Parmigiana" class="it-image" /></div>
     <!-- Ingrédients avec popup -->
-    <section>
+      <section>
           <div class="it-prn">
-          <h3><strong>Ingrédients :</strong><br >click sur les icones pour avoir  plus d'info</h3>
+           <ul style="list-style: none;">
+            <li><b style="font-size: xx-large;">👨‍🍳</b> Difficulté: Moyenne</li>
+            <li><b style="font-size: xx-large;">🍲</b> Temps de cuisson: 1 h 40 min</li>
+            <li><b style="font-size: xx-large;">🍴</b> Portion: 8 Personnes</li>
+            <li><b style="font-size: xx-large;">⏲️</b> Temps de préparation: 40 min</li>
+            <br ><strong>Ingrédients :</strong><br >click sur les icones à droite pour avoir  plus d'info
+            </ul>
           </div>
 
         <!-- Aubergines -->
         <div class="emoji-fixed">
         <input type="checkbox" id="popup-aubergine" class="popup-checkbox" />
-        <label for="popup-aubergine" class="emoji-button" title="Aubergines: clic ici pour plus infos"
+        <label for="popup-aubergine" class="emoji-button" title="Aubergines ovales noires 1.7Kg"
           >🍆</label
         >
         <div class="popup">
@@ -89,7 +88,7 @@
 
         <!-- Tomates -->
         <input type="checkbox" id="popup-tomate" class="popup-checkbox" />
-        <label for="popup-tomate" class="emoji-button" title="Purée de tomates: clic ici pour plus infos">🍅</label>
+        <label for="popup-tomate" class="emoji-button" title="Colis de Tomates 1Kg ">🍅</label>
         <div class="popup">
           <div class="popup-box">
             <label for="popup-tomate" class="popup-close">&times;</label>
@@ -100,7 +99,7 @@
 
         <!-- Mozzarella -->
         <input type="checkbox" id="popup-mozza" class="popup-checkbox" />
-        <label for="popup-mozza" class="emoji-button" title="Mozzarella: clic ici pour plus infos"
+        <label for="popup-mozza" class="emoji-button" title="La Mozzarella 500g"
           ><span role="img" aria-label="mozzarella">⚪</span>
           </label
         >
@@ -115,7 +114,7 @@
 
         <!-- Basilic -->
         <input type="checkbox" id="popup-basilic" class="popup-checkbox" />
-        <label for="popup-basilic" class="emoji-button" title="Basilic: clic ici pour plus infos">🌿</label>
+        <label for="popup-basilic" class="emoji-button" title="Feuilles de Basilic frais à volonté ">🌿</label>
         <div class="popup">
           <div class="popup-box">
             <label for="popup-basilic" class="popup-close">&times;</label>
@@ -126,7 +125,7 @@
 
         <!-- Huile d'olive -->
         <input type="checkbox" id="popup-huile" class="popup-checkbox" />
-        <label for="popup-huile" class="emoji-button" title="Huile EVO: clic ici pour plus infos"
+        <label for="popup-huile" class="emoji-button" title="Huile extra vierge d'olive à volonté"
           >🫒</label
         >
         <div class="popup">
@@ -139,7 +138,7 @@
 
         <!-- Oignon -->
         <input type="checkbox" id="popup-oignon" class="popup-checkbox" />
-        <label for="popup-oignon" class="emoji-button" title="Oignons: clic ici pour plus infos">🧅</label>
+        <label for="popup-oignon" class="emoji-button" title="Un oignon jaune">🧅</label>
         <div class="popup">
           <div class="popup-box">
             <label for="popup-oignon" class="popup-close">&times;</label>
@@ -150,7 +149,7 @@
 
         <!-- Sel et poivre -->
         <input type="checkbox" id="popup-selpoivre" class="popup-checkbox" />
-        <label for="popup-selpoivre" class="emoji-button" title="Sel & Poivre: clic ici pour plus infos"
+        <label for="popup-selpoivre" class="emoji-button" title="Sel & Poivre"
           >🧂</label
         >
         <div class="popup">
@@ -163,7 +162,8 @@
 
         <!-- Parmesan -->
         <input type="checkbox" id="popup-parmesan" class="popup-checkbox" />
-        <label for="popup-parmesan" class="emoji-button" title="Parmigiano Reggiano: clic ici pour plus infos"
+        <label for="popup-parmesan" class="emoji-button" title="
+        Fromage rapé : Parmigiano Reggiano"
           >🧀</label
         >
         <div class="popup">
@@ -176,14 +176,14 @@
       </section>
 <!--Preparation strip section-->
 <section>
-    <div class="it-prn"><h3><strong>Préparation :
-      </strong><br >click sur les images pour suivre etape par etape</h3>
+    <div class="it-prn"><h3><strong>Préparation :</strong></h3>
     
     <details class="strip-section">
       <summary><img
       src="strip_1-3.avif"
       alt="Préparation sauce tomate"
       class="it-strip-image"
+
     />🥄 Étapes 1,2 et 3 : Préparer la sauce tomate</summary>
       <p>Pour préparer la parmigiana d'aubergines, commencez par la sauce. Nettoyez
       et hachez l'oignon <span class="span-num">1</span>, mettez-le dans une
@@ -211,7 +211,8 @@
     src="strip_7-9.avif"
     alt="Tranchez les aubergines"
     class="it-strip-image"
-    />🥄 Étapes 7,8 et 9 : À ce stade, passez aux aubergines</summary> lavez-les et coupez les extrémités
+    />🥄 Étapes 7,8 et 9 : À ce stade, passez aux aubergines</summary> 
+      <p>lavez-les et coupez les extrémités
       <span class="span-num">7</span>. Tranchez les aubergines dans le sens de
       la longueur pour obtenir des tranches de 4-5 mm d'épaisseur
       <span class="span-num">8</span>. Séchez-les bien avec du papier absorbant.
@@ -227,7 +228,7 @@
     alt="Monter la parmigiana"
     class="it-strip-image"
     />🔥 Étapes 10,11 et 12 : Monter la parmigiana</summary>
-      Dès qu'elles sont légèrement dorées, égouttez-les sur un plateau avec du
+      <p>Dès qu'elles sont légèrement dorées, égouttez-les sur un plateau avec du
       papier absorbant <span class="span-num">10</span>. Lorsque l'espace sur le
       plateau est épuisé, mettez plus de papier absorbant
       <span class="span-num">11</span> et disposez les autres aubergines frites
@@ -241,7 +242,7 @@
     alt="passez à la composition"
     class="it-strip-image"
     />🔥 Étapes 13,14 et 15 : Enfin, passez à la composition</summary>
-      Commencez par verser un peu de sauce dans
+      <p>Commencez par verser un peu de sauce dans
       un plat de 20x30 cm <span class="span-num">13</span>. Formez la première
       couche en disposant les tranches d'aubergines
       <span class="span-num">14</span>, puis recouvrez de sauce tomate
@@ -256,7 +257,7 @@
     alt="Entre les couches"
     class="it-strip-image"
     />🔥 Étapes 16,17 et 18 : Entre les couches</summary>
-      Répartissez des dés de mozzarella <span class="span-num">16</span>,
+      <p>Répartissez des dés de mozzarella <span class="span-num">16</span>,
       saupoudrez de parmesan râpé <span class="span-num">17</span> et parfumez
       avec les feuilles de basilic <span class="span-num">18</span>.
     </p></details>
@@ -268,7 +269,7 @@
     alt="Couches d'aubergines"
     class="it-strip-image"
     />🧀 Étapes 19,20 et 21 : Encore des couches</summary>
-      Commencez à nouveau en ajoutant la sauce tomate
+      <p>Commencez à nouveau en ajoutant la sauce tomate
       <span class="span-num">19</span> et les aubergines. Et puis encore les
       fromages <span class="span-num">20</span> et les feuilles de basilic.
       Continuez ainsi jusqu'à atteindre la dernière couche d'aubergines
@@ -281,32 +282,38 @@
     alt="Dernière couche d'aubergines"
     class="it-strip-image"
     />🧀 Étapes 22,23 et 24 : Dernière couche</summary>
-      Complétez avec le reste de mozzarella en dés
+     <p> Complétez avec le reste de mozzarella en dés
       <span class="span-num">22</span> et de parmesan râpé
       <span class="span-num">23</span>. Faites cuire au four statique, déjà
       chaud à 200°, pendant environ 30 minutes. Une fois le temps de cuisson
       écoulé, laissez reposer pendant 15-20 minutes avant de servir votre
       parmigiana d'aubergines <span class="span-num">24</span> !
-    </p></details></div>
-  </section>
+    </p>
+  </details>
+</div>
+  
   <!--Conseil et Astuces -->
 <section>
-  <details class="it-prn"><summary>Conseils et Astuces</summary>
+  <details class="it-prn"><summary style="font-size: xx-large;">💡</summary>
   <p class="it-conseil-page">
-    Les aubergines parfaites pour cette recette sont grandes, 
-    ovales, d'un beau violet foncé et brillant, et doivent être fermes au toucher -
-    ni trop dures ni trop molles. Si elles ne sont pas disponibles, les aubergines 
-    longues napolitaines conviennent également.
-    Le passage pour faire dégorger les aubergines n'est pas nécessaire en raison des 
-    caractéristiques des variétés d'aubergines actuelles, beaucoup moins amères qu'auparavant. 
-    Si vous préférez, vous pouvez le faire, en vous rappelant de bien les rincer avant de les utiliser.
-    En ce qui concerne les variantes : certains farinent les aubergines ou les passent dans l'œuf, ou font les deux. 
-    Pour le choix des fromages, vous pouvez opter pour du caciocavallo, comme on le fait en Sicile ou en Calabre. 
-    De plus, quelqu'un pourrait vouloir faire un ajout délicieux comme les œufs durs en tranches.</p></details>
+    <h2>Conseils & Astuces</h2>
+<p>
+Les aubergines idéales pour cette recette sont grandes, ovales, d’un violet foncé et brillant, et doivent être fermes au toucher – ni trop dures, ni trop molles. Si elles ne sont pas disponibles, les aubergines longues napolitaines peuvent parfaitement convenir.
+</p>
+<p>
+Aujourd’hui, il n’est plus nécessaire de faire dégorger les aubergines, car les variétés actuelles sont beaucoup moins amères qu’autrefois. Toutefois, si vous préférez, vous pouvez toujours le faire, à condition de bien les rincer avant utilisation.
+</p>
+<p>
+Concernant les variantes : certains choisissent de fariner les aubergines, d’autres de les passer dans l’œuf, ou même de combiner les deux méthodes. Pour le fromage, on peut utiliser du caciocavallo, comme le veut la tradition en Sicile ou en Calabre.
+</p>
+<p>
+Enfin, pour une touche plus gourmande, certains ajoutent des œufs durs en tranches entre les couches. Mais n’oublions pas : chaque modification éloigne la recette de sa version la plus authentique et méditerranéenne. Et dans notre philosophie culinaire, <strong>les choses les plus simples sont toujours les meilleures</strong>.
+</p>
+</details>
   
   <!-- Valeurs nutritionnelles -->
-    <details class="it-prn"><summary>Valeurs nutritionnelles (pour 100 g)</summary></h2>
-  
+    <details class="it-prn"><summary style="font-size: xx-large;">📜</summary></h2>
+      <h2>Valeurs nutritionnelles (pour 100 g)</h2>
       <table class="nutri-table">
         <thead>
           <tr>
@@ -354,7 +361,7 @@
           <a href="#top" class="scroll-top">⬆️</a>  
       
   <footer class="footer">
-    <p>&copy; 2025 - Découverte des Plats Cachés - La Parmigiana</p>
+    <p style="color: white;">&copy; 2025 - Découverte des Plats Cachés - La Parmigiana</p>
   </footer>
   
 </body>
