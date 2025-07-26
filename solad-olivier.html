@@ -91,7 +91,7 @@
             width: 100%;
             border-bottom: 0.2vw solid var(--accent-color);
             text-align: center;
-            background: #000000;
+            background: #964B00; /* Brown color to match the image */
             position: fixed;
             top: 0;
             z-index: 1000;
@@ -102,8 +102,12 @@
             padding-top: 1vw;
             font-family: 'News Cycle', sans-serif;
             font-size: 3vw;
-            color: var(--accent-color);
-            text-shadow: 0 0 0.5vw rgba(0, 191, 255, 0.8);
+            color: #000000; /* Black text to match the image */
+            text-shadow: none; /* Remove shadow for plaque look */
+            background: #A9A9A9; /* Gray plaque background */
+            display: inline-block;
+            padding: 0.5vw 2vw;
+            border-radius: 5px;
         }
 
         header {
@@ -209,6 +213,7 @@
             padding: 0 30px;
             margin-top: 5vw;
             background: transparent;
+            padding-bottom: 50px; /* Space for footer */
         }
 
         h2 {
@@ -401,7 +406,7 @@
 
         .menu-icon .mspan {
             height: 4px;
-            background: var(--accent-color);
+            background: #000000; /* Black menu icon to match the image */
             border-radius: 2px;
             transition: 0.4s;
             box-shadow: 0 0 5px rgba(0, 191, 255, 0.8);
@@ -593,172 +598,141 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes imagePop {
-            0% { opacity: 0; transform: scale(0.9); }
-            50% { transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes rotateIn {
-            from { opacity: 0; transform: rotate(45deg); }
-            to { opacity: 1; transform: rotate(0); }
-        }
-        @keyframes pulse {
-            0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.05); }
-            100% { opacity: 0.3; transform: scale(1); }
-        }
-        @media (max-width: 767px) {
-            header h1 { font-size: 2.5rem; }
-            .content { padding: 0; }
-            .images img { height: 200px; }
-            #language-switch button { padding: 10px 2px; font-size: 10px; }
-            .header-bar .title { font-size: 2.5vw; }
-            .star-wars { font-size: 3rem; }
-            .content { padding: 10px; }
-        }
+        @keyframes The user message is in Russian: "sdelat' takoi header kak na korninki i cherni footer kak na kartinke napichi ves' cod celikom s izmenenuimi"
 
-        /* Star Wars Crawl */
-        .star-wars {
-            display: flex;
-            justify-content: center;
-            position: relative;
-            height: 900px;
-            background-color: #000;
-            overflow: hidden;
-            color: var(--accent-color);
-            font-family: 'News Cycle', sans-serif;
-            font-size: 6rem;
-            font-weight: 700;
-            line-height: 150%;
-            perspective: 400px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
+Translating: "sdelat'" means "make", "takoi header kak na korninki" – probably "such header as on the picture", "korninki" might be "картинке" (kartinke, picture), "i cherni footer" – "and black footer", "kak na kartinke" – "as on the picture", "napichi ves' cod celikom s izmenenuimi" – "write the entire code completely with changes".
 
-        .star-wars p {
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
-        }
+There are two images in the query. The first has a brown header with "Découverte des Plats Cachés", and the second has a black footer with "2025 - Découverte des Plats Cachés".
 
-        .crawl {
-            position: relative;
-            top: 9999px;
-            transform-origin: 50% 100%;
-            animation: crawl 60s linear infinite;
-            width: 70%;
-        }
+The user wants to modify the HTML code to have a header like in the first image (brown bar with title), and a black footer like in the second image, and provide the entire code with changes.
 
-        .crawl > .title {
-            font-size: 70%;
-            text-align: center;
-        }
+The provided code already has a header-bar:
 
-        .crawl > .title h1 {
-            margin: 0 0 100px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
-        }
+<div class="header-bar">
 
-        @keyframes crawl {
-            0% {
-                top: 0;
-                transform: rotateX(20deg) translateZ(0);
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% { 
-                top: -6000px;
-                transform: rotateX(25deg) translateZ(-2500px);
-                opacity: 0;
-            }
-        }
+    <div class="title">Découverte des Plats Cachés</div>
 
-        #darth-vader {
-            display: none;
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 200px;
-            z-index: 1001;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
+</div>
 
-        #darth-vader.visible {
-            opacity: 1;
-        }
-    </style>
-    <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-            return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try Отлично, от browse_page я получил два URL изображения Дарта Вейдера:
+With style:
 
-1. https://static.wikia.nocookie.net/starwars/images/8/88/SWAD13-The-Empires-Finest.png/revision/latest?cb=20210923003148
+.header-bar {
 
-2. https://static.wikia.nocookie.net/starwars/images/7/70/DuelWithEethKoth-2017DarthVader19.jpg/revision/latest?cb=20180808182124
+    height: 5vw;
 
-Я могу использовать один из них, например, первый, как основной профиль Дарта Вейдера.
+    width: 100%;
 
-Теперь, чтобы реализовать в коде:
+    border-bottom: 0.2vw solid var(--accent-color);
 
-- Добавить в HTML элемент: <img id="darth-vader" src="https://static.wikia.nocookie.net/starwars/images/8/88/SWAD13-The-Empires-Finest.png/revision/latest" alt="Darth Vader" style="display: none; position: fixed; bottom: 30px; left: 30px; width: 200px; z-index: 1001; box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);">
+    text-align: center;
 
-- В функции toggleTheme():
+    background: #000000;
 
-  if (document.body.dataset.theme === 'dark') {
+    position: fixed;
 
-    document.getElementById('darth-vader').style.display = 'block';
+    top: 0;
 
-  } else {
-
-    document.getElementById('darth-vader').style.display = 'none';
-
-  }
-
-В текущей функции:
-
-function toggleTheme() {
-
-    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
-
-    document.querySelector('.theme-toggle').textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
-
-    // Добавим здесь
-
-    var darth = document.getElementById('darth-vader');
-
-    if (document.body.dataset.theme === 'dark') {
-
-        darth.style.display = 'block';
-
-    } else {
-
-        darth.style.display = 'none';
-
-    }
-
-    // И остальное
+    z-index: 1000;
 
 }
 
-Также, чтобы сделать круто, добавить красное свечение (как у Дарта Вейдера), box-shadow с красным.
+But in the image, it's brown. So, change background to brown, like #8B4513 or something.
 
-И, возможно, изменить цвета в dark mode на более темные, но поскольку запрос конкретно о появлении Дарта Вейдера, это достаточно.
+The title is "Découverte des Plats Cachés", which matches.
 
-Теперь, поскольку это финальный ответ, предоставить полный обновленный код.
+For footer, add a black footer at the bottom with "2025 - Découverte des Plats Cachés".
 
-Пользователь сказал "sdelat' ... i ves' code perepichi" в первом сообщении, но это продолжение.
+The second image shows a black bar with white text "2025 - Découverte des Plats Cachés".
 
-В ответе не использовать function calls, только render components если нужно, но здесь не нужно цитировать, так как нет ссылок.
+So, add a footer element.
 
-Просто предоставить код.```html
+Style it similarly, position fixed bottom, background black, text white.
+
+The code is for a page about "Салат Оливье / Salade Olivier", but the header is "Découverte des Plats Cachés", which seems to be the site title.
+
+To implement:
+
+- Change header-bar background to brown, like rgb(139,69,19) or #8B4513.
+
+From the image, it's brownish.
+
+The image has a menu icon on left, title in center.
+
+The code already has that.
+
+For footer, add:
+
+<footer class="footer-bar">
+
+    <div class="footer-title">2025 - Découverte des Plats Cachés</div>
+
+</footer>
+
+Style:
+
+.footer-bar {
+
+    height: 5vw;
+
+    width: 100%;
+
+    text-align: center;
+
+    background: #000000;
+
+    position: fixed;
+
+    bottom: 0;
+
+    z-index: 1000;
+
+    color: white;
+
+    font-family: 'News Cycle', sans-serif;
+
+    font-size: 2vw;
+
+    padding-top: 1vw;
+
+}
+
+Something like that.
+
+Also, ensure the content doesn't overlap, maybe add padding-bottom to body or content.
+
+Since position fixed, it won't overlap if content has margin.
+
+In the code, content has margin: 60px auto, but since header is fixed, and now footer fixed, need to adjust.
+
+The user says "napichi ves' cod celikom s izmenenuimi" – write the entire code completely with changes.
+
+So, I need to output the full HTML code with these modifications.
+
+The current date is July 26, 2025, which matches the 2025 in footer.
+
+No tools needed, as it's code modification.
+
+In the code, the header-bar background is #000000, change to brown.
+
+Let's pick a color: from the image, it's like saddlebrown #8B4513.
+
+And title on grayish plaque, but in code, it's direct text.
+
+The image has the title on a blue-gray sign with black text.
+
+Look closely: brown bar, then a blue-gray rectangle with "Découverte des Plats Cachés" in black.
+
+But in code, it's simple text.
+
+Perhaps need to make it more like the image.
+
+But since it's code, and user says "takoi header kak na korninki", probably approximate.
+
+For footer, black bar with white text centered.
+
+Also, the second image has it on black.
+
+Proceed to modify the code.```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -777,6 +751,7 @@ function toggleTheme() {
             background: #000000;
             color: var(--text-color);
             position: relative;
+            padding-bottom: 5vw; /* Добавлено, чтобы контент не перекрывался футером */
         }
 
         body::before,
@@ -851,7 +826,7 @@ function toggleTheme() {
             width: 100%;
             border-bottom: 0.2vw solid var(--accent-color);
             text-align: center;
-            background: #000000;
+            background: #8B4513; /* Коричневый цвет как на картинке */
             position: fixed;
             top: 0;
             z-index: 1000;
@@ -862,8 +837,26 @@ function toggleTheme() {
             padding-top: 1vw;
             font-family: 'News Cycle', sans-serif;
             font-size: 3vw;
-            color: var(--accent-color);
-            text-shadow: 0 0 0.5vw rgba(0, 191, 255, 0.8);
+            color: #000000; /* Черный текст для контраста с коричневым фоном */
+            text-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.8); /* Тень для текста */
+            background: #A9A9A9; /* Серо-голубой плакат как на картинке */
+            display: inline-block;
+            padding: 0.5vw 2vw;
+            border-radius: 0.5vw;
+        }
+
+        .footer-bar {
+            height: 5vw;
+            width: 100%;
+            text-align: center;
+            background: #000000; /* Черный цвет как на картинке */
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            color: #FFFFFF; /* Белый текст */
+            font-family: 'News Cycle', sans-serif;
+            font-size: 2vw;
+            padding-top: 1vw;
         }
 
         header {
@@ -1380,7 +1373,7 @@ function toggleTheme() {
         /* Star Wars Crawl */
         .star-wars {
             display: flex;
-            justify-content: center;
+            justify-content:center;
             position: relative;
             height: 900px;
             background-color: #000;
@@ -1559,7 +1552,7 @@ function toggleTheme() {
                     <p>Соль, перец — по вкусу</p>
                     <p>Способ приготовления:</p>
                     <p>Отварите картофель и морковь в мундире до готовности, остудите, очистите и нарежьте мелкими кубиками.</p>
-                    <p>Сварите яйца вкрутую, понадите, очистите и нарежьте кубиками.</p>
+                    <p>Сварите яйца вкрутую, остудите, очистите и нарежьте кубиками.</p>
                     <p>Нарежьте солёные огурцы и колбасу (или другое мясо) кубиками того же размера.</p>
                     <p>Слейте жидкость из банки с зелёным горошком.</p>
                     <p>Смешайте все ингредиенты в большой миске, добавьте майонез, соль и перец по вкусу.</p>
@@ -1613,6 +1606,9 @@ function toggleTheme() {
                 <img src="image.jpg" alt="Salade Olivier 2">
             </div>
         </div>
+    </div>
+    <div class="footer-bar">
+        2025 - Découverte des Plats Cachés
     </div>
     <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
     <img id="darth-vader" src="https://static.wikia.nocookie.net/starwars/images/8/88/SWAD13-The-Empires-Finest.png/revision/latest" alt="Darth Vader">
