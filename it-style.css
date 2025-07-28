@@ -13,21 +13,7 @@ body {
 
 /* Header */
 
-.it-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-}
 
-
-.it-header img {
-  max-width: 100px;
-  height: auto;
-  margin-right: 1rem;
-}
 
 .title {
     margin: 0;
@@ -65,19 +51,19 @@ header {
 }
 /* Titre principal */
 .it-titre-page {
+
   text-align: center;
   color: #7b2e2e;
   margin-top: 2rem;
   font-size: 2.2rem;
   font-family: 'Georgia', serif;
-  background-color: #eee;
-  opacity: 80%;
+    
 }
 
 /* Image du plat */
 .it-image {
   
-  max-width: 100% px;
+  max-width: 100% ;
   height: auto;
   margin: 4rem auto;
   border-radius: 10px;
@@ -85,13 +71,14 @@ header {
   padding: 30px;
   display: block;
   margin: 2rem auto;
+  opacity: none !important;
 }
 
 /* Liste des icônes de cuisine */
 
 .icones-cuisine {
 
-  list-style: none;
+  
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -104,26 +91,12 @@ header {
   
 }
 
-/* Texte principal */
-.it-parm {
 
-  max-width: auto;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  text-align: justify;
-  font-size: 3.2rem;
-  background-color: #fff;
-  border-left: 15px solid #d6b161;
-  padding-left: 1rem;
-  opacity: 0.8;
-  border-radius: 10px;
-}
 
 /* Titres de section */
 
-
-.it-prn {
-
+div .it-prn {
+  
   margin: auto;
   font-size: 1.8rem;
   margin-top: 2.8 rem;
@@ -135,8 +108,8 @@ header {
   text-align: center;
   align-items: center;
   opacity: 0.9;
-  border-radius: 10px;
- 
+  
+                          
 }
 
 /* Liste des ingrédients */
@@ -145,7 +118,7 @@ header {
   display: none;
 }
 
-.emoji-container {
+.img-container {
   
   margin: 1rem auto;
   display: flex;
@@ -156,22 +129,32 @@ header {
   max-width: 800px;
 }
 
-.emoji-button {
-
-  font-size: 4rem;
-  cursor: pointer;
-  margin: 0.3rem;
-  display: inline-block;
-  transition: transform 0.2s ease;
-  background-color: #d7d59f;
-  border-radius: 10%;
-  gap: 50px;
-  align-items: center;
+.emoji-fixed {
+  position: fixed;
+  top: 5%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 0.5rem;
-
+  background-color: rgba(255, 255, 255, 0.7);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  z-index: 999;
 }
-.emoji-button:hover {
-  transform: scale(2.2);
+
+.emoji-fixed .emoji-button {
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #d7d59f;
+  border-radius: 50%;
+  padding: 0.4rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.emoji-fixed .emoji-button:hover {
+  transform: scale(1.5);
 }
 
 .popup {
@@ -202,8 +185,8 @@ header {
 
 .popup-close {
   position: absolute;
-  top: 8px;
-  right: 12px;
+  top: 10px;
+  right: 15px;
   font-size: 1.4rem;
   color: #333;
   cursor: pointer;
@@ -234,7 +217,7 @@ header {
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
-  list-style: none; 
+  
 }
 
 .strip-section[open] summary {
@@ -246,53 +229,16 @@ header {
   margin: 0;
   color: #333;
   background-color: #fff;
+  
 }
 
-.it-strip-image {
-  display: block;
-  width: 75%;
-  height: auto;
-  margin: 1rem auto;
-  border-radius: 10px;
-  background-color: #eee;
-  padding: 30px;
-}
-
-/* Texte principal */
-.it-parm {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  text-align: justify;
-  font-size: 1.5rem;
-  background-color: #fff;
-  border-left: 6px solid #d6b161;
-  padding-left: 1rem;
-  opacity: 80%;
-  border-radius: 10px;
-}
-
-/* Titres de section */
 
 
-.it-prn {
 
-  margin: auto;
-  font-size: 1.8rem;
-  margin-top: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  background-color: #eee;
-  width: 250px;
-  color: #7b2e2e;
-  text-align: center;
-  align-items: center;
-  opacity: 80%;
-  border-radius: 10px;
- 
-}
 
 /* Liste des ingrédients */
+
+
 
 .popup-checkbox {
   display: none;
@@ -385,6 +331,7 @@ header {
   color: white;
   background-color: #e79f0d;
   padding: 0.2rem 0.5rem; 
+  
 }
 
 p {
@@ -392,8 +339,10 @@ p {
   margin: 1rem auto;
   padding: 0 1.5rem;
   font-size: 1.05rem;
-  text-align: justify;
+  line-height: 1.6;
+  color: #333;
   align-items: center;
+  text-align: justify;
 }
 
 .it-conseil-page {
@@ -404,12 +353,13 @@ p {
     background-color: #eee;
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    opacity: 80%;
+   
 }
 
 
 
 /* Footer */
+
 .footer {
   background-color: #7b2e2e;
   text-align: center;
@@ -418,6 +368,8 @@ p {
   color: #fff;
   margin-top: 3rem;
   align-items: center;
+  display: flex;
+  
 }
 /* ========== Responsive Mobile Styles ========== */
 @media (max-width: 768px) {
@@ -473,12 +425,7 @@ p {
     padding: 1rem;
   }
 
-  .it-parm {
-    font-size: 1rem;
-    width: 90%;
-    padding: 1rem;
-    margin: 1rem auto;
-  }
+  
 
   .it-prn {
     font-size: 1.8rem;
@@ -623,4 +570,39 @@ p {
 }
 
 /* ------------------------------------- */
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 2rem;
+  text-decoration: none;
+  background-color: #7b2e2e;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+  background-color: #d6b161;
+}
+
+section .it-prn {
+  margin: 1rem auto;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #eee;
+  width: 90%;
+  text-align: center;
+  color: #7b2e2e;
+  border-radius: 10px;
+}
+
 
