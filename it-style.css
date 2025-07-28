@@ -212,7 +212,9 @@ header {
 .strip-section summary {
   cursor: pointer;
   padding: 1rem;
-  background-color: #d6b161;
+  background: linear-gradient(135deg, #A0522D, #CD853F,#d6b161, #D2B48C);
+  background-size: 400% 400%;
+  animation: woodGrain 15s ease infinite;
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -220,7 +222,10 @@ header {
 }
 
 .strip-section[open] summary {
-  background-color: #7b2e2e;
+  
+  background: linear-gradient(135deg, #7b2e2e, #A0522D, #CD853F, #D2B48C);
+  background-size: 400% 400%;
+  animation: woodGrain 15s ease infinite;
 }
 
 .strip-section p {
@@ -269,11 +274,12 @@ header {
 }*/
 .it-ing {
   font-size: 1.2rem;
-  color: #7b2e2e;
+  color: #ffffff;
   margin-top: 1.5rem;
   text-align: center;
-  background-color: #eee;
-  background: linear-gradient(to right, #ccd0d4, #a2a4a8);
+  background: linear-gradient(135deg, #8B5A2B, #A0522D, #CD853F, #D2B48C);
+  background-size: 400% 400%;
+  animation: woodGrain 15s ease infinite;
   opacity: none;
   padding: 1rem 1rem;
   border-radius: 10px;
@@ -356,17 +362,19 @@ header {
 
 /* Footer */
 
-.footer {
-  background-color: #7b2e2e;
-  text-align: center;
-  padding: 1.5rem 0;
-  font-size: 0.9rem;
-  color: #fff;
-  margin-top: 3rem;
-  align-items: center;
-  display: flex;
+.footer { 
   
+  color: #fff;
+  background: linear-gradient(135deg, #8B5A2B, #A0522D, #CD853F, #D2B48C);
+  background-size: 400% 400%;
+  animation: woodGrain 15s ease infinite;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
+
 /* ========== Responsive Mobile Styles ========== */
 @media (max-width: 768px) {
 
@@ -504,7 +512,7 @@ header {
 
     .menu-icon .mspan {
       height: 4px;
-      background: #333;
+      background: #000000;
       border-radius: 2px;
       transition: 0.4s;
     }
@@ -516,7 +524,7 @@ header {
       left: -250px;
       width: 250px;
       height: 100%;
-      background: #222;
+      background: #f6a33e;
       padding-top: 60px;
       transition: 0.3s ease;
       z-index: 1000;
@@ -566,12 +574,12 @@ html {
 .scroll-top {
   position: fixed;
   bottom: 30px;
-  right: 30px;
-  font-size: 2rem;
+  right: 3px;
+  font-size: 1.8rem;
   text-decoration: none;
   background-color: #7b2e2e;
   color: white;
-  padding: 0.6rem 1rem;
+  padding: 0.85rem 1rem;
   border-radius: 50%;
   z-index: 999;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
